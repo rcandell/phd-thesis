@@ -1,0 +1,443 @@
+%% Use the standard UP-methodology class
+%% with French language.
+%%
+%% You may specify the option 'twoside' or 'oneside' for
+%% the document.
+%%
+%% See the documentation tex-upmethodology on
+%% http://www.arakhne.org/tex-upmethodology/
+%% for details about the macros that are provided by the class and
+%% to obtain the list of the packages that are already included. 
+ 
+\documentclass[english]{spimubphdthesis}
+ 
+%%--------------------
+%% The TeX code is entering with UTF8
+%% character encoding (Linux and MacOS standards)
+\usepackage[utf8]{inputenc}
+ 
+%%-------------------
+%% You want to use the NatBib extension
+%\usepackage[authoryear]{natbib}
+ 
+%%--------------------
+%% Include the 'multibib' package to enable to
+%% have different types of bibliographies in the
+%% document (see at the end of this template for
+%% an example with a personnal bibliography and
+%% a general bibliography)
+%%
+%% Each bibliography defined with 'multibib'
+%% adds a chapter with the corresponding
+%% publications (in addition to the chapter for
+%% the standard/general bibliography).
+%% CAUTION:
+%% There is no standard way to do include this type of
+%% personnal bibliography.
+%% We propose to use 'multibib' package to help you,
+%% for example.
+%\usepackage{multibib}
+ 
+%% Define a "type" of bibliography, here the PERSONAL one,
+%% that is supported by 'multibib'.
+%\newcites{PERSO}{Liste de mes publications}
+ 
+%% To cite one of your PERSONAL papers with the style
+%% of the PERSONAL bibliography: \citePERSO{key}
+%% To force to show one of your PERSONAL papers into
+%% the PERSONAL bibliography, even if not cited in the
+%% text: \nocitePERSO{key}
+ 
+%% REMARK: When you are using 'multibib', you
+%% must compile the PERSONAL bibliography by hand.
+%% For example, the sequence of commands to run
+%% when you had defined the bibliography PERSO is:
+%%   $ pdflatex my_document.tex
+%%   $ bibtex my_document.aux
+%%   $ bibtex PERSO.aux
+%%   $ pdflatex my_document.tex
+%%   $ pdflatex my_document.tex
+%%   $ pdflatex my_document.tex
+ 
+%%--------------------
+%% Add here any other packages that are needed for your document.
+%\usepackage{eurosim}
+%\usepackage{amsmath}
+
+%% Rick add usepackage
+%%
+%\usepackage{graphicx}
+%\usepackage{epsfig}
+%\usepackage{mathrsfs}
+%\usepackage{times}
+%\usepackage{makeidx}
+\usepackage{amsmath}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+%\usepackage{booktabs}
+%\usepackage[flushleft]{threeparttable} % http://ctan.org/pkg/threeparttable
+%\usepackage{multicol}
+%\usepackage{array}
+%\usepackage[binary-units=true]{siunitx}
+%\usepackage{balance} % This allows for the even columns in the final page, just insert \balance in the last page, e.g., before the reference list
+%\usepackage{cite}
+ 
+%%--------------------
+%% Set the title, subtitle, defense date, and
+%% the registration number of the PhD thesis.
+%% The optional parameter is the subtitle of the PhD thesis.
+%% The first mandatory parameter is the title of the PhD thesis.
+%% The second mandatory parameter is the date of the PhD defense.
+%% The third mandatory parameter is the location/city of the PhD defense.
+%% The forth mandatory parameter is the reference number given by
+%% the University Library after the PhD defense.
+\declarethesis[This is the sub-title]{Performance Estimation, Testing, and Control of Cyber-Physical Systems Employing Non-Ideal Communications Networks}{9 July 2020}{Dijon}{XXX}
+ 
+%%--------------------
+%% Set the author of the PhD thesis
+\addauthor[email]{Richard}{Candell}
+ 
+%%--------------------
+%% Add a member of the jury
+%%
+%% CAUTION 1: If a Jury member is not present during the defense,
+%%            she/he must be in the list of the Jury members.
+%%            Only the reviewers and the members who are present during the defense must
+%%            appear in the Jyry member list. 
+%% CAUTION 2: After your defense, you must assign the role "Pr\'esident" to
+%%            the Jury member who have been the President of the Jury.
+%% CAUTION 3: The recommended order for the Jury members is:
+%%            President, Reviewer(s), Examiner(s), Director(s),
+%%            Other supervisor(s), Invited person(s).
+%% \addjury{Firstname}{Lastname}{Role in the jury}{Position}
+\addjury{Incroyable}{Hulk}{Pr\'esident}{Professeur à l'Université de Gotham City \\ Commentaire secondaire}
+\addjury{Captain}{America}{Rapporteur}{Professeur à l'Université USA}
+\addjury{Super}{Man}{Examinateur}{Professeur à l'Université de Gotham City}
+\addjury{Bat}{Man}{Directeur de thèse}{Professeur à l'Université de Gotham City}
+\addjury{The}{Volwerine}{Codirecteur de thèse}{Professeur à l'Université de Gotham City}
+\addjury{Pac}{Man}{Invité}{Professeur quelque part}
+ 
+%%--------------------
+%% Change style of the table of the jury
+%% \Set{jurystyle}{put macros for the style}
+%\Set{jurystyle}{\small}
+ 
+%%--------------------
+%% Set the English abstract
+\thesisabstract[english]{Lorem ipsum dolor sit amet, saepe quodsi dolores an usu. An sed fugit dissentiunt, ex tota soleat duo. Omnes deserunt adversarium qui ad, periculis pertinacia has id. Ea tibique antiopam eos. Usu illud cetero voluptatum ne, ea odio soluta labores sit.	Pri modus eruditi definiebas an. Dicat latine inermis no quo, eos tollit delicata interesset cu. Placerat vituperatoribus pro ne, cu verear tritani deterruisset usu. Quaeque recusabo maluisset te pri, mutat maiorum accusamus at his.	Pro ad nihil deleniti senserit, mundi feugiat indoctum an sea. In consulatu efficiendi qui, eu duo dicta deserunt definitiones, te atqui sapientem adolescens sit. Id pro consulatu splendide evertitur, vis eu perpetua molestiae, an melius virtute efficiantur vis. Animal aeterno mei ei.	Lucilius suavitate euripidis vis id, cu dicam ridens forensibus vis. In incorrupte adversarium pri, ut velit singulis nec, nisl facer dissentias ex duo. Id est nulla periculis, epicuri percipit cu eum. Praesent temporibus mediocritatem ex cum, his quot nonumy iriure ut, qui natum aliquip id. Interesset quaerendum repudiandae cum ea. Mazim perpetua deterruisset ne mei, cum esse novum minimum ea.}
+ 
+%%--------------------
+%% Set the English keywords. They only appear if
+%% there is an English abstract
+\thesiskeywords[english]{industrial wireless, factory communications, networked control, manufacturing}
+ 
+%%--------------------
+%% Set the French abstract
+\thesisabstract[french]{Lorem ipsum dolor sit amet, saepe quodsi dolores an usu. An sed fugit dissentiunt, ex tota soleat duo. Omnes deserunt adversarium qui ad, periculis pertinacia has id. Ea tibique antiopam eos. Usu illud cetero voluptatum ne, ea odio soluta labores sit.	Pri modus eruditi definiebas an. Dicat latine inermis no quo, eos tollit delicata interesset cu. Placerat vituperatoribus pro ne, cu verear tritani deterruisset usu. Quaeque recusabo maluisset te pri, mutat maiorum accusamus at his.	Pro ad nihil deleniti senserit, mundi feugiat indoctum an sea. In consulatu efficiendi qui, eu duo dicta deserunt definitiones, te atqui sapientem adolescens sit. Id pro consulatu splendide evertitur, vis eu perpetua molestiae, an melius virtute efficiantur vis. Animal aeterno mei ei.	Lucilius suavitate euripidis vis id, cu dicam ridens forensibus vis. In incorrupte adversarium pri, ut velit singulis nec, nisl facer dissentias ex duo. Id est nulla periculis, epicuri percipit cu eum. Praesent temporibus mediocritatem ex cum, his quot nonumy iriure ut, qui natum aliquip id. Interesset quaerendum repudiandae cum ea. Mazim perpetua deterruisset ne mei, cum esse novum minimum ea.}
+
+ 
+%%--------------------
+%% Set the French keywords. They only appear if
+%% there is an French abstract
+\thesiskeywords[french]{Mot-cl\'e 1, Mot-cl\'e 2}
+ 
+%%--------------------
+%% Change the layout and the style of the text of the "primary" abstract.
+%% If your document is written in French, the primary abstract is in French,
+%% otherwise it is in English.
+%\Set{primaryabstractstyle}{\tiny}
+ 
+%%--------------------
+%% Change the layout and the style of the text of the "secondary" abstract.
+%% If your document is written in French, the secondary abstract is in English,
+%% otherwise it is in French.
+%\Set{secondaryabstractstyle}{\tiny}
+ 
+%%--------------------
+%% Change the layout and the style of the text of the "primary" keywords.
+%% If your document is written in French, the primary keywords are in French,
+%% otherwise they are in English.
+%\Set{primarykeywordstyle}{\tiny}
+ 
+%%--------------------
+%% Change the layout and the style of the text of the "secondary" keywords.
+%% If your document is written in French, the secondary keywords are in English,
+%% otherwise they are in French.
+%\Set{secondarykeywordstyle}{\tiny}
+ 
+%%--------------------
+%% Change the speciality of the PhD thesis
+\Set{speciality}{Informatique}
+ 
+%%--------------------
+%% Change the institution
+\Set{universityname}{Universit\'e de Bourgogne}
+ 
+
+%%--------------------
+%% Clear the list of the laboratories
+\resetlaboratories
+
+%%--------------------
+%% Add the laboratory where the thesis was made
+%\addlaboratory{Laboratoire Waynes Industry}
+
+\addlaboratory{Laboratoire \'Electronique, Informatique et Image}
+
+
+%%--------------------
+%% Clear the list of the partner/sponsor logos
+%\resetpartners
+
+%%--------------------
+%% Add the logos of the partners or the sponsors on the front page
+%%
+%% CAUTION 1: At least, the logo of the University should appear (UB)
+%%
+%\addpartner[image options]{image name}
+
+%\addpartner{ub}
+
+%%--------------------
+%% Change the header and the foot of the pages.
+%% You must include the package "fancyhdr" to
+%% have access to these macros.
+%% Left header
+%\lhead{}
+%% Center header
+%\chead{}
+%% Right header
+%\rhead{}
+%% Left footer
+%\lfoot{}
+%% Center footer
+%\cfoot{}
+%% Right footer
+%\rfoot{}
+ 
+%%--------------------
+% Declare several theorems
+\declareupmtheorem{mytheorem}{My Theorem}{List of my Theorems}
+
+%%--------------------
+%% Change the message on the backcover.
+%\Set{backcovermessage}{%
+%	Some text
+%}
+
+\begin{document}
+ 
+%%--------------------
+%% The following line does nothing until
+%% the class option 'nofrontmatter' is given.
+%\frontmatter
+
+%%--------------------
+%% The following line permits to add a chapter for "acknowledgements"
+%% at the beginning of the document. This chapter has not a chapter
+%% number (using the "star-ed" version of \chapter) to prevent it to
+%% be in the table of contents
+\chapter*{Acknowledgments}
+The author would like express his gratitude to his beautiful daughter, Erin, for all of her generous support and care during a very trying time.
+
+Other acknowledgements: Mohammed, Yongkang, Karl
+
+
+
+
+ 
+%%--------------------
+%% Include a general table of contents
+\tableofcontents
+
+%%--------------------
+%% The content of the PhD thesis
+\mainmatter
+ 
+\part{Context and Problem Statement}
+
+\chapter{Introduction}
+
+\section{The Next Generation in Manufacturing: Industry 4.0}
+Discussion of I4.0 and what it brings
+IoT focus
+ 
+\section{The Importance of Wireless in Automation}
+
+The fourth industrial revolution, commonly referred to as Smart Manufacturing in the U.S. and Industry 4.0 in Europe, promises unparalleled productivity and capability advances in the manufacturing.  Propelled by economic pressure toward greater efficiency, factory agility, and product customization, future factories will have the technological ability to adapt to customer demands quickly, modify manufacturing processes automatically based on quality feedback, and fabricate products with a reduced environmental impact.  Technological advances required for smart manufacturing to be truly successful include a collaborative and mobile robotics, distributed machine autonomy based on artificial intelligence, and a high degree of interconnectivity of among the automation resources.  Robots will work together and with people to accomplish complex tasks.  Robots will have the ability to roam between work-cells within a factory, learn its role quickly, become aware of edge devices, and communicate with other actors within the work-cell to accomplish its goals.  Current manufacturing architectures use wired connectivity through field bus and industrialized Ethernet for sensing and real-time control.  
+
+Indeed, through advances in time-sensitive networking, many of the promises of smart manufacturing are being realized; however, the true goals of smart manufacturing require a large deployment of sensing and actuation devices and untethered (i.e. mobile), autonomous robotics actors.  The use of wires precludes mobility and makes deployment of edge devices more expensive as each devices requires power, wires, and conduit for communication. By adopting wireless for both sensing and control of machines within the work-cell, a lower-cost, untethered operation is achievable. once wireless is adopted as the primary mode of communication, questions arise as to the required latency, reliability, and scale of the wireless network especially when the network is used for the control of machines and the assurance of safety. 
+
+Latency is defined as the data time-of-flight between two applications, e.g. when an event is acquired at a sensor to the point it is made available at a programmable logic controller (PLC).  Reliability is defined as the data loss probability between two applications. Scale is defined as the number of stations accessing the wireless network.  The requirements of reliability, latency, and scale directly relate to the complexity and cost of the wireless network; therefore, a rigorous analysis, validated by physics and untainted by market hype, is necessary to define realistic, achievable, and cost effective performance parameters of the wireless network.  In this paper, we investigate the validity of commonly advertised requirements of wireless networks used for industrial control systems whiling providing a validated perspective on those requirements making realization of such networks more achievable using existing technologies.  We begin with a close examination of existing wireless network requirements for factory automation. We follow with an architectural analysis of the future collaborative work-cell. This architectural analysis drives a cyberphysical system simulation to determine limits of reliability, latency, and scale constraints of wireless stations within the work-cell.  We then conclude with recommendations for reliability, latency, and scale constraints that will accommodate most industrial automation applications and are realizable with devices that are based on ubiquitous standards.
+
+\section{Challenges in Industrial Wireless Networks}
+
+\subsection{Avoiding the Hype: Understand the Requirements}
+\subsection{Interference}
+\subsection{Multi-path Propagation}
+\subsection{Reliability}
+\subsection{Latency in Time-sensitive Applications}
+\subsection{Energy Efficiency Application for Battery-powered Devices }
+\subsection{Trading Reliability, Latency, Scale, and Power}
+
+\subsection{Trade-space for Requirements}
+Insert special graph showing the competing requirements
+
+\section{Plethora of Wireless Technologies}
+Explain the plethora of wireless tech available, difficulty understanding which if any tech is applicable to a particular use case
+
+Show the resilience week paper
+
+Show 
+
+\section{Need for Evaluation Methods }
+Explain how testing the communication network is not sufficient.  need to test the impact of network on the physical system.  Need methods by which to do this.  Start with requirements, proceed to design of the system, and then verification of performance of network AND physical system, and then feedback into design/requirements.
+
+Need to show the architecture
+
+L'objectif principal de votre thèse peut être mis en avant à l'aide de l'environnement ci-dessous:
+
+\begin{emphbox}
+	Proposer un modèle qui fait quelque chose!
+\end{emphbox}
+
+\chapter{Thesis Summary}
+
+\section{Thesis Objectives}
+
+\section{Thesis Organization}
+
+
+\part{Technical Contributions}
+\chapter{Survey: Industrial Wireless Technology}
+reslience week article
+\chapter{Guidelines: Industrial Wireless Deployments}
+NIST guidelines, industry led forum and results on AMS 300-4
+\chapter{Wireless Workcell Architecture}
+sysml journal paper
+\chapter{Industry Wireless Testbed}
+paper on testbed construction; ground truth; data sources network and physical; data outputs; paper on graph database approach for organization of data
+\chapter{Machine Learning Applications}
+two papers on machine learning
+\section{Introduction}
+\section{Force Seeking Use Cases}
+\section{Exploration of ML Algorithms}
+\section{Results}
+\section{Conclusions}
+Discussion, Perspectives, restate findings
+
+
+% Automatic Lettrine and Minitoc at the begining of the chapter.
+%
+% The following macros are formatting the text at the begining of a chapter according to the
+% standard format.
+%
+% \chapterintro               See \chapterintrotosection.
+%
+% \chapterintro*              Similar to \chapterintro, except that the minitoc will be ignored.
+%
+% \chapterintrotosection      transform to lettrine the first letter that is following this macro
+%                             until the next following \section macro.
+%                             YOU MUST type the \section macro
+%                             in the same file as the \chapterintrotosection macro.
+%                             AND
+%                             put a minitoc (if the minitoc package is included) just before
+%                             the next following \section macro.
+%
+% \chapterintrotoinput        transform to lettrine the first letter that is following this macro
+%                             until the next following \input macro.
+%                             YOU MUST type the \input macro
+%                             in the same file as the \chapterintrotoinput macro.
+%                             AND
+%                             put a minitoc (if the minitoc package is included) just before
+%                             the next following \input macro.
+%
+% \chapterintrotoinclude      transform to lettrine the first letter that is following this macro
+%                             until the next following \include macro.
+%                             YOU MUST type the \include macro
+%                             in the same file as the \chapterintrotoinclude macro.
+%                             AND
+%                             put a minitoc (if the minitoc package is included) just before
+%                             the next following \include macro.
+
+%\chapterintro*
+%\chapterintro
+%\chapterintrotosection
+%\chapterintrotoinput
+%\chapterintrotoinclude
+
+
+
+
+ 
+%%--------------------
+%% Start the end of the thesis
+\backmatter
+ 
+%%--------------------
+%% Bibliography
+ 
+%% PERSONAL BIBLIOGRAPHY (use 'multibib')
+ 
+%% Change the style of the PERSONAL bibliography
+%\bibliographystylePERSO{phdthesisapa}
+ 
+%% Add the chapter with the PERSONAL bibliogaphy.
+%% The name of the BibTeX file may be the same as
+%% the one for the general bibliography.
+%\bibliographyPERSO{biblio.bib}
+ 
+%% Below, include a chapter for the GENERAL bibliography.
+%% It is assumed that the standard BibTeX tool/approach
+%% is used.
+ 
+%% GENERAL BIBLIOGRAPHY
+ 
+%% To cite one of your PERSONAL papers with the style
+%% of the PERSONAL bibliography: \cite{key}
+ 
+%% To force to show one of your PERSONAL papers into
+%% the PERSONAL bibliography, even if not cited in the
+%% text: \nocite{key}
+ 
+%% The following line set the style of
+%% the GENERAL bibliogaphy.
+%% The "phdthesisapa" is a "apalike" style with the following
+%% differences:
+%% a) The titles are output with the color of the institution.
+%% b) The name of the PhD thesis' author is underlined.
+\bibliographystyle{phdthesisapa}
+%% The following line may be used in place of the previous
+%% line if you prefer "numeric" citations.
+%\bibliographystyle{phdthesisnum}
+ 
+%% Link the GENERAL bibliogaphy to a BibTeX file.
+\bibliography{biblio.bib}
+ 
+%%--------------------
+%% List of figures and tables
+ 
+%% Include a chapter with a list of all the figures.
+%% In French typograhic standard, this list must be at
+%% the end of the document.
+\listoffigures
+ 
+%% Include a chapter with a list of all the tables.
+%% In French typograhic standard, this list must be at
+%% the end of the document.
+\listoftables
+ 
+%%--------------------
+%% Include a list of definitions
+\listofdefinitions
+
+%%--------------------
+%% Appendixes
+\appendix
+\part{Annexes}
+ 
+\chapter{Premier chapitre des annexes}
+
+\chapter{Second chapitre des annexes}
+ 
+\end{document}
