@@ -1,0 +1,519 @@
+%% Use the standard UP-methodology class
+%% with French language.
+%%
+%% You may specify the option 'twoside' or 'oneside' for
+%% the document.
+%%
+%% See the documentation tex-upmethodology on
+%% http://www.arakhne.org/tex-upmethodology/
+%% for details about the macros that are provided by the class and
+%% to obtain the list of the packages that are already included. 
+ 
+\documentclass[english]{spimubphdthesis}
+ 
+%%--------------------
+%% The TeX code is entering with UTF8
+%% character encoding (Linux and MacOS standards)
+\usepackage[utf8]{inputenc}
+ 
+%%-------------------
+%% You want to use the NatBib extension
+%\usepackage[authoryear]{natbib}
+ 
+%%--------------------
+%% Include the 'multibib' package to enable to
+%% have different types of bibliographies in the
+%% document (see at the end of this template for
+%% an example with a personnal bibliography and
+%% a general bibliography)
+%%
+%% Each bibliography defined with 'multibib'
+%% adds a chapter with the corresponding
+%% publications (in addition to the chapter for
+%% the standard/general bibliography).
+%% CAUTION:
+%% There is no standard way to do include this type of
+%% personnal bibliography.
+%% We propose to use 'multibib' package to help you,
+%% for example.
+%\usepackage{multibib}
+ 
+%% Define a "type" of bibliography, here the PERSONAL one,
+%% that is supported by 'multibib'.
+%\newcites{PERSO}{Liste de mes publications}
+ 
+%% To cite one of your PERSONAL papers with the style
+%% of the PERSONAL bibliography: \citePERSO{key}
+%% To force to show one of your PERSONAL papers into
+%% the PERSONAL bibliography, even if not cited in the
+%% text: \nocitePERSO{key}
+ 
+%% REMARK: When you are using 'multibib', you
+%% must compile the PERSONAL bibliography by hand.
+%% For example, the sequence of commands to run
+%% when you had defined the bibliography PERSO is:
+%%   $ pdflatex my_document.tex
+%%   $ bibtex my_document.aux
+%%   $ bibtex PERSO.aux
+%%   $ pdflatex my_document.tex
+%%   $ pdflatex my_document.tex
+%%   $ pdflatex my_document.tex
+ 
+%%--------------------
+%% Add here any other packages that are needed for your document.
+%\usepackage{eurosim}
+%\usepackage{amsmath}
+
+%% Rick add usepackage
+%%
+%\usepackage{graphicx}
+%\usepackage{epsfig}
+%\usepackage{mathrsfs}
+%\usepackage{times}
+%\usepackage{makeidx}
+\usepackage{amsmath}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+%\usepackage{booktabs}
+%\usepackage[flushleft]{threeparttable} % http://ctan.org/pkg/threeparttable
+%\usepackage{multicol}
+%\usepackage{array}
+%\usepackage[binary-units=true]{siunitx}
+%\usepackage{balance} % This allows for the even columns in the final page, just insert \balance in the last page, e.g., before the reference list
+%\usepackage{cite}
+ 
+%%--------------------
+%% Set the title, subtitle, defense date, and
+%% the registration number of the PhD thesis.
+%% The optional parameter is the subtitle of the PhD thesis.
+%% The first mandatory parameter is the title of the PhD thesis.
+%% The second mandatory parameter is the date of the PhD defense.
+%% The third mandatory parameter is the location/city of the PhD defense.
+%% The forth mandatory parameter is the reference number given by
+%% the University Library after the PhD defense.
+\declarethesis[This is the sub-title]{Performance Estimation, Testing, and Control of Cyber-Physical Systems Employing Non-Ideal Communications Networks}{9 July 2020}{Dijon}{XXX}
+ 
+%%--------------------
+%% Set the author of the PhD thesis
+\addauthor[email]{Richard}{Candell}
+ 
+%%--------------------
+%% Add a member of the jury
+%%
+%% CAUTION 1: If a Jury member is not present during the defense,
+%%            she/he must be in the list of the Jury members.
+%%            Only the reviewers and the members who are present during the defense must
+%%            appear in the Jyry member list. 
+%% CAUTION 2: After your defense, you must assign the role "Pr\'esident" to
+%%            the Jury member who have been the President of the Jury.
+%% CAUTION 3: The recommended order for the Jury members is:
+%%            President, Reviewer(s), Examiner(s), Director(s),
+%%            Other supervisor(s), Invited person(s).
+%% \addjury{Firstname}{Lastname}{Role in the jury}{Position}
+\addjury{Incroyable}{Hulk}{Pr\'esident}{Professeur à l'Université de Gotham City \\ Commentaire secondaire}
+\addjury{Captain}{America}{Rapporteur}{Professeur à l'Université USA}
+\addjury{Super}{Man}{Examinateur}{Professeur à l'Université de Gotham City}
+\addjury{Bat}{Man}{Directeur de thèse}{Professeur à l'Université de Gotham City}
+\addjury{The}{Volwerine}{Codirecteur de thèse}{Professeur à l'Université de Gotham City}
+\addjury{Pac}{Man}{Invité}{Professeur quelque part}
+ 
+%%--------------------
+%% Change style of the table of the jury
+%% \Set{jurystyle}{put macros for the style}
+%\Set{jurystyle}{\small}
+ 
+%%--------------------
+%% Set the English abstract
+\thesisabstract[english]{Lorem ipsum dolor sit amet, saepe quodsi dolores an usu. An sed fugit dissentiunt, ex tota soleat duo. Omnes deserunt adversarium qui ad, periculis pertinacia has id. Ea tibique antiopam eos. Usu illud cetero voluptatum ne, ea odio soluta labores sit.	Pri modus eruditi definiebas an. Dicat latine inermis no quo, eos tollit delicata interesset cu. Placerat vituperatoribus pro ne, cu verear tritani deterruisset usu. Quaeque recusabo maluisset te pri, mutat maiorum accusamus at his.	Pro ad nihil deleniti senserit, mundi feugiat indoctum an sea. In consulatu efficiendi qui, eu duo dicta deserunt definitiones, te atqui sapientem adolescens sit. Id pro consulatu splendide evertitur, vis eu perpetua molestiae, an melius virtute efficiantur vis. Animal aeterno mei ei.	Lucilius suavitate euripidis vis id, cu dicam ridens forensibus vis. In incorrupte adversarium pri, ut velit singulis nec, nisl facer dissentias ex duo. Id est nulla periculis, epicuri percipit cu eum. Praesent temporibus mediocritatem ex cum, his quot nonumy iriure ut, qui natum aliquip id. Interesset quaerendum repudiandae cum ea. Mazim perpetua deterruisset ne mei, cum esse novum minimum ea.}
+ 
+%%--------------------
+%% Set the English keywords. They only appear if
+%% there is an English abstract
+\thesiskeywords[english]{industrial wireless, factory communications, networked control, manufacturing}
+ 
+%%--------------------
+%% Set the French abstract
+\thesisabstract[french]{Lorem ipsum dolor sit amet, saepe quodsi dolores an usu. An sed fugit dissentiunt, ex tota soleat duo. Omnes deserunt adversarium qui ad, periculis pertinacia has id. Ea tibique antiopam eos. Usu illud cetero voluptatum ne, ea odio soluta labores sit.	Pri modus eruditi definiebas an. Dicat latine inermis no quo, eos tollit delicata interesset cu. Placerat vituperatoribus pro ne, cu verear tritani deterruisset usu. Quaeque recusabo maluisset te pri, mutat maiorum accusamus at his.	Pro ad nihil deleniti senserit, mundi feugiat indoctum an sea. In consulatu efficiendi qui, eu duo dicta deserunt definitiones, te atqui sapientem adolescens sit. Id pro consulatu splendide evertitur, vis eu perpetua molestiae, an melius virtute efficiantur vis. Animal aeterno mei ei.	Lucilius suavitate euripidis vis id, cu dicam ridens forensibus vis. In incorrupte adversarium pri, ut velit singulis nec, nisl facer dissentias ex duo. Id est nulla periculis, epicuri percipit cu eum. Praesent temporibus mediocritatem ex cum, his quot nonumy iriure ut, qui natum aliquip id. Interesset quaerendum repudiandae cum ea. Mazim perpetua deterruisset ne mei, cum esse novum minimum ea.}
+
+ 
+%%--------------------
+%% Set the French keywords. They only appear if
+%% there is an French abstract
+\thesiskeywords[french]{Mot-cl\'e 1, Mot-cl\'e 2}
+ 
+%%--------------------
+%% Change the layout and the style of the text of the "primary" abstract.
+%% If your document is written in French, the primary abstract is in French,
+%% otherwise it is in English.
+%\Set{primaryabstractstyle}{\tiny}
+ 
+%%--------------------
+%% Change the layout and the style of the text of the "secondary" abstract.
+%% If your document is written in French, the secondary abstract is in English,
+%% otherwise it is in French.
+%\Set{secondaryabstractstyle}{\tiny}
+ 
+%%--------------------
+%% Change the layout and the style of the text of the "primary" keywords.
+%% If your document is written in French, the primary keywords are in French,
+%% otherwise they are in English.
+%\Set{primarykeywordstyle}{\tiny}
+ 
+%%--------------------
+%% Change the layout and the style of the text of the "secondary" keywords.
+%% If your document is written in French, the secondary keywords are in English,
+%% otherwise they are in French.
+%\Set{secondarykeywordstyle}{\tiny}
+ 
+%%--------------------
+%% Change the speciality of the PhD thesis
+\Set{speciality}{Informatique}
+ 
+%%--------------------
+%% Change the institution
+\Set{universityname}{Universit\'e de Bourgogne}
+ 
+
+%%--------------------
+%% Clear the list of the laboratories
+\resetlaboratories
+
+%%--------------------
+%% Add the laboratory where the thesis was made
+%\addlaboratory{Laboratoire Waynes Industry}
+
+\addlaboratory{Laboratoire \'Electronique, Informatique et Image}
+
+
+%%--------------------
+%% Clear the list of the partner/sponsor logos
+%\resetpartners
+
+%%--------------------
+%% Add the logos of the partners or the sponsors on the front page
+%%
+%% CAUTION 1: At least, the logo of the University should appear (UB)
+%%
+%\addpartner[image options]{image name}
+
+%\addpartner{ub}
+
+%%--------------------
+%% Change the header and the foot of the pages.
+%% You must include the package "fancyhdr" to
+%% have access to these macros.
+%% Left header
+%\lhead{}
+%% Center header
+%\chead{}
+%% Right header
+%\rhead{}
+%% Left footer
+%\lfoot{}
+%% Center footer
+%\cfoot{}
+%% Right footer
+%\rfoot{}
+ 
+%%--------------------
+% Declare several theorems
+\declareupmtheorem{mytheorem}{My Theorem}{List of my Theorems}
+
+%%--------------------
+%% Change the message on the backcover.
+%\Set{backcovermessage}{%
+%	Some text
+%}
+
+\begin{document}
+ 
+%%--------------------
+%% The following line does nothing until
+%% the class option 'nofrontmatter' is given.
+%\frontmatter
+
+%%--------------------
+%% The following line permits to add a chapter for "acknowledgements"
+%% at the beginning of the document. This chapter has not a chapter
+%% number (using the "star-ed" version of \chapter) to prevent it to
+%% be in the table of contents
+\chapter*{Acknowledgments}
+The author would like express his gratitude to his beautiful daughter, Erin, for all of her generous support and care during a very trying time.
+
+Other acknowledgements: Mohammed, Yongkang, Karl
+
+
+
+
+ 
+%%--------------------
+%% Include a general table of contents
+\tableofcontents
+
+%%--------------------
+%% The content of the PhD thesis
+\mainmatter
+ 
+\part{Context and Problem Statement}
+
+\chapter{Introduction}
+
+\section{Industrial Revolutions}
+Major advances in manufacturing of goods for the betterment of humanity have occurred many times in the last two hundred and fifty years in the history of humanity.  These advancements occurred of science and technology occurred as revolutionary events at different times.  The first revolution occurred at the edge of the eightieth century primarily in England but also in France, Germany, and the United States with the applicant of automatic mechanization of large machines using coal powered steam engines.  These machines were mainly used for the processing of cotton, wool, and silks in the production of textiles for export throughout the world.  Advancements during this period included uses of coal to produce steam power, the production of iron, steel, and other rudimentary alloys, and, very importantly, the engineering advancements of tool making.  The advancements of the first industrial revolution paved the way for the centralization and mass production of goods.
+%CITATION SOURCES *** {https://en.wikipedia.org/wiki/Technological_revolution#Potential_future_technological_revolutions}
+
+The next century was marked by the development of scientific and engineering advancements in chemistry, physics, and engineering. Experimentation with electricity and the production thereof led to the eventual explosion of industrial machinery, tooling, electrification, chemical manufacture, petroleum refinement, rail and marine transportation, the automobile, agriculture, and telecommunications by wire over long distances.  This period of discovery culminated with rapid expansion of industrialization through the world, especially in North America and Japan up until the beginning of World War I.
+%CITATION SOURCES *** https://en.wikipedia.org/wiki/Second_Industrial_Revolution#Machine_tools
+
+The third industrial revolution began in the tears immediately following the second world war with the rapid advancement of pure and applied sciences.  These advancements were driven primarily by the cold war and the space race between the United States and the USSR.  This period of advancement was marked by many discoveries and scientific applications such as the development of telecommunications theories (Claude Shannon), advancement of radio and wired communications, the discovery of the transistor, and the rapid expansion of computers and information technology in business and defense.  Also during these years, arrived the application of computing within manufacturing and process control settings. Computers slowly began to replace the basic relay circuit in control systems.  By utilizing the programmable logic controller (PLC), manufacturers gained the ability to develop control their processes more easily and develop control strategies that were once more difficult to implement in the past with dedicated, specialized equipment.  PLCs offered both the ability to more easily adapt processes to information gathered directly from the factory operation as well as slowly collect and store information electronically.  However, electronic storage of this information was still both difficult and expensive as telecommunications technology was yet relatively slow and storage expensive.  Over the years following through the 1980's until today, computers have followed closely Moore's "Law" which states according to the the perception of Intel Corporation founder, Gordon E. Moore, that the number of transistors on a microchip doubles every two years.  This paradigm of exponential growth in digital computing technology in terms of computing speed, storage, and efficiency has created a world in which computers and computing devices have become ubiquitous, surrounding practically every aspect of human endeavours and leading to the latest installment of industrial advancement, the 4\textsuperscript{th} Industrial Revolution, also known as the \textit{Information Revolution} which is currently ongoing. 
+
+The Information Revolution is defined by a culture that is highly interconnected and data depended.  Clearly, the modern world is dominated by the Internet, high-performance computers, and personal mobile communications devices such as cell phones developed over the last several decades. Within the hands of each individual one may find a smartphone capable of performing computing and communications tasks not even imaginable fifty years ago.  Indeed, within each of these devices resides a powerful microprocessor capable of clocking speeds in the gigahertz, offline storage spanning gigabytes, at-least one high-resolution camera, and communication components enabling high-speed connectivity capable.  These personal devices are smart and easily re-programmable by downloading of new applications, i.e., \textit{apps} enabling users to produce and consume information rapidly.  Users enjoy the ability to speak at any moment, send brief messages using apps such as WhatsApp\texttrademark, download videos, play games, store documents, music, photographs, and videos within "the cloud."  Within office and business enterprises, a personal computer is within reach of every employee and is the tool used for information production.  The data produced is stored within the cloud and usually produced and maintained locally, although the services of data production are quickly shifting to the cloud as well depending on the needs the end user.
+
+These capabilities have also been permeating industrial environments although at a slower rate given the inherent conservatism of industrial establishments.  Industrial environments include aerospace and automotive manufacturing, electrical power production, food processing, petroleum and chemical production.  That is not to say that industrial establishments are not open to technological change, but that established production system can be difficult or risky to modify once they are operational.  While industrial operations have distinctly different requirements than office businesses; analogues may be made between the computing constructs found within the personal/business computing domains and those constructs founds within the industrial computing domains.  For example, within a factory production enterprise, the Internet itself exists as an outside entity providing global connectivity, hosting, storage, computing resource, and analysis tools.  These services are often replicated within the business enterprise of the factory operation and extended into the factory environment to some degree from the factory management system to the factory floor.  
+
+In addition, with the explosiveness of ubiquitous, low-cost computing devices, the modern factory operation is changing to include more intelligence and adaptability at the factory edge.  This includes discrete devices such as sensors and actuators, collaborative robots, autonomous gantry systems, intelligent vehicular systems, tracking and inventory systems, and the like.  These systems coupled with the plethora of computing resources have the potential to create an enormous amount of information as well as the opportunities for greater control over the factory enterprise.  It is just a matter of tapping the information within the factory and bringing that information to a useful purpose.  Where the third industrial revolution brought computing and automation to the factory, the fourth industrial revolution will improve upon the automation found within the factory by adding intelligence, autonomy, and machine learning powered by data. This defines Industry 4.0.  
+
+\section{Industry 4.0}
+
+Industry 4.0 also known as "smart manufacturing" was officially launch by President Barack Obama of the United States and Chancellor Angela Merkel of Germany at the Hannover Messe industry show on April 24, 2016\textcolor{red}{\cite{DUMMY01}}.  Smart manufacturing is a term used to described the ongoing efforts within academia, government, and private industry to improve upon existing and future factory operations by incorating
+
+\begin{figure}[!tbp]
+	\begin{center}
+		\includegraphics[width=\textwidth]{images/intro/forbes-i40.png}
+		\label{fig:intro:forbes-i40}
+		\caption{Industry 4.0: Incorporating the benefits of machine learning, massive data, mobility, and autonomy within the modern factory.  https://www.forbes.com/sites/bernardmarr/2018/09/02/what-is-industry-4-0-heres-a-super-easy-explanation-for-anyone/#6dee527a9788}
+	\end{center}
+\end{figure}
+
+Industry 4.0 is a term used to describe the latest evolution trend in global industrialization with respect to manufacturing.  It is marked by the ambitious end goal of a completely automated and data-driven factory enterprise.  The concept of Industry 4.0 is centered around the smart factory in which . 
+
+Computer
+
+“Industry 4.0” is an abstract and complex term consisting of many components when looking closely into our society and current digital trends. To understand how extensive these components are, here are some contributing digital technologies as examples:[25]
+
+Mobile devices
+Internet of Things (IoT) platforms
+Location detection technologies
+Advanced human-machine interfaces
+Authentication and fraud detection
+3D printing
+Smart sensors
+Big data analytics and advanced algorithms
+Multilevel customer interaction and customer profiling
+Augmented reality/ wearables
+Fog, Edge and Cloud computing
+Data visualization and triggered "real-time" training
+Mainly these technologies can be summarized into four major components, defining the term “Industry 4.0” or “smart factory”:[25]
+
+Cyber-physical systems
+IoT
+Cloud computing
+Cognitive computing
+
+\section{Manufacturing Enterprise}
+ISA-95 model of distributed hierarachical: Batch production, Job production, Flow production
+Modern paradigms: Edge computing, AI/ML
+
+\begin{figure}[!tbp]
+	\begin{center}
+		\includegraphics[width=\textwidth]{images/intro/isa95-2.png}
+		\label{fig:intro:isa95}
+		\caption{The ISA-95 model: Legacy enterprise model developed by the ISA which divides production systems into 5 distinct levels based on the Purdue Enterprise Reference Architecture (PERA).}
+	\end{center}
+\end{figure}
+
+Unlike the MESA model, which focused on business process, the ISA-95 model focuses on information architecture. The ISA-95 model divides production systems into 5 levels, based on the Purdue Enterprise Reference Architecture (PERA) model.
+
+In this way, the ISA-95 standard helps define boundaries between systems. Intelligent devices, such as sensors, belong to Level 1. Control systems such as PLCs , DCS, OCS, belong to Level 2. MES, belong to Level 3. ERP to level 4.
+
+By situating MES on Level 3, ISA-95 implies that MES connect production with enterprise systems, manage workflows to produce end products, maintain records of production, and optimize the production process.
+
+The goal was to develop a standard that would enable efficient interfacing and integration between an ERP system and an MES. This would facilitate effective communication between stakeholders, lowering the total cost of ownership and enabling error-free integration.
+
+
+\section{The Importance of Wireless in Automation}
+
+The fourth industrial revolution, commonly referred to as Smart Manufacturing in the U.S. and Industry 4.0 in Europe, promises unparalleled productivity and capability advances in the manufacturing.  Propelled by economic pressure toward greater efficiency, factory agility, and product customization, future factories will have the technological ability to adapt to customer demands quickly, modify manufacturing processes automatically based on quality feedback, and fabricate products with a reduced environmental impact.  Technological advances required for smart manufacturing to be truly successful include a collaborative and mobile robotics, distributed machine autonomy based on artificial intelligence, and a high degree of interconnectivity of among the automation resources.  Robots will work together and with people to accomplish complex tasks.  Robots will have the ability to roam between work-cells within a factory, learn its role quickly, become aware of edge devices, and communicate with other actors within the work-cell to accomplish its goals.  Current manufacturing architectures use wired connectivity through field bus and industrialized Ethernet for sensing and real-time control.  
+
+Indeed, through advances in time-sensitive networking, many of the promises of smart manufacturing are being realized; however, the true goals of smart manufacturing require a large deployment of sensing and actuation devices and untethered (i.e. mobile), autonomous robotics actors.  The use of wires precludes mobility and makes deployment of edge devices more expensive as each devices requires power, wires, and conduit for communication. By adopting wireless for both sensing and control of machines within the work-cell, a lower-cost, untethered operation is achievable. once wireless is adopted as the primary mode of communication, questions arise as to the required latency, reliability, and scale of the wireless network especially when the network is used for the control of machines and the assurance of safety. 
+
+Latency is defined as the data time-of-flight between two applications, e.g. when an event is acquired at a sensor to the point it is made available at a programmable logic controller (PLC).  Reliability is defined as the data loss probability between two applications. Scale is defined as the number of stations accessing the wireless network.  The requirements of reliability, latency, and scale directly relate to the complexity and cost of the wireless network; therefore, a rigorous analysis, validated by physics and untainted by market hype, is necessary to define realistic, achievable, and cost effective performance parameters of the wireless network.  In this paper, we investigate the validity of commonly advertised requirements of wireless networks used for industrial control systems whiling providing a validated perspective on those requirements making realization of such networks more achievable using existing technologies.  We begin with a close examination of existing wireless network requirements for factory automation. We follow with an architectural analysis of the future collaborative work-cell. This architectural analysis drives a cyberphysical system simulation to determine limits of reliability, latency, and scale constraints of wireless stations within the work-cell.  We then conclude with recommendations for reliability, latency, and scale constraints that will accommodate most industrial automation applications and are realizable with devices that are based on ubiquitous standards.
+
+\section{Challenges in Industrial Wireless Networks}
+
+\subsection{Avoiding the Hype: Understand the Requirements}
+\subsection{Interference}
+\subsection{Multi-path Propagation}
+\subsection{Reliability}
+\subsection{Latency in Time-sensitive Applications}
+\subsection{Energy Efficiency Application for Battery-powered Devices }
+\subsection{Trading Reliability, Latency, Scale, and Power}
+
+\subsection{Trade-space for Requirements}
+Insert special graph showing the competing requirements
+
+\section{Industrial Wireless Use Cases}
+
+\section{Plethora of Wireless Technologies}
+Explain the plethora of wireless tech available, difficulty understanding which if any tech is applicable to a particular use case
+
+Show the resilience week paper
+
+Show 
+
+\section{Need for Evaluation Methods }
+Explain how testing the communication network is not sufficient.  need to test the impact of network on the physical system.  Need methods by which to do this.  Start with requirements, proceed to design of the system, and then verification of performance of network AND physical system, and then feedback into design/requirements.
+
+Need to show the architecture
+
+L'objectif principal de votre thèse peut être mis en avant à l'aide de l'environnement ci-dessous:
+
+\begin{emphbox}
+	Proposer un modèle qui fait quelque chose!
+\end{emphbox}
+
+\chapter{Thesis Summary}
+
+\section{Thesis Objectives}
+
+\section{Thesis Organization}
+
+
+\part{Technical Contributions}
+\chapter{Survey: Industrial Wireless Technology}
+reslience week article
+\chapter{Guidelines: Industrial Wireless Deployments}
+NIST guidelines, industry led forum and results on AMS 300-4
+\chapter{Wireless Workcell Architecture}
+
+
+\include{part-2-technical/chapter-sysml/chapter-sysml-arch.tex}
+
+
+
+\chapter{Industry Wireless Testbed}
+paper on testbed construction; ground truth; data sources network and physical; data outputs; paper on graph database approach for organization of data
+\chapter{Machine Learning Applications}
+two papers on machine learning
+\section{Introduction}
+\section{Force Seeking Use Cases}
+\section{Exploration of ML Algorithms}
+\section{Results}
+\section{Conclusions}
+Discussion, Perspectives, restate findings
+
+
+% Automatic Lettrine and Minitoc at the begining of the chapter.
+%
+% The following macros are formatting the text at the begining of a chapter according to the
+% standard format.
+%
+% \chapterintro               See \chapterintrotosection.
+%
+% \chapterintro*              Similar to \chapterintro, except that the minitoc will be ignored.
+%
+% \chapterintrotosection      transform to lettrine the first letter that is following this macro
+%                             until the next following \section macro.
+%                             YOU MUST type the \section macro
+%                             in the same file as the \chapterintrotosection macro.
+%                             AND
+%                             put a minitoc (if the minitoc package is included) just before
+%                             the next following \section macro.
+%
+% \chapterintrotoinput        transform to lettrine the first letter that is following this macro
+%                             until the next following \input macro.
+%                             YOU MUST type the \input macro
+%                             in the same file as the \chapterintrotoinput macro.
+%                             AND
+%                             put a minitoc (if the minitoc package is included) just before
+%                             the next following \input macro.
+%
+% \chapterintrotoinclude      transform to lettrine the first letter that is following this macro
+%                             until the next following \include macro.
+%                             YOU MUST type the \include macro
+%                             in the same file as the \chapterintrotoinclude macro.
+%                             AND
+%                             put a minitoc (if the minitoc package is included) just before
+%                             the next following \include macro.
+
+%\chapterintro*
+%\chapterintro
+%\chapterintrotosection
+%\chapterintrotoinput
+%\chapterintrotoinclude
+
+
+
+
+ 
+%%--------------------
+%% Start the end of the thesis
+\backmatter
+ 
+%%--------------------
+%% Bibliography
+ 
+%% PERSONAL BIBLIOGRAPHY (use 'multibib')
+ 
+%% Change the style of the PERSONAL bibliography
+%\bibliographystylePERSO{phdthesisapa}
+ 
+%% Add the chapter with the PERSONAL bibliogaphy.
+%% The name of the BibTeX file may be the same as
+%% the one for the general bibliography.
+%\bibliographyPERSO{biblio.bib}
+ 
+%% Below, include a chapter for the GENERAL bibliography.
+%% It is assumed that the standard BibTeX tool/approach
+%% is used.
+ 
+%% GENERAL BIBLIOGRAPHY
+ 
+%% To cite one of your PERSONAL papers with the style
+%% of the PERSONAL bibliography: \cite{key}
+ 
+%% To force to show one of your PERSONAL papers into
+%% the PERSONAL bibliography, even if not cited in the
+%% text: \nocite{key}
+ 
+%% The following line set the style of
+%% the GENERAL bibliogaphy.
+%% The "phdthesisapa" is a "apalike" style with the following
+%% differences:
+%% a) The titles are output with the color of the institution.
+%% b) The name of the PhD thesis' author is underlined.
+\bibliographystyle{phdthesisapa}
+%% The following line may be used in place of the previous
+%% line if you prefer "numeric" citations.
+%\bibliographystyle{phdthesisnum}
+ 
+%% Link the GENERAL bibliogaphy to a BibTeX file.
+\bibliography{biblio.bib}
+ 
+%%--------------------
+%% List of figures and tables
+ 
+%% Include a chapter with a list of all the figures.
+%% In French typograhic standard, this list must be at
+%% the end of the document.
+\listoffigures
+ 
+%% Include a chapter with a list of all the tables.
+%% In French typograhic standard, this list must be at
+%% the end of the document.
+\listoftables
+ 
+%%--------------------
+%% Include a list of definitions
+\listofdefinitions
+
+%%--------------------
+%% Appendixes
+\appendix
+\part{Annexes}
+ 
+\chapter{Premier chapitre des annexes}
+
+\chapter{Second chapitre des annexes}
+ 
+\end{document}
