@@ -15,6 +15,31 @@
 %% The TeX code is entering with UTF8
 %% character encoding (Linux and MacOS standards)
 \usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{mathrsfs}
+\usepackage{times}
+\usepackage{makeidx}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%\usepackage{subfigure}
+%\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{siunitx}
+\usepackage{balance} % This allows for the even columns in the final page, just insert \balance in the last page, e.g., before the reference list
+\usepackage{cite}
+%\usepackage{setspace}
+\usepackage{etoolbox}
+\newtoggle{blindcopy}
+%\toggletrue{blindcopy}
+\usepackage{hhline}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{wasysym}
+\usepackage[caption=false]{subfig}
  
 %%-------------------
 %% You want to use the NatBib extension
@@ -71,7 +96,7 @@
 %\usepackage{mathrsfs}
 %\usepackage{times}
 %\usepackage{makeidx}
-\usepackage{amsmath}
+%\usepackage{amsmath}
 %\usepackage{algorithm}
 %\usepackage{algorithmic}
 %\usepackage{booktabs}
@@ -238,9 +263,9 @@
 %% number (using the "star-ed" version of \chapter) to prevent it to
 %% be in the table of contents
 \chapter*{Acknowledgments}
-The author would like express his gratitude to his beautiful daughter, Erin, for all of her generous support and care during a very trying time.
+The author would like express his gratitude to his beautiful daughter, Erin, for all of her generous support, kindness, and care, and her countless hours as a child hooking up wires and doing inventory of computer peripherals in my laboratory.  I hope that she remembers fondly those weekends listening to her Avengers movies while running factory simulators and troubleshooting robots.
 
-Other acknowledgements: Mohammed, Yongkang, Karl
+Other acknowledgments: Mohammed, Yongkang, Karl
 
 
 
@@ -257,6 +282,10 @@ Other acknowledgements: Mohammed, Yongkang, Karl
 \part{Context and Problem Statement}
 
 \chapter{Introduction}
+
+\chapterintro
+
+some text about this chapter
 
 \section{Industrial Revolutions}
 Major advances in manufacturing of goods for the betterment of humanity have occurred many times in the last two hundred and fifty years in the history of humanity.  These advancements occurred of science and technology occurred as revolutionary events at different times.  The first revolution occurred at the edge of the eightieth century primarily in England but also in France, Germany, and the United States with the applicant of automatic mechanization of large machines using coal powered steam engines.  These machines were mainly used for the processing of cotton, wool, and silks in the production of textiles for export throughout the world.  Advancements during this period included uses of coal to produce steam power, the production of iron, steel, and other rudimentary alloys, and, very importantly, the engineering advancements of tool making.  The advancements of the first industrial revolution paved the way for the centralization and mass production of goods.
@@ -281,9 +310,10 @@ Industry 4.0 also known as "smart manufacturing" was officially launch by Presid
 	\begin{center}
 		\includegraphics[width=\textwidth]{images/intro/forbes-i40.png}
 		\label{fig:intro:forbes-i40}
-		\caption{Industry 4.0: Incorporating the benefits of machine learning, massive data, mobility, and autonomy within the modern factory.  https://www.forbes.com/sites/bernardmarr/2018/09/02/what-is-industry-4-0-heres-a-super-easy-explanation-for-anyone/#6dee527a9788}
+		\caption{Industry 4.0: Incorporating the benefits of machine learning, massive data, mobility, and autonomy within the modern factory.  }
 	\end{center}
 \end{figure}
+\begin{verbatim}https://www.forbes.com/sites/bernardmarr/2018/09/02/what-is-industry-4-0-heres-a-super-easy-explanation-for-anyone/#6dee527a9788\end{verbatim}
 
 Industry 4.0 is a term used to describe the latest evolution trend in global industrialization with respect to manufacturing.  It is marked by the ambitious end goal of a completely automated and data-driven factory enterprise.  The concept of Industry 4.0 is centered around the smart factory in which . 
 
@@ -313,6 +343,7 @@ Cognitive computing
 \section{Manufacturing Enterprise}
 ISA-95 model of distributed hierarachical: Batch production, Job production, Flow production
 Modern paradigms: Edge computing, AI/ML
+
 
 \begin{figure}[!tbp]
 	\begin{center}
@@ -378,17 +409,14 @@ L'objectif principal de votre thèse peut être mis en avant à l'aide de l'envi
 
 \section{Thesis Organization}
 
+We are going to provide a visual map of how it all fits together: flow chart of activities, papers, and data outputs
+
 
 \part{Technical Contributions}
-\chapter{Survey: Industrial Wireless Technology}
-reslience week article
-\chapter{Guidelines: Industrial Wireless Deployments}
-NIST guidelines, industry led forum and results on AMS 300-4
-\chapter{Wireless Workcell Architecture}
 
-
-sysml journal paper
-
+\include{chapter-guidelines/chapter-main}
+\include{chapter-reswk/chapter-main}
+\include{chapter-sysml-arch}
 
 
 \chapter{Industry Wireless Testbed}
@@ -482,13 +510,14 @@ Discussion, Perspectives, restate findings
 %% differences:
 %% a) The titles are output with the color of the institution.
 %% b) The name of the PhD thesis' author is underlined.
-\bibliographystyle{phdthesisapa}
+%\bibliographystyle{phdthesisnum}
 %% The following line may be used in place of the previous
 %% line if you prefer "numeric" citations.
-%\bibliographystyle{phdthesisnum}
+\bibliographystyle{phdthesisnum}
  
 %% Link the GENERAL bibliogaphy to a BibTeX file.
 \bibliography{biblio.bib}
+%\bibliographystyle{IEEEtran.bib}
  
 %%--------------------
 %% List of figures and tables
