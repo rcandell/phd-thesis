@@ -9,7 +9,7 @@ Wireless communications plays an essential role in the vision of future cyber-ph
 
 
 	
-	\section{Introduction} \label{sec:intro}    
+	\section{Introduction} \label{ftml:sec:intro}    
 	
 	Industrial wireless systems (IWSs) are being deployed in various industrial environments due to the advances of wireless protocols and devices for cyber-physical systems (CPSs). Application domains for IWSs include flexible manufacturing, safety, process control, alerting and monitoring\cite{Candell2018.IWSGuide}. The advantages of deploying wireless communications in industrial applications due to the absence of cabling include ease of scale, flexibility, and lower cost compared the wired counterpart. Nevertheless, there are challenges in wireless deployments~\cite{Sisinni2018,Bello2017,Pang2017.WirelessChallenges}. The main cause of these challenges is the unpredictable and random nature of wireless channels. Challenges include latency uncertainty, error uncertainty, and  increased information loss when operating in the presence of significant interference and limited spectral resources~\cite{Candell2017.SAS.IWSWorkshopReport}. In addition, the quality of wireless data communications is impacted by various wireless channel impairments such as path loss, fading, multi-path, and interference. As a result, a careful design of wireless communications and control networks is required to deal with these impairments~\cite{Lu2016.WirelessCPS,Kim2017.WirelessCodesign}.    
     
@@ -25,7 +25,7 @@ Wireless communications plays an essential role in the vision of future cyber-ph
         \item Finally, we study the impact of the measurement interval and the training size on the performance.
     \end{itemize}
     
-    Our paper is organized as follows: in Section~\ref{sec:ftseekerapp}, the use case and the testbed setup are briefly presented. In Section~\ref{sec:dataanalysis}, we present our process of data collection and subsequent analysis to include statistical exploration and our machine learning approach. We then present the results of our analysis in Section~\ref{sec:results}, followed by conclusions and future direction in Section~\ref{sec:conclusion}.
+    Our paper is organized as follows: in Section~\ref{ftml:sec:ftseekerapp}, the use case and the testbed setup are briefly presented. In Section~\ref{ftml:sec:dataanalysis}, we present our process of data collection and subsequent analysis to include statistical exploration and our machine learning approach. We then present the results of our analysis in Section~\ref{ftml:sec:results}, followed by conclusions and future direction in Section~\ref{ftml:sec:conclusion}.
     
 \section{Related Work}    
 In the literature, two types of interference signals are considered, namely, intentional or unintentional interference. Methods to estimate, avoid, or mitigate interference are required for the deployment of reliable and deterministic IWSs. Machine learning has been widely used to detect and estimate interference information to enhance the performance of interference managment algorithms.  
@@ -39,7 +39,7 @@ Machine learning has been used for detection and estimation of jamming attacks. 
 
 Therefore, in the literature, it was shown that LQE is one important but insufficient aspect of assessing the impact of link quality on a CPS. We assert that by jointly observing the performance of the physical and wireless components of a CPS,the complete perspective of the quality of the wireless link and its impact on physical performance can be obtained. Since interference is such an important topic in the wireless CPS, we are motivated to propose a method that simultaneously (1) makes observations of the physical system using ground truth measurements, and (2) infers the quality of the wireless communication system in terms of SIR using an experimental model of a relevant use case found in industry.
     
-\section{Robot Arm Force-Seeking Application}\label{sec:ftseekerapp}
+\section{Robot Arm Force-Seeking Application}\label{ftml:sec:ftseekerapp}
 In this section, we will review the robot arm force-seeking scenario that was detailed in~\cite{Candell_ISIT_2019}.
 
 	\subsection{Experimental Setup and Components}
@@ -95,7 +95,7 @@ The system is composed of the following components:
 %A diagram of the control system for the robotic manipulator is shown in Fig.~\ref{fig:reefmodel}. 
 Generally, the robot arm produces encoder positions $y(t)$ for each joint and accepts actuation signals $\vec{u}(t)$ from the motor drives located in the RC.  Both $y(t)$ and $\vec{u}(t)$ are conveyed through wired connections. The force sensor signal $\hat{F}(t)$ is produced by the FTS and is conveyed via an IEEE 802.11 wireless connection. The RC is programmed to move a probe connected to the end of the manipulator downward along a linear path until a force of at least 5 N is detected.  The RC will not move the arm during the force-seeking operation unless it receives an FTS signal; therefore, the duration and continuity of the movement of the arm will be impacted by unreliable communication between the FTS and the RC.
 
-\subsection{RF Scenario}\label{sec:rfemulator}
+\subsection{RF Scenario}\label{ftml:sec:rfemulator}
 
 \begin{figure}[tbp]
     \centering
@@ -114,7 +114,7 @@ Shown in Fig.~\ref{fig:rf-emulation-scenario} is the general scenario for the wi
 
 %For each experiment, the location of the J is adjusted to produce a desired SIR.  Each time the location of J is changed, the robot is allowed to operate for a period of 30 minutes.  This included periods of inaction by the robot when the SIR prohibits movement of the arm.  The SIR setting was validated for each run using a real-time spectrum analyzer connected directly to the emulator.
 	
-	\section{Data Analysis}\label{sec:dataanalysis}
+	\section{Data Analysis}\label{ftml:sec:dataanalysis}
 	
 %	\begin{figure}[tbp]
 %	    \centering
@@ -127,7 +127,7 @@ Shown in Fig.~\ref{fig:rf-emulation-scenario} is the general scenario for the wi
 	%was conducted according to the diagram in Fig.~\ref{fig:dataflow} and 
 	is divided into four parts: raw data collection, data cleaning and feature extraction, training, and the operation of the SIR estimation. The raw data was produced as an output of the VTS as a time series of z-axis position. Feature extraction was conducted in MATLAB by following the time series and extracting or calculating features for each iteration.  Once features were extracted, a statistical analysis of the features was conducted to determine the variability of the features as a function of SIR \cite{Candell_ISIT_2019}. Training of a machine learning algorithm followed. The machine learning algorithm was programmed in Python using the Sci-kit Learn library~\cite{SCIKITLEARN}.
 	
-	\subsection{Feature Extraction}\label{sec:data:feats}
+	\subsection{Feature Extraction}\label{ftml:sec:data:feats}
 	
 %	\begin{figure}[tbp]
 %	    \centering
@@ -175,15 +175,15 @@ Shown in Fig.~\ref{fig:rf-emulation-scenario} is the general scenario for the wi
         \item[Feature $\Delta{t}_{ae}$] The duration of the full iteration as measured from the home position, \textbf{a}, to the next home position, \textbf{e}.
 	\end{description}
 	
-	\subsection{ML-based SIR Estimation}\label{sec:data:ML}
+	\subsection{ML-based SIR Estimation}\label{ftml:sec:data:ML}
    In order to learn the SIR level from observing the various features, we can leverage supervised machine learning regression schemes. 
    %the random forest model \cite{RF}. Random forest is an ensemble of decision trees with random feature selection which can be used for classification or regression based on the predicted output space. Deploying random forest in machine learning has been successful in various applications such as \cite{RF_1,RF_2,RF_3}. Its main advantages are that it is stable, fast to compute, and insusceptible to over-fitting.
-   In this work, we compare the deployment of various machine learning algorithms for SIR regression using the five features defined in \ref{sec:data:feats}. These features are evaluated for each iteration of the probe movement. We define a data segment which is composed of a number of successive iterations and we denote the segment size by $M$. As a result, we use each regression model to get an input vector of size $5M$ and the regression output of the corresponding SIR value. 
+   In this work, we compare the deployment of various machine learning algorithms for SIR regression using the five features defined in \ref{ftml:sec:data:feats}. These features are evaluated for each iteration of the probe movement. We define a data segment which is composed of a number of successive iterations and we denote the segment size by $M$. As a result, we use each regression model to get an input vector of size $5M$ and the regression output of the corresponding SIR value. 
    %The random forest is selected because it is computationally efficient with high-dimensional data and it is robust for outliers and data non-linearity. 
    
    We start by training each regression model by taking a fixed number of segments for each SIR labelled data. We denote the size of the training set for each SIR level by $T$. The rest of the measurements are used for testing. In general, the proposed machine learning approach will deploy a sliding window approach of size $M$ to collect the features of the force-seeking use case to estimate the current level of SIR at various nodes of the wireless network. 
 	
-	\section{Results} \label{sec:results}  
+	\section{Results} \label{ftml:sec:results}  
 	In this section, we consider the experimental results for 4 different settings. The dataset of all the collected data is available online~\cite{https://doi.org/10.18434/m32077}. The four settings are defined as follows: i) setting b/g-Router: the jamming signal impacts the router and IEEE 802.11 b/g is deployed ~\cite{IEEE802.11ac}, ii) setting b/g-Station: the jamming signal impacts the station and IEEE 802.11 b/g is deployed, iii) setting b/g/n-Router: the jamming signal impacts the router and IEEE 802.11 b/g/n is deployed, and iv) setting b/g/n-Station: the jamming signal impacts the station and IEEE 802.11 b/g/n is deployed.  
 	
 	When the jamming signal has an impact on the router, we consider 3 values of the SIR which are -9, -8, -7 dB while having 1, 2, 3 dB for the settings in which jamming has an impact on the station. Except otherwise mentioned, we set$M = 50$ and $T = 200$. 
@@ -698,7 +698,7 @@ In Fig.~\ref{fig:001_MSE_F_3}, \ref{fig:001_R2_F_3}, and \ref{fig:004_MSE_F_3}, 
 	
 	The feature $\Delta{t}_{ab}$ is the most one impacted by the SIR value where the prediction performance by using this individual feature is almost identical to the performance of using all the features. This result can be explained by knowing that in the robot arm force seeking program, the FTS has to be zeroed before resuming the loop and hence there is a direct impact of the wireless transmissions and the value $\Delta{t}_{ab}$. On the other hand, the feature $\Delta{t}_{bc}$ is the least one impacted by the SIR value. This feature is defined as the reflection time of the robot arm to reverse its direction and hence it is minimally impacted by the SIR value. The rest of the features are impacted by the SIR to a certain level. Generally, adding an unnecessary feature can degrade the performance. As a result, in this work, we concluded that using $\Delta{t}_{ab}$ can substitute all the five features to get the same MSE and variance score performance with much less processing.
 
-	\section{Conclusion}\label{sec:conclusion}
+	\section{Conclusion}\label{ftml:sec:conclusion}
 	
 	In this paper we have presented a practical use case of a wireless force-torque feedback control system that could be deployed in a manufacturing assembly system such as a pick-and-place or assembly operation.  A 6-DOF force-torque sensor was connected to a robot controller tasked with moving a probe along a linear path until an opposing force exceeding 5 N was detected.  We demonstrated that the reliability of the wireless communication system directly impacts the repeatability performance of the physical system. We also demonstrated that the quality of the underlying wireless channel may be inferred by observing the position of the probe along a single spatial dimension and applying machine learning to predict the signal-to-interference ratio. As a result of our exploration of various machine learning algorithms on the prediction of signal quality, we found that ensemble-based algorithms have superior performance compared to other regression algorithms for data presented.  Additionally, our analysis shows that careful study of the MSE and variance score is useful in selection of features used for training the algorithms. We conclude for this particular force-torque control system scenario that the dwell time of the robot before descending was the most useful feature for training the algorithm. Our findings provide motivation for applying machine learning to larger more complex systems with higher degrees of freedom. We conclude by stating that future  experimentation with neural networks and deep learning to improve prediction accuracy could be of value to improving the reliability of wireless operations in factories. The applications of online machine learning techniques to this and other use cases could provide significant benefits to the manufacturing community through integration of link quality detection with programmable controllers.
 	
