@@ -1,0 +1,44 @@
+	\section{Related Work}\label{sec:related-work}
+	\textcolor{red}{YONGKANG TO REVISE BASED ON NEW DIRECTION}
+	Wireless standard bodies, such as the International Telecommunication Union Radiocommunication Sector (ITU-R) and 3GPP, have proposed their reference models to classify the data-centric architecture and functions in factory environments for the wireless system design which include the work-cell cases~\cite{ETSI, KPItable}. In these models, individual work-cells are treated as a subnetwork of field instruments attached with data aggregators that manage network connections and transfer data traffics to edge and cloud servers in various applications. In the respective massive machine-type communications (mMTC) and ultra-reliable and low latency communications (URLLC) scenarios, the 3GPP models data traffic flows and posts a select performance metrics as system criteria to categorize industrial use cases, such as transmission latency and link reliability~\cite{KPItable}. The NIST has defined a Network of Things (NoT) model that identifies the key system components, namely ``primitives'', as building blocks for the IoT, which can also mimic the structure of work-cells and model the behaviors of individual components in industrial IoT instances~\cite{NIST800-183}. However, current modeling efforts set the boundaries of their system models at the edge devices without further discussions on the impact of wireless performance in operations of particular industrial systems. As indicated by the earlier empirical study results~\cite{LIU2017412}, such physical systems may have different response to the network-side performance which varies with the environment settings such as the served application and control algorithms. 
+	
+	% Mohamed's part
+	Another approach for work-cell modelling is obtaining analytical models for performance analysis objectives. As an example, a mathematical model for real-time performance analysis of a gantry work-cell with robots is introduced in \cite{8098604,OU2017212}. The timing and the randomness of tasks and disruptions are captured in the introduced model in a generic mathematical approach. Similarly, the steady state analysis for production lines with uncertainties can be found in \cite{Colledani2013,doi:10.1080/00207543.2012.713137,doi:10.1080/00207540500385980}. The performance analysis modeling for serial production lines with disruption impacts is explored in \cite{QChang,Liu2012}. In this works, the disruptions which are abstracted may include wireless networks impacts but it is not treated distinguishably and hence wireless networks specific characteristics are not considered. 
+	
+	The reconfigurable work-cell architecture which is widely considered for automated manufacturing. The main advantage of te reconfigurable work-cells lies in the reconfiguration of its components and its adaptability to the production requirements. Typically, robots are installed therein to allow for autonomously configure their workspace \cite{8023523,10.1007/978-3-319-65151-4_10,6059204}. The development of reconfigurable robotic systems has been documented in \cite{Fulea}. The optimization of the assembly configuration for specific task is described in \cite{CHEN2001199}. Several other robotic work-cell architectures are proposed such as \cite{OpenArch,CARPANZANO2007435}. The need for  information exchange between devices is elaborated in \cite{CARPANZANO2007435} without specifying the network characteristics or requirements. Wireless networks is the best candidate for reconfigurable work-cells to reduce cabling and allow for easier structure adaptability. However, in these architecture, the details of the deployed wireless networks are not specified and the interaction between the wireless devices and the work-cell components are not discussed.   
+	
+	
+	% Yongkang's part 
+	There are also ongoing modeling work on the subsystems of the work-cell which address their own research and implementation purposes. In a work-cell, the human workers work closely with the machine tools and robot co-workers in the production process.
+	% According to the United States Consortium for Automotive Research (USCAR) study in 2010-2011, three levels of human-machine collaboration are defined: low, medium, and high, based on the physical contact patterns and associated risks. 
+	To meet safety subsystem requirements, safety procedures are introduced as embedded and external features of the work-cell. The authors employ the vision system and various proximity sensors to label safety zones in an automotive assembly work-cell which come with particular safety protocols given the risk levels in individual production phases~\cite{safeeye}. Beside safety applications, it is also discussed about developing a task dispatch system that specifies the data flow of manufacturing information between modules in an automated work-cell. Following the blueprint of the production task, the workflow is divided into separate assignments and fulfilled by the machines distributed within the work-cell~\cite{IkeaBot}. There is some   prototype of human-robot collaboration work- cell~\cite{cobotcell}. The work-cell demo integrates many entities and functions to conduct a given task. Using such model, the authors employ the embedded cameras to capture human operator's gesture. They further extended the discussions to regenerate the operator’s gestures in simulators based on the captured position data~\cite{gesture}.   
+    
+    
+Robotics:
+J. Marvel's paper ``Implementing Speed and Spearation Monitoring in Collaborative Robot Workcells'' in Robot. 
+
+Comput. Intergr. Manuf.'', Apr. 2017.
+
+Joint states: (1) 1 us in applications of rotocis arms by AZO sensors
+		(2) 2 ms to 5 ms in CMU DD ARM II, the chosed samping rates for robot control, 1987.
+		(3) Real system rquriements as seen in docs.fetchrobotics.com/robot_hardware.html, 'Motion 
+
+Control Section', 200 Hz, 17.5 KHz
+
+In ROS setting, using 2 - 125 Hz
+
+Sensors:
+For proximity sensor, current photoelectronic sensor, delay of 20 ms, 
+
+Tactile: < 1 ms
+
+
+Navigation:
+Localization: 
+LIDA system using laser, 15 Hz
+
+Supervision: ERP, MES, or PLC level
+IO states: 10 ms in PLC, one tick of Beckhoff PLC is 1 ms
+
+If the command/control in supervision duplicated with the task states in Rototics?
+	

@@ -10,8 +10,8 @@
 %% to obtain the list of the packages that are already included. 
  
 \documentclass[english]{spimubphdthesis}
-%\documentclass{report}
- 
+%\documentclass{book}
+
 %%--------------------
 %% The TeX code is entering with UTF8
 %% character encoding (Linux and MacOS standards)
@@ -37,7 +37,7 @@
 %% personnal bibliography.
 %% We propose to use 'multibib' package to help you,
 %% for example.
-%\usepackage{multibib}
+\usepackage{multibib}
  
 %% Define a "type" of bibliography, here the PERSONAL one,
 %% that is supported by 'multibib'.
@@ -92,6 +92,7 @@
 \usepackage[subrefformat=parens,labelformat=parens]{subcaption}
 \usepackage{xcolor}
 \usepackage{adjustbox}
+\usepackage{slashbox}
 
 \usepackage{listings}
 \lstset{
@@ -317,42 +318,36 @@
 The author would like express his gratitude to his beautiful daughter, Erin, for all of her generous support, kindness, and care, and her countless hours as a child hooking up wires and doing inventory of computer peripherals in my laboratory.  I hope that she remembers fondly those weekends listening to her Avengers movies while running factory simulators and troubleshooting robots.
 
 Other acknowledgments: Mohammed, Yongkang, Karl
-
-
-
-
  
 %%--------------------
 %% Include a general table of contents
 \iftoggle{usingspim}{
 \tableofcontents
 
-
 %%--------------------
 %% The content of the PhD thesis
 \mainmatter
 }
  
-\part{Context and Problem Statement}
+%\part{Context and Problem Statement}
 
 \include{chapter-intro/chapter-intro}
 
-\part{Technical Contributions}
+%\part{Technical Contributions}
 
-\include{chapter-guidelines/chapter-guide}
+%\include{chapter-guidelines/chapter-guide}
 \include{chapter-reswk/chapter-reswk}
 \include{chapter-sysml/chapter-sysml}
 \include{chapter-gdb-appl/chapter-gdb-appl}
+\include{chapter-ftml/chapter-ftml}
+
+%\include{chapter-conclusions/chapter-conclusions}
 
 
-
-\chapter{Conclusions}
-
-paper on testbed construction; ground truth; data sources network and physical; data outputs; 
-
-paper on graph database approach for organization of data
-
-Discussion, Perspectives, restate findings
+%\chapter{Conclusions}
+%paper on testbed construction; ground truth; data sources network and physical; data outputs; 
+%paper on graph database approach for organization of data
+%Discussion, Perspectives, restate findings
 
 
 % Automatic Lettrine and Minitoc at the begining of the chapter.
@@ -442,9 +437,9 @@ Discussion, Perspectives, restate findings
 \bibliographystyle{phdthesisnum}
  
 %% Link the GENERAL bibliogaphy to a BibTeX file.
-%\bibliography{biblio.bib}
+\bibliography{bibliography}
 %\bibliographystyle{IEEEtran.bib}
- 
+
 %%--------------------
 %% List of figures and tables
 
@@ -476,3 +471,4 @@ Discussion, Perspectives, restate findings
 \chapter{Second chapitre des annexes}
  
 \end{document}
+

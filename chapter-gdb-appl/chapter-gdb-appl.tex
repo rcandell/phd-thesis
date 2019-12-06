@@ -137,7 +137,7 @@ As described in Section~\ref{gdbappl:sec::dbschema}, the database includes every
 
 \begin{figure}
     \centering
-   \includegraphics[width=0.49\textwidth]{./chapter-gdb-appl/figures/database/graph_M_T_2.png}
+   \includegraphics[width=0.95\textwidth]{./chapter-gdb-appl/figures/database/graph_M_T_2.png}
    \vspace{0.1in}
     \caption{ Visualization of a node graph resulting from a testbed experiment. }
     \label{gdbappl:fig::Sample-graph_1}
@@ -164,19 +164,19 @@ RETURN p,p1,p2,p3,p4,p5,p6,p7
 
 In Fig.~\ref{gdbappl:fig::Sample-graph_2}, the actor nodes are labeled by their names \textit{CNC-1} and \textit{Supervisor}, the transaction is labeled by its type \textit{ADS}, the messages are labeled by their transmission role \textit{Request} and \textit{Response}, the NtwkIDs are labeled by their IP addresses, the Ethernet adapters are labeled by their names \textit{eth0}, the wireless adapters are labeled by their names \textit{Moxa} and \textit{TP-Link}, the sniffer is labeled by its name \textit{WLS1}, and the QoS reports are labeled by the received signal strength indicator (RSSI) value in dBm. This visualization includes only the QoS reports generated within the duration of the corresponding transaction.   
 
-\begin{figure*}[!h]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.95\textwidth]{./chapter-gdb-appl/figures/database/graph_Single_trans.png}
     \caption{A detailed visualization resulting from a testbed experiment for all the nodes and relationships corresponding to a single transaction. }
     \label{gdbappl:fig::Sample-graph_2}
-\end{figure*}
+\end{figure}
 
 \subsection{Calculation of Metrics}
 
 \begin{figure}
 	\centering
 %	\includegraphics[width=\textwidth,trim=50 50 50 50, clip]{figures/database/arrows-schema.PNG}
-	\includegraphics[width=0.55\textwidth]{./chapter-gdb-appl/figures/database/scatter_1.eps}
+	\includegraphics[width=0.5\textwidth]{./chapter-gdb-appl/figures/database/scatter_1.eps}
 	\caption{Correlation between the message latency and the RSSI values by the sniffer.}
 	\label{gdbappl:fig::database:scatter}
 \end{figure}
@@ -204,4 +204,4 @@ Future progress and measurement data will be deposited in the NIST public domain
 
 
 % references section
-\bibliography{chapter-gdb-appl/gdb-appl}
+%\bibliography{chapter-gdb-appl/gdb-appl}
