@@ -1,0 +1,5 @@
+MATCH p=(a:Actor {name:'Supervisor'})-->(t:Transaction {timeStart:Ts})<--(b:Actor {name:"CNC-1"})
+WITH p, a, b, t
+MATCH p1=(a)-->(m:Message)<--(b), p2=(m)-->(t), p3=(a)-[:HAS]-(),p4=(a)<-[:COLOCATED_WITH]-()-[:PRODUCED]->(q:QoSReport), p5=(a)-[:CONNECTED_THROUGH]-(),p6=(b)-[:HAS]-(), p7=(b)-[:CONNECTED_THROUGH]-()
+WHERE q.time>t.timeStart AND q.time<t.timeStop
+RETURN p,p1,p2,p3,p4,p5,p6,p7

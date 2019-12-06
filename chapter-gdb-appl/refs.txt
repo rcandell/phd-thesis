@@ -1,0 +1,92 @@
+\bibitem{wirelessAutomation2017}
+	L. L. Bello, J. \AA{}kerberg, M. Gidlund and E. Uhlemann, ``Guest Editorial Special Section on New Perspectives on Wireless Communications in Automation: From Industrial Monitoring and Control to Cyber-Physical Systems,'' \textit{IEEE Trans. Ind. Informat.}, vol. 13, no. 3, pp. 1393-1397, June 2017.
+
+\bibitem{ieMag2018}
+	V. K. L. Huang, Z. Pang, C. J. A. Chen, and K. F. Tsang, ``New Trends in the Practical Deployment of Industrial Wireless: From Noncritical to Critical Use Cases,'' \textit{IEEE Ind. Electron. Mag.}, vol. 12, no. 2, pp. 50--58, 2018.
+
+\bibitem{Industry40}
+	H. Kagermann, W. Wahlster, and J. Helbig, ``Recommendations for Implementing the Strategic Initiative Industrie 4.0'', Industrie 4.0 Working Group, 2013.
+
+\bibitem{SmartManuf}
+	A.~B. Feeney, S. Frechette and V. Srinivasan, ``Cyber-Physical Systems Engineering for Manufacturing'', in \textit{Industrial Internet of Things - Cybermanufacturing Systems}, S. Jeschke et al., Eds. Springer Nature, 2017, pp. 81--110.
+
+\bibitem{demo2017}
+J. Ansari et al., ``Demo: a realistic use-case for wireless industrial automation and control,'' in \textit{Proc. NetSys 2017}, Gottingen, 2017, pp. 1-2.
+
+\bibitem{wfcs18dimensioning}
+	Y. Liu, R. Candell, M. Kashef, and L. Benmohamed, ``Dimensioning Wireless Use Cases in Industrial Internet of Things,'' in \textsl{Proc. IEEE WFCS'18}, Imperia, Italy, Jun. 2018.
+
+
+
+	\bibitem{HLAOPP08}
+	E. Galli, G. Cavarretta and S. Tucci, ``HLA-OMNET++: an HLA compliant network simulation,'' in \emph{Proc. DS-RT'08}, pp. 319-321, 2008.
+
+
+
+	\bibitem{FMI2014}
+	H. Neema, et. al. ``Model-Based Integration Platform for FMI Co-Simulation and Heterogeneous Simulations of Cyber-Physical Systems,'' in  \emph{Proc. 10th International Modelica Conference}, 2014.
+
+\bibitem{cosim}
+	{Y. Liu}, R. Candell, K. Lee, and N. Moayeri, ``A Simulation Framework for Industrial Wireless Networks and Process Control Systems,'' in \textsl{Proc. IEEE WFCS'16}, Aveiro, Portugal, May 2016.	
+
+	\bibitem{wfcs18UMD}
+	J. Geng et al., ``Model-based cosimulation for industrial wireless networks,'' in \textit{Proc. WFCS 2018}, Imperia, 2018, pp. 1-10.
+
+	\bibitem{HILsim2018}
+	J. K\"{o}lsch, C. Heinz, S. Schumb and C. Grimm, ``Hardware-in-the-loop simulation for Internet of Things scenarios,'' in \textit{Proc. Workshop MSCPES 2018}, Porto, 2018, pp. 1-6.
+
+	\bibitem{testbed2015}
+	R. Candell, T.A. Zimmerman, and K.A. Stouffer, ``An Industrial Control System Cybersecurity Performance Testbed'', NISTIR 8089, Dec. 2015.
+	
+	\bibitem{Beckhoff2020}
+Beckhoff, ``CX2020 Basic CPU Module'', 2018. [online]. Available: https://www.beckhoff.com/english.asp?embedded\_pc/cx2020.htm. [Accessed January 6, 2019].
+
+\bibitem{Beckhoff9020}
+Beckhoff, ``CX9020 Basic CPU Module'', 2018. [online]. Available: https://www.beckhoff.com/english.asp?embedded\_pc/cx9020.htm. [Accessed January 6, 2019].
+
+\bibitem{UR3}
+Universal Robots, ``Universal Robot UR3'', 2018. [online]. Available: https://www.universal-robots.com/products/ur3-robot/. [Accessed January 6, 2019].
+
+\bibitem{gripper}
+Robotiq, ``2F-85 and 2F-140 Grippers'', 2019. [online]. Available: https://robotiq.com/products/2f85-140-adaptive-robot-gripper. [Accessed on January 10, 2019]. 
+
+\bibitem{onRobotFT}
+ OnRobot, ``6 axis Force Torque Sensor'', 2018. [online]. Available: https://onrobot.com/products/hex-force-torque-sensors/. [Accessed January 6, 2019].
+
+\bibitem{BeckhoffADS} Beckhoff, ``ADS Introduction'', Beckhoff Information System, 2018. [online]. Available: https://infosys.beckhoff.com/. [Accessed January 6, 2019].
+	
+
+	
+\bibitem{mitQQModel2005}
+I.~C. Schick, S.~B. Gershwin, and J. Kim, ``Quality/Quantity Modeling and Analysis of Production Lines Subject to Uncertainty, Phase I, Final Report'', May 2005. [online]. Available: http://cell1.mit.edu/papers/GM\_PhaseI\_FinalReport-2005.pdf
+
+\bibitem{mitQQModel2005J}
+J. Kim and S.~B. Gershwin, ``Integrated quality and quantity modeling of a production line'', OR Spectrum, Vol 27, No. 2-3, pp. 287--314, June 2005. 
+
+
+\bibitem{ptpServer}
+Meinberg, ``LANTIME M900/PTP'', 2018. [online]. Available: https://www.meinbergglobal.com/english/products/modular-3u-ieee-1588-grandmaster-clock.htm. [Accessed January 6, 2019].
+
+
+\bibitem{measureMetrics}
+R. Candell, K. A. Stouffer, and D. Anand, ``A Cybersecurity Testbed for Industrial Control Systems'', in \textit{Proc. PCS 2014}, Houston, TX, Oct. 2014.
+
+\bibitem{TN1951}
+	R. Candell et al., ``Industrial Wireless Systems Radio Propagation Measurements'', NIST Technical Note 1951, 2017.
+
+
+\bibitem{projectURL}
+NIST, ``Wireless Systems for Industrial Environments'', 2019. [online]. Available:
+https://www.nist.gov/programs-projects/wireless-systems-industrial-environments [Accessed on January 7, 2019].
+
+
+\bibitem{etsi103588}
+(ETSI), “ETSI TR 103 588 Reconfigurable Radio Systems (RRS); Feasibility study on temporary spectrum access for local high-quality wireless networks,” European Telecommunications Standards Institute, Sophia Antipolis, 2018.
+
+\bibitem{nistTestbed2019}
+Y. Liu, R. Candell, M. T. Hany, K. R. Montgomery, "A Collaborative Work Cell Testbed for Industrial Wireless Communications - The Baseline Design" International Symposium on Industrial Electronics, International Symposium on Industrial Electronics, Vancouver, Canada, 06/12/2019 to 06/14/2019 , 7 pp., (14-Jun-2019).
+
+
+%\bibitem{CPSchallenge}
+%E. Lee, ``Cyber physical systems: Design challenges,'' in \emph{Proceedings of IEEE ISORC'08}, pp. 363--369, 2008.
+

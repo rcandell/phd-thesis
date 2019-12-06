@@ -1,0 +1,2 @@
+MATCH p=(a:Actor {name:'Supervisor'})--(t:Transaction)--(b:Actor) ,p2=(m:Message)-->(t) WHERE t.timeStart>T AND t.timeStop<T+1
+RETURN p,p2

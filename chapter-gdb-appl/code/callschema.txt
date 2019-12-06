@@ -1,0 +1,1 @@
+call db.schema.visualization()
