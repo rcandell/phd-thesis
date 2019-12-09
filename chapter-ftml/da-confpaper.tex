@@ -1,5 +1,7 @@
 \section{Data Analysis - Initial}\label{ftml-conf:sec:dataanalysis}
 
+\subsection{Data Analysis}\label{ftml-conf:sec:dataanalysis}
+
 %	\begin{figure}[tbp]
 %	    \centering
 %	    \includegraphics[width=0.65\columnwidth]{diagrams/DataFlow-verticle}
@@ -60,24 +62,24 @@ Feature extraction begins with a time series of position of the probe through su
 \end{description}
 
 
-\subsection{Statistical Analysis}\label{ftml-conf:sec:data:stats}
+\subsubsection{Statistical Analysis}\label{ftml-conf:sec:data:stats}
 Each factor was visually examined to assess its variability as a function of the SIR.  In order to predict the SIR given a set of measurements of the dynamics of the physical system, sufficient variability is needed.  This assessment was performed visually using histograms as a basis for comparison.  The factors $Z_{d}$ and $\Delta{t}_{bc}$ were used for examination of the data using histograms.  
 
 In addition, it would be helpful to show that the factors are uncorrelated as a function of SIR demonstrating a further level of confidence that each factor will be useful to a machine learning algorithm.  This assessment was accomplished by computing the correlation coefficient matrix of the extracted factors as defined by the Pearson product-moment method~\cite{Yeager}.  The correlation coefficient matrix is a covariance matrix that is normalized by the product of the standard deviations of two factors being compared according to $\rho_{X,Y} = cov(X,Y)/(\sigma_{X}\sigma_{Y})$.	Since each factor correlates exactly with itself, a correlation matrix should have values of 1 along the diagonal.  Other elements of the matrix will take on values between -1 and 1.  A visual inspection of the coefficient matrices will show how strongly selected factors vary together.  Correlation can be viewed as a function of SIR to verify that factors are independently applicable to a learning algorithm.  The objective of factor selection is, therefore, to choose factors that are highly uncorrelated and yet still vary appreciably\cite{LeeRodgers1988}.
 
-\subsection{Machine Learning}\label{ftml-conf:sec:data:ML}
+\subsubsection{Machine Learning}\label{ftml-conf:sec:data:ML}
 In order to learn the SIR level from observing the various features, we leverage the random forest model \cite{RF}. Random forest is an ensemble of decision trees with random feature selection which can be used for classification or regression based on the predicted output space. Deploying random forest in machine learning has been successful in various applications such as \cite{RF_1,RF_2,RF_3}. Its main advantages are that it is stable, fast to compute, and insusceptible to over-fitting.
 
 In this work, we deploy the random forest model for SIR regression using the five features defined in \ref{sec:data:feats}. These features are evaluated for each iteration of the probe movement. We define a data segment which is composed of a number of successive iterations and we denote the segment size by $M$. As a result, we use the random forest regression model to get an input vector of size $5M$ and regression output of the corresponding SIR value. The random forest is selected because it is computationally efficient with high-dimensional data and it is robust for outliers and data non-linearity. 
 
 We start by training the random forest regression model by taking a fixed number of segments for each SIR labelled data. We denote the size of the training set for each SIR level by $T$. The rest of the measurements are used for testing. In general, the proposed machine learning approach will deploy a sliding window approach of size $M$ to collect the features of the force-seeking use case to estimate the current level of SIR at various nodes of the wireless network. 
 
-\section{Results} \label{ftml-conf:sec:results}  
+\subsection{Results} \label{ftml-conf:sec:results}  
 
 The results in this section are  presented from an experimental run in which the jammer \textbf{J} interferes with the router, \textbf{R}, while communication is conducted using a mixed mode of IEEE 802.11 b and g~\cite{IEEE802.11ac}.  Analyses using histograms and covariance are presented in Section~\ref{sec:results:stats} followed by results of the machine learning application in Section~\ref{sec:results-ML}.
 
-\subsection{Statistical Analysis}\label{ftml-conf:sec:results:stats}
-\subsubsection{Analysis of Factors Using Histograms}
+\subsubsection{Statistical Analysis}\label{ftml-conf:sec:results:stats}
+\paragraph{Analysis of Factors Using Histograms}
 
 %\begin{figure}[tbp]
 % \centering
@@ -114,7 +116,7 @@ The results in this section are  presented from an experimental run in which the
 
 The results of the histogram analyses for the z-axis position of the probe and the probe descent delay are shown in Fig.~\ref{fig:results-zpos-hist} and Fig.~\ref{fig:results-dtbc-hist}, respectively.  The expectation of the histogram analysis was that $Z_d$ and the $\Delta{T}_{bc}$ would exhibit appreciable variation that may be observed through a visual inspection.  This was indeed the case.  Referring to Fig.~\ref{fig:results-zpos-hist}, a visual inspection reveals that the minimum z-axis position for each iteration skews to lower positions for lower SIR values and higher positions for higher SIR values.  This implies that the controller algorithm responds faster to force sensor readings at higher SIR values than lower values.  Similarly, by observing the plunge delay, $\Delta{t}_{bc}$, the controller takes more time to respond at lower SIR values than at higher values.  This behavior is exemplified by the probability skew shown in the histograms. 
 
-\subsubsection{Factor Correlation Coefficient Analysis}
+\paragraph{Factor Correlation Coefficient Analysis}
 
 \begin{table}[!ht]
 
@@ -139,7 +141,7 @@ The results of the histogram analyses for the z-axis position of the probe and t
 
 Correlation coefficients were calculated for each of the five factors defined in Section~\ref{sec:data:feats} and correlation coefficients matrices were produced for each of the SIR values used.  The correlation coefficient matrices for SIR values of -9, -8, and -7 are shown in Tables~\ref{tab:m9corrcoeff}-\ref{tab:m7corrcoeff}, respectively. Inspection of the correlation coefficient tables indicate that the factors are mostly uncorrelated across SIR values except for the clear correlation between plunge delay and plunge depth. Low correlation values demonstrate a necessary but not sufficient condition for the independent applicability factors to machine learning.  If desired, either $\Delta{t}_{bc}$ or $Z_d$ could be omitted as they are strongly correlated and therefore provide redundant information.
 
-\subsection{Machine Learning Results}\label{ftml-conf:sec:results-ML}
+\subsubsection{Machine Learning Results}\label{ftml-conf:sec:results-ML}
 We deploy the proposed machine learning approach to three values of the SIR, -9, -8, and -7 dB. We start by showing the output of the random forest regression model for two values of the segment size $M$. We set the training set size $T=200$ for each SIR value. We use the random forest model with a number of estimators of 500 and a tree depth of 5. In Fig.~\ref{fig:results-BP}, we present the box plots of the predicted SIRs against the correct value of the corresponding SIR for $M=100$ and $M=1$.  Generally, increasing the value of $M$ increases the acquisition time for the input data for the random forest model while enhancing the performance of the algorithm. By setting $M=1$, we notice that the predicted values of SIR are widely spread around the median and a large number of outliers exists. However, by increasing $M$, we have much less variations in the predicted SIRs and a smaller number of outliers.
 
 
@@ -176,11 +178,11 @@ In Fig.~\ref{fig:prediction-error}, we present the two criteria for measuring th
 
 \begin{figure}[tbp]
  \centering
- \includegraphics[width=0.95\columnwidth]{./chapter-ftml/plots/prediction-error}
+ \includegraphics[width=0.75\columnwidth]{./chapter-ftml/plots/prediction-error}
  \caption{The performance of the random forest regression model against $M$.}
  \label{ftml-conf:fig:prediction-error}
 \end{figure}
 
-\section{Conclusion}\label{ftml-conf:sec:conclusion}
+\subsection{Conclusion}\label{ftml-conf:sec:conclusion}
 
 In this paper we have presented a practical use case of a wireless force-torque feedback control system that could be deployed in a manufacturing assembly system such as a pick-and-place or assembly operation.  A 6-DOF force sensor was connected to a robot controller tasked with moving a probe along a linear path until an opposing force exceeding 5 N was detected.  We demonstrated that the reliability of the wireless communication system directly impacts the repeatability performance of the physical system. We also demonstrated that the quality of the underlying wireless channel may be inferred by observing the position of the probe along a single spatial dimension and applying machine learning to predict the signal-to-interference ratio. Our findings provide motivation for applying machine learning to larger more complex systems with high degrees of freedom. Future work will extend to the inclusion of more descriptive factors, the addition of network information such as the wireless protocol mode, and the addition of a larger number of variables tracked by many remote observers. Experimentation with neural networks and deep learning to improve prediction accuracy and better generalization will be of great values to wireless operations in factories.  Finally, the applications of online machine learning techniques to this and other use cases could provide significant benefits to the manufacturing community.

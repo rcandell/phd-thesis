@@ -24,7 +24,7 @@ Due to its advantages including scalability, efficiency, and flexibility, NoSQL 
 In this section, we present a two-robot machine tending workcell case study.  We first present the design of the workcell followed by an elaboration of the database design called a schema.  The information work-flow, i.e., the process for collecting, processing, and analyzing the network event data is presented.  We then provide examples of the resulting graph and results of targeted queries that demonstrate the purpose of the database. 
 \subsection{Workcell Design}
 
-\begin{figure}
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{./chapter-gdb-appl/figures/cellShot}
 	\caption{Collaborative work cell testbed}
@@ -37,13 +37,13 @@ Work-orders for the workcell are submitted through the supervisor. Each work-ord
 
 \subsection{Database Schema}\label{gdbappl:sec::dbschema}
 
-\begin{figure*}
+\begin{figure}[!ht]
 	\centering
 %	\includegraphics[width=\textwidth,trim=50 50 50 50, clip]{figures/database/arrows-schema.PNG}
 	\includegraphics[width=\textwidth]{./chapter-gdb-appl/figures/database/graph_schema_0816.eps}
 	\caption{The intended schema (i.e., pseudo-schema) of the graph database used for each operational run of the NIST wireless factory testbed.  The graph is organized into nodes and edges, where the edges signify relationships among network elements and physical operational elements.}
 	\label{gdbappl:fig::database:schema}
-\end{figure*}
+\end{figure}
 
 GDBs are NoSQL databases such that the database does not contain any predefined structure or rules to enforce such structure.  This is a major difference between relational databases and GDBs.  Nevertheless, it was necessary to sketch a pseudo-schema to capture the intended nodes and relationships that would be stored within the database (the terms pseudo-schema and schema will be used interchangeably). Before describing the schema itself, it is necessary to first explain the requirements of the schema.  Therefore, the requirements for our schema are as follows:
 
@@ -107,9 +107,9 @@ Finally, each actor in the graph may associate with physical actions.  These act
 
 \subsection{Information Workflow}
 
-\begin{figure*}[h!]
+\begin{figure*}[!ht]
     \centering
-    \includegraphics[width=\textwidth]{./chapter-gdb-appl/figures/database/work-flow.pdf}
+    \includegraphics[width=0.95\textwidth]{./chapter-gdb-appl/figures/database/work-flow.pdf}
     \caption{Data processing flow from factory workcell to database}
     \label{gdbappl:fig::work-flow}
 \end{figure*}
@@ -126,7 +126,7 @@ call db.schema.visualization()
 \end{lstlisting} 
 in Neo4j. It is important to note that a realized schema shows only one representation of each node and relationship whereas the intended pseudo-schema shown in Fig.~\ref{gdbappl:fig::database:schema} was developed to exemplify the relationships between types of nodes, labels, and relationships. Where label inheritance is employed, such as the case for different adapter types, relationships are reproduced; however, this is a result of the visualization tool rather than the schema itself.  Fig.~\ref{gdbappl:fig::real-schema} serves, therefore, to validate that the intended schema was indeed realized by the insertion of event data from the testbed. In the realized schema, inherited labels are shown as separate nodes.
 
-\begin{figure}
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.99\columnwidth]{./chapter-gdb-appl/figures/database/graph_schema.png}
     \caption{Realized schema of the graph database fully populated after capturing network and operational data from the NIST industrial wireless testbed. }
@@ -135,7 +135,7 @@ in Neo4j. It is important to note that a realized schema shows only one represen
 
 As described in Section~\ref{gdbappl:sec::dbschema}, the database includes every network transaction that occurs during the operation of the testbed.  This includes any logical transaction nodes inserted into the database and any associated packets that happened to traverse the network.  Therefore, for a short duration of time depending on packet transmission rates, the amount of data stored in the database can grow quickly. This presents a visualization challenge that graphs are designed to handle. A sample graph is shown in Fig.~\ref{gdbappl:fig::Sample-graph_1}, which represents only 1 second of wired and wireless network data captured from the NIST two-robot pick-and-place wireless testbed described in~\cite{Liu2019vancouver}. 
 
-\begin{figure}
+\begin{figure}[!ht]
     \centering
    \includegraphics[width=0.95\textwidth]{./chapter-gdb-appl/figures/database/graph_M_T_2.png}
    \vspace{0.1in}
@@ -164,7 +164,7 @@ RETURN p,p1,p2,p3,p4,p5,p6,p7
 
 In Fig.~\ref{gdbappl:fig::Sample-graph_2}, the actor nodes are labeled by their names \textit{CNC-1} and \textit{Supervisor}, the transaction is labeled by its type \textit{ADS}, the messages are labeled by their transmission role \textit{Request} and \textit{Response}, the NtwkIDs are labeled by their IP addresses, the Ethernet adapters are labeled by their names \textit{eth0}, the wireless adapters are labeled by their names \textit{Moxa} and \textit{TP-Link}, the sniffer is labeled by its name \textit{WLS1}, and the QoS reports are labeled by the received signal strength indicator (RSSI) value in dBm. This visualization includes only the QoS reports generated within the duration of the corresponding transaction.   
 
-\begin{figure}
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.95\textwidth]{./chapter-gdb-appl/figures/database/graph_Single_trans.png}
     \caption{A detailed visualization resulting from a testbed experiment for all the nodes and relationships corresponding to a single transaction. }
@@ -173,7 +173,7 @@ In Fig.~\ref{gdbappl:fig::Sample-graph_2}, the actor nodes are labeled by their 
 
 \subsection{Calculation of Metrics}
 
-\begin{figure}
+\begin{figure}[!ht]
 	\centering
 %	\includegraphics[width=\textwidth,trim=50 50 50 50, clip]{figures/database/arrows-schema.PNG}
 	\includegraphics[width=0.5\textwidth]{./chapter-gdb-appl/figures/database/scatter_1.eps}
