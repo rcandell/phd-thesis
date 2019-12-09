@@ -89,10 +89,12 @@
 \usepackage{rotating}
 \usepackage{multirow}
 \usepackage{wasysym}
-\usepackage[subrefformat=parens,labelformat=parens]{subcaption}
 \usepackage{xcolor}
 \usepackage{adjustbox}
 \usepackage{slashbox}
+
+%\usepackage{subfigure}
+\usepackage[subrefformat=parens,labelformat=parens]{subcaption}
 
 \usepackage{listings}
 \lstset{
@@ -113,20 +115,16 @@
 \toggletrue{usingspim}
 %\togglefalse{usingspim}
 
-\iftoggle{usingspim}
-{
-	% nothing
-}
-{
-	%paragraph indentation
-	\setlength{\parindent}{4em} 
-	
-	%paragraph spacing
-	\setlength{\parskip}{1em}
-	
-	%Line spacing
-	\renewcommand{\baselinestretch}{1.6}
-}
+
+%paragraph indentation
+\setlength{\parindent}{4em} 
+
+%paragraph spacing
+\setlength{\parskip}{1em}
+
+%Line spacing
+\renewcommand{\baselinestretch}{1.6}
+
  
 %%--------------------
 %% Set the title, subtitle, defense date, and
@@ -144,9 +142,8 @@
  
 %%--------------------
 %% Set the author of the PhD thesis
-\iftoggle{usingspim}{
 \addauthor[rick.candell@gmail.com]{Richard}{Candell}
-}
+
 
  
 %%--------------------
@@ -179,32 +176,24 @@
  
 %%--------------------
 %% Set the English abstract
-\iftoggle{usingspim}{
-\thesisabstract[english]{Lorem ipsum dolor sit amet, saepe quodsi dolores an usu. An sed fugit dissentiunt, ex tota soleat duo. Omnes deserunt adversarium qui ad, periculis pertinacia has id. Ea tibique antiopam eos. Usu illud cetero voluptatum ne, ea odio soluta labores sit.	Pri modus eruditi definiebas an. Dicat latine inermis no quo, eos tollit delicata interesset cu. Placerat vituperatoribus pro ne, cu verear tritani deterruisset usu. Quaeque recusabo maluisset te pri, mutat maiorum accusamus at his.	Pro ad nihil deleniti senserit, mundi feugiat indoctum an sea. In consulatu efficiendi qui, eu duo dicta deserunt definitiones, te atqui sapientem adolescens sit. Id pro consulatu splendide evertitur, vis eu perpetua molestiae, an melius virtute efficiantur vis. Animal aeterno mei ei.	Lucilius suavitate euripidis vis id, cu dicam ridens forensibus vis. In incorrupte adversarium pri, ut velit singulis nec, nisl facer dissentias ex duo. Id est nulla periculis, epicuri percipit cu eum. Praesent temporibus mediocritatem ex cum, his quot nonumy iriure ut, qui natum aliquip id. Interesset quaerendum repudiandae cum ea. Mazim perpetua deterruisset ne mei, cum esse novum minimum ea.}
-}
+\thesisabstract[english]{\input{./abstract}}
 
  
 %%--------------------
 %% Set the English keywords. They only appear if
 %% there is an English abstract
-\iftoggle{usingspim}{
 \thesiskeywords[english]{industrial wireless, factory communications, networked control, manufacturing}
-}
 
  
 %%--------------------
 %% Set the French abstract
-\iftoggle{usingspim}{
 %\thesisabstract[french]{Lorem ipsum dolor sit amet, saepe quodsi dolores an usu. An sed fugit dissentiunt, ex tota soleat duo. Omnes deserunt adversarium qui ad, periculis pertinacia has id. Ea tibique antiopam eos. Usu illud cetero voluptatum ne, ea odio soluta labores sit.	Pri modus eruditi definiebas an. Dicat latine inermis no quo, eos tollit delicata interesset cu. Placerat vituperatoribus pro ne, cu verear tritani deterruisset usu. Quaeque recusabo maluisset te pri, mutat maiorum accusamus at his.	Pro ad nihil deleniti senserit, mundi feugiat indoctum an sea. In consulatu efficiendi qui, eu duo dicta deserunt definitiones, te atqui sapientem adolescens sit. Id pro consulatu splendide evertitur, vis eu perpetua molestiae, an melius virtute efficiantur vis. Animal aeterno mei ei.	Lucilius suavitate euripidis vis id, cu dicam ridens forensibus vis. In incorrupte adversarium pri, ut velit singulis nec, nisl facer dissentias ex duo. Id est nulla periculis, epicuri percipit cu eum. Praesent temporibus mediocritatem ex cum, his quot nonumy iriure ut, qui natum aliquip id. Interesset quaerendum repudiandae cum ea. Mazim perpetua deterruisset ne mei, cum esse novum minimum ea.}
-}
 
  
 %%--------------------
 %% Set the French keywords. They only appear if
 %% there is an French abstract
-\iftoggle{usingspim}{
 %\thesiskeywords[french]{Mot-cl\'e 1, Mot-cl\'e 2}
-}
 
  
 %%--------------------
@@ -233,29 +222,21 @@
  
 %%--------------------
 %% Change the speciality of the PhD thesis
-\iftoggle{usingspim}{
 \Set{speciality}{Informatique}
-}
  
 %%--------------------
 %% Change the institution
-\iftoggle{usingspim}{
 \Set{universityname}{Universit\'e de Bourgogne}
-}
  
 
 %%--------------------
 %% Clear the list of the laboratories
-\iftoggle{usingspim}{
 \resetlaboratories
-}
 
 %%--------------------
 %% Add the laboratory where the thesis was made
 %\addlaboratory{Laboratoire Waynes Industry}
-\iftoggle{usingspim}{
 \addlaboratory{Laboratoire \'Electronique, Informatique et Image}
-}
 
 
 %%--------------------
@@ -290,11 +271,7 @@
  
 %%--------------------
 % Declare several theorems
-\iftoggle{usingspim}{
 \declareupmtheorem{mytheorem}{My Theorem}{List of my Theorems}
-}
-{
-}
 
 %%--------------------
 %% Change the message on the backcover.
@@ -307,35 +284,37 @@
 %%--------------------
 %% The following line does nothing until
 %% the class option 'nofrontmatter' is given.
-%\frontmatter
+\frontmatter
 
 %%--------------------
 %% The following line permits to add a chapter for "acknowledgements"
 %% at the beginning of the document. This chapter has not a chapter
 %% number (using the "star-ed" version of \chapter) to prevent it to
 %% be in the table of contents
-\chapter*{Acknowledgments}
-The author would like express his gratitude to his beautiful daughter, Erin, for all of her generous support, kindness, and care, and her countless hours as a child hooking up wires and doing inventory of computer peripherals in my laboratory.  I hope that she remembers fondly those weekends listening to her Avengers movies while running factory simulators and troubleshooting robots.
+\include{dedication}
 
-Other acknowledgments: Mohammed, Yongkang, Karl
- 
+%%--------------------
+%% The following line permits to add a chapter for "acknowledgements"
+%% at the beginning of the document. This chapter has not a chapter
+%% number (using the "star-ed" version of \chapter) to prevent it to
+%% be in the table of contents
+\include{acknowledgements}
+	
 %%--------------------
 %% Include a general table of contents
-\iftoggle{usingspim}{
 \tableofcontents
 
 %%--------------------
 %% The content of the PhD thesis
 \mainmatter
-}
  
 %\part{Context and Problem Statement}
 
-\include{chapter-intro/chapter-intro}
+%\include{blank}
+\include{chapter-intro/intro}
 
 %\part{Technical Contributions}
 
-%\include{chapter-guidelines/chapter-guide}
 \include{chapter-reswk/chapter-reswk}
 \include{chapter-sysml/chapter-sysml}
 \include{chapter-gdb-appl/chapter-gdb-appl}
@@ -395,9 +374,7 @@ Other acknowledgments: Mohammed, Yongkang, Karl
  
 %%--------------------
 %% Start the end of the thesis
-\iftoggle{usingspim}{
 \backmatter
-}
  
 %%--------------------
 %% Bibliography
@@ -443,8 +420,6 @@ Other acknowledgments: Mohammed, Yongkang, Karl
 
 %%--------------------
 %% List of figures and tables
-
-\iftoggle{usingspim}{
  
 %% Include a chapter with a list of all the figures.
 %% In French typograhic standard, this list must be at
@@ -460,7 +435,6 @@ Other acknowledgments: Mohammed, Yongkang, Karl
 %% Include a list of definitions
 \listofdefinitions
 
-}
 
 %%--------------------
 %% Appendixes
