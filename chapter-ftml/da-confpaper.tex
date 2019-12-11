@@ -1,4 +1,6 @@
-\section{Data Analysis - Initial}\label{ftml-conf:sec:dataanalysis}
+\section{Initial Investigations}
+
+The contents of this section explain the approach, methodology, and results of the initial investigations using machine learning to infer the signal-to-interference of a single radio link using situational awareness information from a camera system as published in~\cite{CandellISIE2019} with data made available~\cite{https://doi.org/10.18434/m32077}.
 
 \subsection{Data Analysis}\label{ftml-conf:sec:dataanalysis}
 
@@ -6,24 +8,24 @@
 %	    \centering
 %	    \includegraphics[width=0.65\columnwidth]{diagrams/DataFlow-verticle}
 %	    \caption{Data analytics includes raw data capture from a vision system, feature extraction, training, and  operation.}
-%	    \label{fig:dataflow}
+%	    \label{ftml-conf:fig:dataflow}
 %	\end{figure}
 
 The data analysis process for the experiment
-%was conducted according to the diagram in Fig.~\ref{fig:dataflow} and 
-is divided into four parts: raw data collection, data cleaning and feature extraction, training, and the operation of the SIR estimation.  The raw data was produced as an output of the VTS as a time series of z-axis position.  Feature extraction was conducted in MATLAB by following the time series and extracting or calculating features for each iteration.  Once features were extracted, a statistical analysis of the features was conducted to determine the variability of the features as a function of SIR.  Statistical analyses included visual inspection of histograms of each factor and an inspection of the correlation coefficients over the range  of SIRs.  A discussion of the statistical results is provided in~\ref{sec:results:stats} which demonstrates suitability of the use of position measurements for machine learning. Training of a machine learning algorithm followed. The machine learning algorithm was programmed in Python using the Sci-kit Learn library~\cite{SCIKITLEARN}.
+%was conducted according to the diagram in Fig.~\ref{ftml-conf:fig:dataflow} and 
+is divided into four parts: raw data collection, data cleaning and feature extraction, training, and the operation of the SIR estimation.  The raw data was produced as an output of the VTS as a time series of z-axis position.  Feature extraction was conducted in MATLAB by following the time series and extracting or calculating features for each iteration.  Once features were extracted, a statistical analysis of the features was conducted to determine the variability of the features as a function of SIR.  Statistical analyses included visual inspection of histograms of each factor and an inspection of the correlation coefficients over the range  of SIRs.  A discussion of the statistical results is provided in~\ref{ftml-conf:sec:results:stats} which demonstrates suitability of the use of position measurements for machine learning. Training of a machine learning algorithm followed. The machine learning algorithm was programmed in Python using the Sci-kit Learn library~\cite{SCIKITLEARN}.
 
 \subsection{Feature Extraction}\label{ftml-conf:sec:data:feats}
 
 %\begin{figure}[tbp]
 % \centering
-%	\subfloat[sample time series of probe position\label{fig:timeseries-zplot}]{%
+%	\subfloat[sample time series of probe position\label{ftml-conf:fig:timeseries-zplot}]{%
 %		\includegraphics[width=0.8\columnwidth]{plots/timeseries-zplot}}
 %	\hfill
-%	\subfloat[feature extraction model\label{fig:timeseriesfeatures}]{%
+%	\subfloat[feature extraction model\label{ftml-conf:fig:timeseriesfeatures}]{%
 %		\includegraphics[width=0.9\columnwidth]{diagrams/timeseries.png}}
-%	\caption{A time-series sample~\subref{fig:timeseries-zplot} of a single iteration of the measured z-axis probe position and~\subref{fig:timeseriesfeatures} the corresponding model for feature extraction.}
-%	\label{fig:timeseries-and-model}      
+%	\caption{A time-series sample~\subref{ftml-conf:fig:timeseries-zplot} of a single iteration of the measured z-axis probe position and~\subref{ftml-conf:fig:timeseriesfeatures} the corresponding model for feature extraction.}
+%	\label{ftml-conf:fig:timeseries-and-model}      
 %\end{figure}	
 
 \begin{figure}[!ht]
@@ -51,7 +53,7 @@ is divided into four parts: raw data collection, data cleaning and feature extra
 	
 \end{figure}
 
-Feature extraction begins with a time series of position of the probe through successive iterations of the plunger applying force to the spring and then returning to its home position.  A sample time series of the z-axis position of the probe is as shown in~Fig.~\ref{fig:timeseries-zplot}.  Rather than using the time series directly, a more convenient and practical solution is to extract features that represent aspects that may be useful for analysis and machine learning algorithms.  This reduces the number of learning dimensions and usually improves computation efficiency.  The selected features are illustrated in~Fig.~\ref{fig:timeseriesfeatures}.   Shown in the model, the probe begins at its home position, \textbf{a}.  It will not begin its downward motion until it receives sufficient FTS readings.  Marker \textbf{b} indicates the beginning of the probes descent.  Marker \textbf{c} represents that point in which the probe descends below a predetermined threshold, and marker \textbf{d} represents the position in which the probe begins its return ascent to the home position.  Finally the probe returns to the home position as indicated by marker \textbf{e}.  Therefore, the extracted features of each successive iteration is defined as follows:
+Feature extraction begins with a time series of position of the probe through successive iterations of the plunger applying force to the spring and then returning to its home position.  A sample time series of the z-axis position of the probe is as shown in~Fig.~\ref{ftml-conf:fig:timeseries-zplot}.  Rather than using the time series directly, a more convenient and practical solution is to extract features that represent aspects that may be useful for analysis and machine learning algorithms.  This reduces the number of learning dimensions and usually improves computation efficiency.  The selected features are illustrated in~Fig.~\ref{ftml-conf:fig:timeseriesfeatures}.   Shown in the model, the probe begins at its home position, \textbf{a}.  It will not begin its downward motion until it receives sufficient FTS readings.  Marker \textbf{b} indicates the beginning of the probes descent.  Marker \textbf{c} represents that point in which the probe descends below a predetermined threshold, and marker \textbf{d} represents the position in which the probe begins its return ascent to the home position.  Finally the probe returns to the home position as indicated by marker \textbf{e}.  Therefore, the extracted features of each successive iteration is defined as follows:
 
 \begin{description}
     \item[Feature $Z_d$] The length of the probe's descent measured in millimeters,
@@ -70,51 +72,51 @@ In addition, it would be helpful to show that the factors are uncorrelated as a 
 \subsubsection{Machine Learning}\label{ftml-conf:sec:data:ML}
 In order to learn the SIR level from observing the various features, we leverage the random forest model \cite{RF}. Random forest is an ensemble of decision trees with random feature selection which can be used for classification or regression based on the predicted output space. Deploying random forest in machine learning has been successful in various applications such as \cite{RF_1,RF_2,RF_3}. Its main advantages are that it is stable, fast to compute, and insusceptible to over-fitting.
 
-In this work, we deploy the random forest model for SIR regression using the five features defined in \ref{sec:data:feats}. These features are evaluated for each iteration of the probe movement. We define a data segment which is composed of a number of successive iterations and we denote the segment size by $M$. As a result, we use the random forest regression model to get an input vector of size $5M$ and regression output of the corresponding SIR value. The random forest is selected because it is computationally efficient with high-dimensional data and it is robust for outliers and data non-linearity. 
+In this work, we deploy the random forest model for SIR regression using the five features defined in \ref{ftml-conf:sec:data:feats}. These features are evaluated for each iteration of the probe movement. We define a data segment which is composed of a number of successive iterations and we denote the segment size by $M$. As a result, we use the random forest regression model to get an input vector of size $5M$ and regression output of the corresponding SIR value. The random forest is selected because it is computationally efficient with high-dimensional data and it is robust for outliers and data non-linearity. 
 
 We start by training the random forest regression model by taking a fixed number of segments for each SIR labelled data. We denote the size of the training set for each SIR level by $T$. The rest of the measurements are used for testing. In general, the proposed machine learning approach will deploy a sliding window approach of size $M$ to collect the features of the force-seeking use case to estimate the current level of SIR at various nodes of the wireless network. 
 
 \subsection{Results} \label{ftml-conf:sec:results}  
 
-The results in this section are  presented from an experimental run in which the jammer \textbf{J} interferes with the router, \textbf{R}, while communication is conducted using a mixed mode of IEEE 802.11 b and g~\cite{IEEE802.11ac}.  Analyses using histograms and covariance are presented in Section~\ref{sec:results:stats} followed by results of the machine learning application in Section~\ref{sec:results-ML}.
+The results in this section are  presented from an experimental run in which the jammer \textbf{J} interferes with the router, \textbf{R}, while communication is conducted using a mixed mode of IEEE 802.11 b and g~\cite{IEEE802.11ac}.  Analyses using histograms and covariance are presented in Section~\ref{ftml-conf:sec:results:stats} followed by results of the machine learning application in Section~\ref{ftml-conf:sec:results-ML}.
 
 \subsubsection{Statistical Analysis}\label{ftml-conf:sec:results:stats}
 \paragraph{Analysis of Factors Using Histograms}
 
 %\begin{figure}[tbp]
 % \centering
-%	\subfloat[z-axis position\label{fig:results-zpos-hist}]{%
+%	\subfloat[z-axis position\label{ftml-conf:fig:results-zpos-hist}]{%
 %		\includegraphics[width=0.8\columnwidth]{plots/ZPosHists}}
 %	\hfill
-%	\subfloat[Plunge delay $\Delta{t}_{bc}$\label{fig:results-dtbc-hist}]{%
+%	\subfloat[Plunge delay $\Delta{t}_{bc}$\label{ftml-conf:fig:results-dtbc-hist}]{%
 %		\includegraphics[width=0.8\columnwidth]{plots/DeltaTbc.png}}
-%	\caption{Variations in probability distributions of the z-axis position \subref{fig:results-zpos-hist} and the plunge delay \subref{fig:results-dtbc-hist} indicate that machine learning may be effective in inferring information about the underlying communication channel. In the figure, the baseline case of infinite SIR is depicted as a histogram with white bars, and the experimental case is depicted as a histogram with red bars.}
-%	\label{fig:results-hists}      
+%	\caption{Variations in probability distributions of the z-axis position \subref{ftml-conf:fig:results-zpos-hist} and the plunge delay \subref{ftml-conf:fig:results-dtbc-hist} indicate that machine learning may be effective in inferring information about the underlying communication channel. In the figure, the baseline case of infinite SIR is depicted as a histogram with white bars, and the experimental case is depicted as a histogram with red bars.}
+%	\label{ftml-conf:fig:results-hists}      
 %\end{figure}
 
 \begin{figure}[!ht]
 	\centering
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}{.75\textwidth}
 		\centering
 		% include first image
 		\includegraphics[width=.8\linewidth]{./chapter-ftml/plots/ZPosHists}  
 		\caption{z-axis positione}
 		\label{ftml-conf:fig:results-zpos-hist}
 	\end{subfigure}
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}{.75\textwidth}
 		\centering
 		% include second image
 		\includegraphics[width=.8\linewidth]{./chapter-ftml/plots/DeltaTbc.png}  
 		\caption{Plunge delay}
 		\label{ftml-conf:fig:results-dtbc-hist}
 	\end{subfigure}
-	\caption{Variations in probability distributions of the z-axis position~\protect\subref{fig:results-zpos-hist} and the plunge delay~\protect\subref{fig:results-dtbc-hist} indicate that machine learning may be effective in inferring information about the underlying communication channel. In the figure, the baseline case of infinite SIR is depicted as a histogram with white bars, and the experimental case is depicted as a histogram with red bars.}
+	\caption{Variations in probability distributions of the z-axis position~\protect\subref{ftml-conf:fig:results-zpos-hist} and the plunge delay~\protect\subref{ftml-conf:fig:results-dtbc-hist} indicate that machine learning may be effective in inferring information about the underlying communication channel. In the figure, the baseline case of infinite SIR is depicted as a histogram with white bars, and the experimental case is depicted as a histogram with red bars.}
 	\label{ftml-conf:fig:results-hists}
 \end{figure}
 
 
 
-The results of the histogram analyses for the z-axis position of the probe and the probe descent delay are shown in Fig.~\ref{fig:results-zpos-hist} and Fig.~\ref{fig:results-dtbc-hist}, respectively.  The expectation of the histogram analysis was that $Z_d$ and the $\Delta{T}_{bc}$ would exhibit appreciable variation that may be observed through a visual inspection.  This was indeed the case.  Referring to Fig.~\ref{fig:results-zpos-hist}, a visual inspection reveals that the minimum z-axis position for each iteration skews to lower positions for lower SIR values and higher positions for higher SIR values.  This implies that the controller algorithm responds faster to force sensor readings at higher SIR values than lower values.  Similarly, by observing the plunge delay, $\Delta{t}_{bc}$, the controller takes more time to respond at lower SIR values than at higher values.  This behavior is exemplified by the probability skew shown in the histograms. 
+The results of the histogram analyses for the z-axis position of the probe and the probe descent delay are shown in Fig.~\ref{ftml-conf:fig:results-zpos-hist} and Fig.~\ref{ftml-conf:fig:results-dtbc-hist}, respectively.  The expectation of the histogram analysis was that $Z_d$ and the $\Delta{T}_{bc}$ would exhibit appreciable variation that may be observed through a visual inspection.  This was indeed the case.  Referring to Fig.~\ref{ftml-conf:fig:results-zpos-hist}, a visual inspection reveals that the minimum z-axis position for each iteration skews to lower positions for lower SIR values and higher positions for higher SIR values.  This implies that the controller algorithm responds faster to force sensor readings at higher SIR values than lower values.  Similarly, by observing the plunge delay, $\Delta{t}_{bc}$, the controller takes more time to respond at lower SIR values than at higher values.  This behavior is exemplified by the probability skew shown in the histograms. 
 
 \paragraph{Factor Correlation Coefficient Analysis}
 
@@ -139,10 +141,10 @@ The results of the histogram analyses for the z-axis position of the probe and t
 
 \end{table}
 
-Correlation coefficients were calculated for each of the five factors defined in Section~\ref{sec:data:feats} and correlation coefficients matrices were produced for each of the SIR values used.  The correlation coefficient matrices for SIR values of -9, -8, and -7 are shown in Tables~\ref{tab:m9corrcoeff}-\ref{tab:m7corrcoeff}, respectively. Inspection of the correlation coefficient tables indicate that the factors are mostly uncorrelated across SIR values except for the clear correlation between plunge delay and plunge depth. Low correlation values demonstrate a necessary but not sufficient condition for the independent applicability factors to machine learning.  If desired, either $\Delta{t}_{bc}$ or $Z_d$ could be omitted as they are strongly correlated and therefore provide redundant information.
+Correlation coefficients were calculated for each of the five factors defined in Section~\ref{ftml-conf:sec:data:feats} and correlation coefficients matrices were produced for each of the SIR values used.  The correlation coefficient matrices for SIR values of -9, -8, and -7 are shown in Tables~\ref{ftml-conf:tab:m9corrcoeff}-\ref{ftml-conf:tab:m7corrcoeff}, respectively. Inspection of the correlation coefficient tables indicate that the factors are mostly uncorrelated across SIR values except for the clear correlation between plunge delay and plunge depth. Low correlation values demonstrate a necessary but not sufficient condition for the independent applicability factors to machine learning.  If desired, either $\Delta{t}_{bc}$ or $Z_d$ could be omitted as they are strongly correlated and therefore provide redundant information.
 
 \subsubsection{Machine Learning Results}\label{ftml-conf:sec:results-ML}
-We deploy the proposed machine learning approach to three values of the SIR, -9, -8, and -7 dB. We start by showing the output of the random forest regression model for two values of the segment size $M$. We set the training set size $T=200$ for each SIR value. We use the random forest model with a number of estimators of 500 and a tree depth of 5. In Fig.~\ref{fig:results-BP}, we present the box plots of the predicted SIRs against the correct value of the corresponding SIR for $M=100$ and $M=1$.  Generally, increasing the value of $M$ increases the acquisition time for the input data for the random forest model while enhancing the performance of the algorithm. By setting $M=1$, we notice that the predicted values of SIR are widely spread around the median and a large number of outliers exists. However, by increasing $M$, we have much less variations in the predicted SIRs and a smaller number of outliers.
+We deploy the proposed machine learning approach to three values of the SIR, -9, -8, and -7 dB. We start by showing the output of the random forest regression model for two values of the segment size $M$. We set the training set size $T=200$ for each SIR value. We use the random forest model with a number of estimators of 500 and a tree depth of 5. In Fig.~\ref{ftml-conf:fig:results-BP}, we present the box plots of the predicted SIRs against the correct value of the corresponding SIR for $M=100$ and $M=1$.  Generally, increasing the value of $M$ increases the acquisition time for the input data for the random forest model while enhancing the performance of the algorithm. By setting $M=1$, we notice that the predicted values of SIR are widely spread around the median and a large number of outliers exists. However, by increasing $M$, we have much less variations in the predicted SIRs and a smaller number of outliers.
 
 
 %\begin{figure}[tbp]
@@ -151,7 +153,7 @@ We deploy the proposed machine learning approach to three values of the SIR, -9,
 %	\hfill
 %	\subfloat[$M=1$\label{ftml-conf:fig:results-BP-2}]{%
 %		\includegraphics[width=\columnwidth]{plots/BP_2}}
-%	\caption{Predicted SIR versus actual SIR for the cases of~\subref{fig:results-BP-1} $M=100$ and~\subref{fig:results-BP-2} $M=1$. The box plots show the median value while the bottom and top edges of the box indicate the 25th and 75th percentiles.  Statistical outliers are shown as red $+$ signs.}
+%	\caption{Predicted SIR versus actual SIR for the cases of~\subref{ftml-conf:fig:results-BP-1} $M=100$ and~\subref{ftml-conf:fig:results-BP-2} $M=1$. The box plots show the median value while the bottom and top edges of the box indicate the 25th and 75th percentiles.  Statistical outliers are shown as red $+$ signs.}
 %	\label{ftml-conf:fig:results-BP}      
 %\end{figure}
 
@@ -170,11 +172,11 @@ We deploy the proposed machine learning approach to three values of the SIR, -9,
 		\caption{[$M=1$}
 		\label{ftml-conf:fig:results-BP-2}
 	\end{subfigure}
-	\caption{Predicted SIR versus actual SIR for the cases of~\protect\subref{fig:results-BP-1} $M=100$ and~\protect\subref{fig:results-BP-2} $M=1$. The box plots show the median value while the bottom and top edges of the box indicate the 25th and 75th percentiles.  Statistical outliers are shown as red $+$ signs.}
+	\caption{Predicted SIR versus actual SIR for the cases of~\protect\subref{ftml-conf:fig:results-BP-1} $M=100$ and~\protect\subref{ftml-conf:fig:results-BP-2} $M=1$. The box plots show the median value while the bottom and top edges of the box indicate the 25th and 75th percentiles.  Statistical outliers are shown as red $+$ signs.}
 	\label{ftml-conf:fig:results-BP}
 \end{figure}
 
-In Fig.~\ref{fig:prediction-error}, we present the two criteria for measuring the performance of the proposed SIR estimation algorithm. We show the performance against the segment size $M$. The first criterion is the mean squared error where the mean of the squared error between the estimated SIR and the actual SIR values is calculated. The second criterion is the variance score which is a statistical measure of how close the data are to the fitted regression line. We use the r-squared variance score that is defined as the ratio between the total variance explained by model and total variance of the data \cite{r-squared}. In this figure the improvement in the performance against the segment size is demonstrated. 
+In Fig.~\ref{ftml-conf:fig:prediction-error}, we present the two criteria for measuring the performance of the proposed SIR estimation algorithm. We show the performance against the segment size $M$. The first criterion is the mean squared error where the mean of the squared error between the estimated SIR and the actual SIR values is calculated. The second criterion is the variance score which is a statistical measure of how close the data are to the fitted regression line. We use the r-squared variance score that is defined as the ratio between the total variance explained by model and total variance of the data \cite{r-squared}. In this figure the improvement in the performance against the segment size is demonstrated. 
 
 \begin{figure}[tbp]
  \centering
