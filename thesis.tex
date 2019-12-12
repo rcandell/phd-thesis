@@ -10,7 +10,6 @@
 %% to obtain the list of the packages that are already included. 
  
 \documentclass[english]{spimubphdthesis}
-%\documentclass{book}
 
 %%--------------------
 %% The TeX code is entering with UTF8
@@ -37,7 +36,7 @@
 %% personnal bibliography.
 %% We propose to use 'multibib' package to help you,
 %% for example.
-\usepackage{multibib}
+% \usepackage{multibib}
  
 %% Define a "type" of bibliography, here the PERSONAL one,
 %% that is supported by 'multibib'.
@@ -110,9 +109,9 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % center aligned
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % right aligned
 
-\usepackage{etoolbox}
-\newtoggle{usingspim}
-\toggletrue{usingspim}
+%\usepackage{etoolbox}
+%\newtoggle{usingspim}
+%\toggletrue{usingspim}
 %\togglefalse{usingspim}
 
 
@@ -135,14 +134,12 @@
 %% The third mandatory parameter is the location/city of the PhD defense.
 %% The forth mandatory parameter is the reference number given by
 %% the University Library after the PhD defense.
-\iftoggle{usingspim}{
-\declarethesis[]{Performance Estimation, Testing, and Control of Cyber-Physical Systems Employing Non-Ideal Communications Networks}{9 July 2020}{Dijon}{XXX}
-}
+\declarethesis[]{Performance Estimation, Testing, and Control of Cyber-Physical Systems Employing Non-Ideal Communications Networks}{9 July 2020}{Dijon}{XYZ}
 
  
 %%--------------------
 %% Set the author of the PhD thesis
-\addauthor[rick.candell@gmail.com]{Richard}{Candell}
+\addauthor[rick.candell@gmail.com]{Richard Candell}{}
 
 
  
@@ -159,14 +156,12 @@
 %%            President, Reviewer(s), Examiner(s), Director(s),
 %%            Other supervisor(s), Invited person(s).
 %% \addjury{Firstname}{Lastname}{Role in the jury}{Position}
-\iftoggle{usingspim}{
 \addjury{Incroyable}{Hulk}{Pr\'esident}{Professeur à l'Université de Gotham City \\ Commentaire secondaire}
 \addjury{Captain}{America}{Rapporteur}{Professeur à l'Université USA}
 \addjury{Super}{Man}{Examinateur}{Professeur à l'Université de Gotham City}
 \addjury{Bat}{Man}{Directeur de thèse}{Professeur à l'Université de Gotham City}
 \addjury{The}{Volwerine}{Codirecteur de thèse}{Professeur à l'Université de Gotham City}
 \addjury{Pac}{Man}{Invité}{Professeur quelque part}
-}
 
  
 %%--------------------
@@ -176,7 +171,7 @@
  
 %%--------------------
 %% Set the English abstract
-\thesisabstract[english]{\input{abstract}}
+\thesisabstract[english]{\input{abstract-en}}
 
  
 %%--------------------
@@ -187,13 +182,13 @@
  
 %%--------------------
 %% Set the French abstract
-%\thesisabstract[french]{Lorem ipsum dolor sit amet, saepe quodsi dolores an usu. An sed fugit dissentiunt, ex tota soleat duo. Omnes deserunt adversarium qui ad, periculis pertinacia has id. Ea tibique antiopam eos. Usu illud cetero voluptatum ne, ea odio soluta labores sit.	Pri modus eruditi definiebas an. Dicat latine inermis no quo, eos tollit delicata interesset cu. Placerat vituperatoribus pro ne, cu verear tritani deterruisset usu. Quaeque recusabo maluisset te pri, mutat maiorum accusamus at his.	Pro ad nihil deleniti senserit, mundi feugiat indoctum an sea. In consulatu efficiendi qui, eu duo dicta deserunt definitiones, te atqui sapientem adolescens sit. Id pro consulatu splendide evertitur, vis eu perpetua molestiae, an melius virtute efficiantur vis. Animal aeterno mei ei.	Lucilius suavitate euripidis vis id, cu dicam ridens forensibus vis. In incorrupte adversarium pri, ut velit singulis nec, nisl facer dissentias ex duo. Id est nulla periculis, epicuri percipit cu eum. Praesent temporibus mediocritatem ex cum, his quot nonumy iriure ut, qui natum aliquip id. Interesset quaerendum repudiandae cum ea. Mazim perpetua deterruisset ne mei, cum esse novum minimum ea.}
+\thesisabstract[french]{\input{abstract-fr}}
 
  
 %%--------------------
 %% Set the French keywords. They only appear if
 %% there is an French abstract
-%\thesiskeywords[french]{Mot-cl\'e 1, Mot-cl\'e 2}
+\thesiskeywords[french]{sans fil industriel, communications d'usine, contrôle en réseau, fabrication2}
 
  
 %%--------------------
