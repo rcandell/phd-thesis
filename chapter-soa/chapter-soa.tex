@@ -3,9 +3,9 @@
 
 \chapterintro*
 
-The use of industrial wireless networks has been studied in many works in the literature and industry. However, no comprehensive survey of the whole problem space of industrial communications has been performed.   The following chapter provides some background into the evolving landscape of industrial wireless requirements.  It should be noted that the requirements perspective is often influenced by hype of the marketplace, and often the requirements that are stated are unrealistic or impossible to meet within reasonable price points.  First, and literature review is provided which was the result of the work presented by the thesis candidate in~\cite{CandellRW2017}.  This literature review will be followed by another distilled perspective provide in NIST 300-8~\cite{Montgomery2019} of which the candidate took a lead role in producing and leading.  Within that work, a picture of the wireless requirements landscape is provided based on inputs from the International Society of Automation (ISA) and the European Telecommunications Standards Institute (ETSI).  The work then provides a more distilled view of the requirements perspective with rationale.  This distilled perspective serves as both a state of the art of industrial user requirements viewed by ETSI and ISA, but it also serves as a major contribution by the candidate in that it provides validated requirements that are usable to build realistic and functional wireless systems.
+The use of industrial wireless networks has been studied in many works in the literature and industry. However, no comprehensive survey of the whole problem space of industrial communications has been performed.   The following chapter provides some background into the evolving landscape of industrial wireless requirements.  It should be noted that the requirements perspective is often influenced by hype of the marketplace, and often the requirements that are stated are unrealistic or impossible to meet within reasonable price points.  First, and literature review is provided which was the result of the work presented by the thesis candidate in~\cite{CandellRW2017}.  This literature review will be followed by another distilled perspective provide in NIST 300-8~\cite{Montgomery2019} of which the candidate took a lead role in producing and leading.  Within that work, a picture of the wireless requirements landscape is provided based on inputs from the International Society of Automation (ISA) and the European Telecommunications Standards Institute (ETSI).  The work then provides a more distilled view of the requirements perspective with rationale.  This distilled perspective serves as both a state of the art of industrial user requirements viewed by ETSI and ISA, but it also serves as a major contribution by the candidate in that it provides validated requirements that are usable to build realistic and functional wireless systems.  This is ultimately the goal of performing a rigorous review of the requirements landscape and producing saner perspective.  A clearer concept of the requirements will not only allow for the development of realistic wireless systems, but it is also essential in the construction of more accurate models, the conduct of more effective testing, and better analysis the performance measurement data that results.
 
-\section{Literature Review}
+\section{Literature Review}\label{sec:litreview:academia}
 
 In \cite{6248648}, the authors have introduced a comparison between the commercial and industrial communications networks where an industrial network has been divided to five different levels. These levels include field equipment, controller level, application, supervisory, and external networks. The differences in requirements between different levels are discussed. Moreover, three types of information are considered which are control, diagnostic, and safety information as described in \cite{4118467}. However all these levels of industrial networks are mentioned in \cite{6248648}, the article focuses only on the manufacturing and instrumentation communications and does not consider other types of communications networks that exist in industrial environments. Also, in \cite{What}, three levels of communications are considered which are device, control, and information levels. Moreover, the current wired industrial technologies for these levels are discussed briefly.
 
@@ -13,11 +13,11 @@ More works focused on the communications at the field devices level where sensin
 
 \section{Industry Requirements Perspectives}
 
-Give introduction AND State that the author (ME) has contributed to this body of work
+In the following discussions, a presentation of different perspectives of various user requirements provided by industry is given based on industry reports from two noteworthy organizations.  This perspective differs from the perspectives provided by the academia in Section~\ref{sec:litreview:academia} in that contributors of these reports were individuals working directly within factory organizations or suppliers of products and services used by factory control engineers.  The first discussion in Section~\ref{sec:litreview:isa} focuses on the requirements work performed by the standards organization, the International Society of Automation.  The second discussion given in Section~\ref{sec:litreview:etsi} focuses on work performed by the European Telecommunications Standards Institute regarding high-reliabilty, low-latency communications requirements for industrial applications, and in particular for the 5th generation wireless evolution known as 5G.  The third discussion provided in Section~\ref{sec:litreview:industry} while an academic article was the result of research performed by engineers developing wireless products for high-performance wireless networks used to control industrial operations by latency constraints within the microsecond range.  Finally, a consolidated and actionable perspective is provided in Section~\ref{sec:litreview:nist} which serves as both background material and contribution by the thesis candidate.  The consolidated perspective of the requirements were useful in the development of the SysML model presented in Chapter~\ref{chapter:sysml}.
 
-\subsection{ISA Requirements Perspective}
+\subsection{ISA Requirements Perspective}\label{sec:litreview:isa}
 
-The International Society of Automation (ISA) is a non-profit standardization body that produced Wireless User Requirements for Factory Automation [10]. ISA provided classes that categorized industrial applications and use cases, and assigned wireless user requirements for latency, jitter, and block error rate (BLER). Table~\ref{soa:isa-classes}, adapted from~\cite{ISATR100-2011}, provides usage classes with their respective descriptions; these classes are grouped by domain, in factory automation use cases. It is important to note that the “Factory Automation Use Cases” column references “Clauses” which describe applications in the usage classes in detail and are not discussed in this report. The Clauses discuss various industrial applications and such applications apply to different classes. For example, robot end-effectors for Class 1, track-mounted equipment and rotary equipment for Class 2, track-mounted equipment and rotary equipment, but with a human in the loop for Class 3; torque and gauge tools, mobile material containers, mobile high value assets (molds, dies, etc.), and mobile test and calibration fixtures for Class 4. Note that the report references similar applications for Class 4 as for Class 5, except with the purpose of logging, downloading, and uploading; also note that Class 0, was not discussed. The ISA requirements, adapted in Table~\ref{soa:isa-reqts-persp}, define BLER as the probability of an erroneous block received at the application layer. It should be noted that all usage classes have a requirement of 10-9 BLER, an assumed requirement, without justification, in the ISA’s report. 
+The International Society of Automation (ISA) is a non-profit standardization body that produced Wireless User Requirements for Factory Automation [10]. ISA provided classes that categorized industrial applications and use cases, and assigned wireless user requirements for latency, jitter, and block error rate (BLER). Table~\ref{soa:isa-classes}, adapted from~\cite{ISATR100-2011}, provides usage classes with their respective descriptions; these classes are grouped by domain, in factory automation use cases. It is important to note that the “Factory Automation Use Cases” column references “Clauses” which describe applications in the usage classes in detail and are not discussed in this report. The Clauses discuss various industrial applications and such applications apply to different classes. For example, robot end-effectors for Class 1, track-mounted equipment and rotary equipment for Class 2, track-mounted equipment and rotary equipment, but with a human in the loop for Class 3; torque and gauge tools, mobile material containers, mobile high value assets (molds, dies, etc.), and mobile test and calibration fixtures for Class 4. Note that the report references similar applications for Class 4 as for Class 5, except with the purpose of logging, downloading, and uploading; also note that Class 0, was not discussed. The ISA requirements, adapted in Table~\ref{soa:isa-reqts-persp}, define BLER as the probability of an erroneous block received at the application layer. It should be noted that all usage classes have a requirement of $10^{-9}$ BLER, an assumed requirement, without justification, in the ISA’s report. 
 
 % Table generated by Excel2LaTeX from sheet 'ETSI and ISA'
 \begin{table}[!tb]
@@ -84,13 +84,13 @@ The International Society of Automation (ISA) is a non-profit standardization bo
 \end{table}%
 
 
-\subsection{ETSI Requirements Perspective}
+\subsection{ETSI Requirements Perspective}\label{sec:litreview:etsi}
 
 The European Telecommunications Standards Institute (ETSI) produced a requirements report titled Reconfigurable Radio Systems (RRS); Feasibility study on temporary spectrum access for local high-quality wireless networks [11]. The ETSI report included a detailed table, reproduced here in Table 3, which categorized specific industrial scenarios and listed certain requirement metrics such as latency, reliability, data rate, packet size, communication range, device mobility, device density, and energy efficiency. We find the ETSI report to be very detailed; however, justification of specific values and their derivations are not disclosed.
 
 ETSI’s industrial wireless communications requirements are separated into different sections, depending on the application. Under Monitoring and Diagnostics, the application is focused on remote sensors that do not have strict latency or reliability requirements, compared to other applications. The column, Condition Monitoring, includes applications that report physical parameters, such as temperature, humidity, vibration, acceleration, etc., and the column has similar wireless network requirements to Process Automation. In discrete manufacturing, a countable number of items are produced which may take many steps to complete. In discrete manufacturing, machine tools, robots, sensors, and programmable logic controllers (PLCs) exchange small packets with short intervals, which requires low-latency communications. Motion Control has more strict latency requirements than general discrete manufacturing. Examples for Motion Control include a controller for an electric motor in an assembly line or a hydraulic cylinder controller for a press~\cite{etsi103588}.
 
-The Logistics and Warehouse category is separated into mobile vehicles, automated guided vehicles (AGV) and static systems such as cranes. AGVs can be mobile robots, transport vehicles, and mobile working platforms. It is stated that a latency of 15 ms – 20 ms and a reliability requirement of $10^{-6}$ should be ensured. The General subcategory for “Logistics and Warehouse” is not discussed or justified within the ETSI report. Process Automation typically involves chemical processes engineering, for example, oil and gas production or the generation of electricity. In the Process Automation category, steps are sequential, continuous, and irreversible. Process Automation applications need deterministic delivery of transmissions, thus, the relaxed latency requirements and reliability of $10^{-5}$. The Augmented Reality category includes computer-assisted extension of reality. The Functional Safety category requires high reliability ($10^{-9}$) and low latency of 10 ms. Safety is critical to protect people, machines, and production environments, hence the stricter requirements. 
+The Logistics and Warehouse category is separated into mobile vehicles, automated guided vehicles (AGV) and static systems such as cranes. AGVs can be mobile robots, transport vehicles, and mobile working platforms. It is stated that a latency of 15 ms – 20 ms and a reliability requirement of $10^{-6}$ should be ensured. The General subcategory for “Logistics and Warehouse” is not discussed or justified within the ETSI report. Process Automation typically involves chemical processes engineering, for example, oil and gas production or the generation of electricity. In the Process Automation category, steps are sequential, continuous, and irreversible. Process Automation applications need deterministic delivery of transmissions, thus, the relaxed latency requirements and reliability of $10^{-5}$. The Augmented Reality category includes computer-assisted extension of reality. The Functional Safety category requires high reliability ($10^{-9}$) and low latency of 10 ms. Safety is critical to protect people, machines, and production environments, hence the stricter performance requirements. 
 
 \begin{table}[!tb]
 	\centering
@@ -99,7 +99,7 @@ The Logistics and Warehouse category is separated into mobile vehicles, automate
 	\includegraphics[width=\textwidth]{chapter-soa/etsi-reqts}
 \end{table}
 
-\section{An Industry Requirements Perspective}
+\section{An Industry Requirements Perspective}\label{sec:litreview:industry}
 
 % Table generated by Excel2LaTeX from sheet 'FromKarl2019'
 \begin{table}[!tb]
@@ -107,28 +107,29 @@ The Logistics and Warehouse category is separated into mobile vehicles, automate
 	\caption{An Industry Requirements Perspective of Different Industrial Communication Scenarios}
 	\label{soa:industry-reqts-persp}%
 	
-	% Table generated by Excel2LaTeX from sheet 'Industry'
-	\begin{tabular}{|p{7.5em}|p{4.215em}|p{4.215em}|p{4.215em}|p{4.215em}|}
-		\toprule
-		\textbf{Scenario} & \textbf{\# of nodes} & \textbf{Update rate} & \textbf{Goodput} & \textbf{System range} \\
-		\midrule
-		Building Automation & 102-103 & 10-1 Hz & 103-104 bps & 101-102 m \\
-		\midrule
-		Process Automation & 102-103 & 101 Hz & 105-106 bps & 101-102 m \\
-		\midrule
-		Factory Automation & 102-103 & 103 Hz & 107-108 bps & 101-102 m \\
-		\midrule
-		Power Systems Automation & 101-102 & 104 Hz & 107-108 bps & 102-103 m \\
-		\midrule
-		Power Electronics Control & 102-103 & 105 Hz & 109-1010 bps & 101-102 m \\
-		\bottomrule
-	\end{tabular}%
+% Table generated by Excel2LaTeX from sheet 'Industry'
+\begin{tabular}{|p{7.5em}|p{4.215em}|p{4.215em}|p{4.215em}|p{4.215em}|}
+	\toprule
+	\textbf{Scenario} & \textbf{\# of nodes} & \textbf{Update rate, Hz} & \textbf{Goodput, bps} & \textbf{System range, m} \\
+	\midrule
+	Building Automation & $10^{2}-10^{3}$ & $10^{-1}$ & $10^{3}-10^{4}$ & 10-100 \\
+	\midrule
+	Process Automation & $10^{2}-10^{3}$ & \multicolumn{1}{l|}{10} & $10^{5}-10^{6}$ & 10-100 \\
+	\midrule
+	Factory Automation & $10^{2}-10^{3}$ & $10^{3}$ & $10^{7}-10^{8}$ & 10-100 \\
+	\midrule
+	Power Systems Automation & $10^{1}-10^{2}$ & $10^{4}$ & $10^{7}-10^{8}$ & $10^{2}-10^{3}$ \\
+	\midrule
+	Power Electronics Control & $10^{2}-10^{3}$ & $10^{5}$ & $10^{9}-10^{10}$ & 10-100 \\
+	\bottomrule
+\end{tabular}%
+
 	
 \end{table}%
 
-Another industry perspective presented in~\cite{Luvisotto2017}, targeted ultra-high-performance wireless for various scenarios ranging from building automation to the switching of power electronics equipment. An example of system-level requirements for different industrial communication scenarios is captured in Table~\ref{soa:industry-reqts-persp}. The scenario Building Automation consists of all control operations performed within buildings, such as lighting, heating, surveillance, energy management, etc. Process Automation is involved in chemical, mining, oil, and metallurgic processes. \textit{Factory Automation} is a general term referring to the factory production line, such as assembly and packaging. More demanding scenarios include \textit{Power Systems Automation} in which control for power distribution is performed. \textit{Power Electronics Control} focuses on the synchronized control of power electronic devices. All these scenarios have distinct requirements. Luvisotto states that for a wireless high performance (HP) system, a packet error rate (PER) of $10^{-9}$ is perceived as tolerable~\cite{Luvisotto2017}. It is important to clarify this PER is at the application layer and it is possible to have a PER of $10^{-1}$ at the physical layer and still achieve $10^{-8}$ at the application layer with transmission and information redundancy. It was proposed in the paper that a latency requirement of $10{\mu}s$ is targeted for Wireless-HP. It is stated that \textit{Factory Automation}, \textit{Power Systems Automation}, and \textit{Power Electronics Control} are the scenarios where their particular technology is applicable.  
+Another industry perspective presented in~\cite{Luvisotto2017}, targeted ultra-high-performance wireless for various scenarios ranging from building automation to the switching of power electronics equipment. An example of system-level requirements for different industrial communication scenarios is captured in Table~\ref{soa:industry-reqts-persp}. The scenario Building Automation consists of all control operations performed within buildings, such as lighting, heating, surveillance, energy management, etc. Process Automation is involved in chemical, mining, oil, and metallurgic processes. \textit{Factory Automation} is a general term referring to the factory production line, such as assembly and packaging. More demanding scenarios include \textit{Power Systems Automation} in which control for power distribution is performed. \textit{Power Electronics Control} focuses on the synchronized control of power electronic devices. All these scenarios have distinct requirements. Luvisotto states that for a wireless high performance (HP) system, a packet error rate (PER) of $10^{-9}$ is perceived as tolerable~\cite{Luvisotto2017}. It is important to clarify this PER is at the application layer and it is possible to have a PER of $10^{-1}$ at the physical layer and still achieve $10^{-8}$ at the application layer with transmission and information redundancy. It was proposed in the paper that a latency requirement of $10{\mu}s$ is targeted for Wireless-HP. It is stated that \textit{Factory Automation}, \textit{Power Systems Automation}, and \textit{Power Electronics Control} are the scenarios where their particular technology is applicable. The power electronics industry is very distinctive in the difficulty in meeting their challenges requirements; however, these requirements are not typical of all industry scenarios.
 
-\subsection{NIST Validated Requirements Perspective}
+\subsection{NIST Validated Requirements Perspective}\label{sec:litreview:nist}
 
 % Table generated by Excel2LaTeX from sheet 'FromKarl2019'
 \begin{table}[!tb]
@@ -162,31 +163,22 @@ Another industry perspective presented in~\cite{Luvisotto2017}, targeted ultra-h
 	\end{tabular}%
 \end{table}%
 
-Trade-space for Requirements
+Using requirements from standardization bodies such as ISA~\cite{ISATR100-2011}, ETSI~\cite{etsi103588}, and industry, a distilled and validated set of requirements is produced in Table~\ref{soa:nist-reqts-persp}. The same ISA class-labeling scheme from Table 1 has been adopted to categorize applications. The ISA classification scheme groups applications according to mission-criticality. Class 5 is not included in Table 6 because the requirements were not adequately supported by existing wireless standards. It is believed that existing wireless standards do not jointly meet the requirements for all the industrial use case classes presented; however, the design of new wireless technology that applies to industry can be accomplished using the requirements in Table 6. The authors based the user requirements, shown in Table~\ref{soa:nist-reqts-persp}, on what is believed to be necessary for effective and realizable communications within factory workcells. Latency and reliability are fundamental requirements for time-sensitive applications. Latency and reliability can often be considered jointly as information that is delayed beyond a time threshold may be considered as lost information. Scale is important to enable large enough capacity for a network, while maintaining latency and reliability targets. Range provides a minimum expected distance between linked nodes. These requirements were developed based on the philosophy of avoiding excessive and unreasonable performance expectations on the wireless systems. For instance, requiring a range of 100 meters for a workcell device that only needs to operate within 10 meters would be unreasonably strict and would be considered overkill for many applications where shorter range would be sufficient and more practical. Justification for requirements is provided in~\cite{Montgomery2019}.
 
-Reliability versus power, latency, cost, etc.
-
-The radar diagram of competing interests
-
-NOTE that only ETSI indicates an energy efficiency number
-
-Using requirements from standardization bodies such as ISA~\cite{ISATR100-2011}, ETSI~\cite{etsi103588}, and industry, a distilled and validated set of requirements is produced in Table~\ref{soa:nist-reqts-persp}. The same ISA class-labeling scheme from Table 1 has been adopted to categorize applications. The ISA classification scheme groups applications according to mission-criticality. Class 5 is not included in Table 6 because the requirements were not adequately supported by existing wireless standards. It is believed that existing wireless standards do not jointly meet the requirements for all the industrial use case classes presented; however, the design of new wireless technology that applies to industry can be accomplished using the requirements in Table 6. The authors based the user requirements, shown in Table~\ref{soa:nist-reqts-persp}, on what is believed to be necessary for effective and realizable communications within factory workcells. Latency and reliability are fundamental requirements for time-sensitive applications. Latency and reliability can often be considered jointly as information that is delayed beyond a time threshold may be considered as lost information. Scale is important to enable large enough capacity for a network, while maintaining latency and reliability targets. Range provides a minimum expected distance between linked nodes. We developed our perspective with the philosophy of avoiding unreasonable performance expectations on the wireless systems. For instance, requiring a range of 100 meters for a workcell device that only needs to operate within 10 meters would be unreasonably strict and would be considered overkill for many applications where shorter range would be sufficient and more practical. 
-
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{chapter-intro/diagrams/TypicalSpecs}
-	\caption{Typical performance specifications for industrial wireless use cases presented in~\cite{Montgomery2019}.}
-	\label{intro:fig:typicalspecs}
-\end{figure}
-
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{chapter-intro/diagrams/WorstSpecs}
-	\caption{Harshest expected performance specifications for industrial wireless use cases presented in~\cite{Montgomery2019}.}
-	\label{intro:fig:worstspecs}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=\textwidth]{chapter-intro/diagrams/TypicalSpecs}
+%	\caption{Typical performance specifications for industrial wireless use cases presented in~\cite{Montgomery2019}.}
+%	\label{intro:fig:typicalspecs}
+%\end{figure}
+%
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=\textwidth]{chapter-intro/diagrams/WorstSpecs}
+%	\caption{Harshest expected performance specifications for industrial wireless use cases presented in~\cite{Montgomery2019}.}
+%	\label{intro:fig:worstspecs}
+%\end{figure}
 
 
 
@@ -194,9 +186,7 @@ Using requirements from standardization bodies such as ISA~\cite{ISATR100-2011},
 
 \chapterintro*
 
-\blindtext
-
-This chapter provides a background to the reader in the state of the art in systems modeling.  Particular attention is given on the research done to how modeling tools and techniques are applied to the problem of the wireless smart manufacturing workcell, the components of such a workcell, or the data flows within the workcell.
+This chapter provides a background to the reader in the state of the art in systems modeling.  Particular attention is given on the research done to how modeling tools and techniques are applied to the problem of the wireless smart manufacturing workcell, the components of such a workcell, or the data flows within the workcell.  The SysML model was developed to formalize and identify key components, interfaces, and constraints of the factory workcell.  The model developed is intended to include elements of both the physical system and network controlling behavior.  Therefore, the state of the art explored focuses on research performed to model both domains simultaneously capturing architecture and behavior.
 
 \section{Modeling Languages} \label{sysml:sec:languages}
 
