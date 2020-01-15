@@ -23,4 +23,6 @@
 *.synctex.gz
 *.loe
 
+
+makeall.sh
 papers/
