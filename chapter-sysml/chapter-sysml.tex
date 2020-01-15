@@ -55,6 +55,7 @@ The work presented here addresses the present need for a comprehensive architect
 
 \section{Conceptual Representation} \label{sysml:sec:conceptual}
 The remainder of this work describes a reusable model for representing a comprehensive wireless factory work-cell using the semantic constructs of SysML.  An exposition of the model beginning with the conceptual model followed by a detailed description of each component within the model is given. When discussing the model, the SysML term, \textit{block}, is omitted for the sake of brevity where the meaning is clear. 
+
 \subsection{Packages}
 The factory work-cell is decomposed into one general and nine major structural packages as shown in Fig.~\ref{sysml:fig:pdd-workcell}.  Packages include major logical groupings of structure within the model.  These packages are enumerated in the following paragraphs.
 
@@ -66,27 +67,30 @@ The factory work-cell is decomposed into one general and nine major structural p
 	\end{center}
 \end{figure}
 
+\begin{description}
 
-\subsubsection{General} A set of reusable structural elements that is used for conceptual modeling or extended to produce more complex model elements.  Each of the sub-packages within the General package extends basic features.  The sub-packages within General include time and constraints for data, electro-magnetics, and motion.
+\item[General] A set of reusable structural elements that is used for conceptual modeling or extended to produce more complex model elements.  Each of the sub-packages within the General package extends basic features.  The sub-packages within General include time and constraints for data, electro-magnetics, and motion.
 
-\subsubsection{Network} Describes the components, blocks, interfaces, and limiting factors of the industrial wireless network (IWN).  The IWN is modeled as the radio channel and the services provided by the network. Limiting factors are modeled as parametric equations associated with the radio channel and the services.
+\item[Network] Describes the components, blocks, interfaces, and limiting factors of the industrial wireless network (IWN).  The IWN is modeled as the radio channel and the services provided by the network. Limiting factors are modeled as parametric equations associated with the radio channel and the services.
 
-\subsubsection{Application}  This package contains the model elements describing a component of behavioral functionality typically implemented within software or firmware but could be implemented in hardware.  It describes the features and constraints of factory operation such as the logic of a supervisory controller or the feedback controller of a robot arm.  The Application sets the performance requirements of the wireless network, i.e., the factory network performance requirements are derived from the requirements of the applications deployed to a work-cell.
+\item[Application]  This package contains the model elements describing a component of behavioral functionality typically implemented within software or firmware but could be implemented in hardware.  It describes the features and constraints of factory operation such as the logic of a supervisory controller or the feedback controller of a robot arm.  The Application sets the performance requirements of the wireless network, i.e., the factory network performance requirements are derived from the requirements of the applications deployed to a work-cell.
 
-\subsubsection{Devices} Describes the types of devices found within the factory work-cell to include any device that interacts with the environment such as wired and wireless input-output (IO) devices including sensors and actuators.
+\item[Devices] Describes the types of devices found within the factory work-cell to include any device that interacts with the environment such as wired and wireless input-output (IO) devices including sensors and actuators.
 
-\subsubsection{Robotics} Describes the computational and communicative components of robot control including sensing, actuation, and command.  Description of the robot itself is inconsequential to communication and therefore not included in the model.
+\item[Robotics] Describes the computational and communicative components of robot control including sensing, actuation, and command.  Description of the robot itself is inconsequential to communication and therefore not included in the model.
 
-\subsubsection{PLC} Describes the supervisory control components commonly handled by one or more programmable logic controller (PLC) components.  This package includes the elements responsible for coordination of actors and handling of most input-output.
+\item[PLC] Describes the supervisory control components commonly handled by one or more programmable logic controller (PLC) components.  This package includes the elements responsible for coordination of actors and handling of most input-output.
 
-\subsubsection{Safety} Describes the allocation of safety qualities typically included in the supervisory controller.  The Safety package includes devices, monitoring, and actuation of the safety behaviors within the factory work-cell.
+\item[Safety] Describes the allocation of safety qualities typically included in the supervisory controller.  The Safety package includes devices, monitoring, and actuation of the safety behaviors within the factory work-cell.
 
-\subsubsection{Vision} Describes the allocation of features to optical monitoring and tracking which are typical to the collaborative robotic work-cell.
+\item[Vision] Describes the allocation of features to optical monitoring and tracking which are typical to the collaborative robotic work-cell.
 
-\subsubsection{Spectrum Monitoring System (SMS)} Describes the qualities and interfaces of a factory spectrum monitoring system projected into the factory work-cell.  The SMS includes monitoring nodes and agents localized to the work-cell and connected to the automation system for real-time adaptation to changing multi-path and interference. 
+\item[Spectrum Monitoring System (SMS)] Describes the qualities and interfaces of a factory spectrum monitoring system projected into the factory work-cell.  The SMS includes monitoring nodes and agents localized to the work-cell and connected to the automation system for real-time adaptation to changing multi-path and interference. 
 
-\subsubsection{Human} Describes the features associated with human beings such as human motion, tasks, and carried equipment such as portable computing and communication devices.
+\item[Human] Describes the features associated with human beings such as human motion, tasks, and carried equipment such as portable computing and communication devices.
 \vspace{3mm} 
+
+\end{description}
 
 Several examples of how to use the model are provided within the model\cite{SysML.Candell2018}.  Examples include: a robotic force-torque leader-follower, a robotic force-torque limiter, a collision avoidance, and a robotic pick and place work-cell.  The parametric constraints are provided as examples and are intended to be used for communication to project stakeholders or replaced with executable computer code such as MATLAB or Python scripts, thereby making the model useful for simulation depending on the modeling tool selected.
 
