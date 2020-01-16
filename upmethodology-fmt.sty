@@ -1503,11 +1503,17 @@
 \colorlet{emphboxborder}{fronttableheader}
 \colorlet{emphboxtext}{fronttableheader}
 
-\NewEnviron{emphbox}[1][\linewidth]{%
+%\NewEnviron{emphbox}[1][0.8\linewidth]{%
+%	\begin{framedcolorminipage}{#1}{emphboxborder}{emphboxbackground}%
+%		\centering\color{emphboxtext}\BODY%
+%	\end{framedcolorminipage}%
+%}
+\NewEnviron{emphbox}[1][0.78\textwidth]{%
 	\begin{framedcolorminipage}{#1}{emphboxborder}{emphboxbackground}%
 		\centering\color{emphboxtext}\BODY%
 	\end{framedcolorminipage}%
 }
+
 
 \endinput
 
