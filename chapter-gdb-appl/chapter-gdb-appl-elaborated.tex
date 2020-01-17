@@ -21,14 +21,14 @@ There are three different types of measurements (network, robot, and PLC state d
 The following equipment are illustrated in Fig.~\ref{gdbappl:fig::database:netdiagram} for reference.
 To enable wireless on the testbed, Intel NUCs running Ubuntu 14.04 are used which communicate through a common AP. The AP is a Netgear AC1900 wireless router. For the wired communications, we use two Cisco IE 4000 industrial grade Ethernet switches that are PTP compatible for time synchronization. The collaborative robots that preform the pick and place task are Universal Robots “UR3” CB series. The robots are also equipped with OnRobot HEX-H Force/Torque sensors which are used by the Inspector to inspect parts. The Supervisor PLC is a Beckhoff CX2020 with a EL6688 PTP module for time synchronization. The CNC simulators are Beckhoff CX9020 PLCs. The seven TAP devices on the testbed are SharkTap Gigabit Network Sniffers. To synchronize the timing of the devices while taking measurements, a Meinberg Lantime M900 grand master time server is used. Lastly, the Operator and Inspector each use a D-link DGS-108 8-port unmanaged Ethernet switch for wired communications between the robot controller and force-torque sensor and for the Linux machine to collect RTDE data through a wired connection.
 
-\section{Building the Graph} \label{gdbappl:sec:graph}
+\subsection{Building the Graph} \label{gdbappl:sec:graph}
 
 A GDB was built to manage data collected from testbed measurements of both network traffic and physical operations.
 % Save for later -YL
 %Compared with relational databases, GDBs as NoSQL databases don't specify any predefined data structure or rules to enforce such a structure. Instead, GDBs treat individual data records as distributed node entities in a random graph and identify relationships as part of database components that link different nodes together. This feature enables GDBs to catch varying states and dynamics in a complex system and gradually improve data management along with better understanding of the system.
 In this section, we briefly introduce graph components developed for our testbed and the data processing flow that transforms measurement results to graph entities. 
 
-\subsection{Reference Data Model}
+\subsubsection{Reference Data Model}
 %Save for later -YL
 %In a GDB, the data model, which can be roughly analog to the ``schema'' of relational databases, illustrates how data records are organized and stored in a graph. However, unlike a fixed schema, the data model of GDBs has more flexibility of depicting diverse data types, content, and connections between different entities whose structure and property profile can update and evolve with more data and/or better observation. A data model contains different node types with specific properties in the graph and various relationships between them. 
 In the previous case study, we identified the requirements of a GDB data model and built a graph containing nodes and relationships that mainly exhibit information around networked industrial devices in a factory work-cell. In this paper, we further populate the earlier defined work-cell data graph by introducing additional node types characterizing physical actions that are newly captured. Accordingly, we update the relationships, such as associating individual quality of service (QoS) report data from the wireless sniffer with the packets captured at the collocated receiver. The updated data model provides a comprehensive view of production operations, information flows, and wireless channel variations in the testbed which facilitates further analysis work.  
@@ -44,7 +44,7 @@ In the previous case study, we identified the requirements of a GDB data model a
 As shown in Fig.~\ref{gdbappl:fig:database:schema}, an example is illustrated here that summarizes nodes, relationships, and their key properties used in the GDB. We will elaborate the definition and use of these entities in the remainder of this section.			
 
 
-\subsubsection{Node Design}
+\paragraph{Node Design}
 
 %To effectively depict testbed operations in the measurement, we define a series of node types in the graph. 
 Nodes are GDB elements that are used to identify testbed components, device states, and messages that store snapshots of the testbed for further analysis. They can be found in two main classes depending on what type of objects the node represents.
@@ -54,7 +54,7 @@ The class of \textit{static} nodes covers testbed setup profiles which contain t
 The class of \textit{dynamic} nodes in the graph captures various system events such as machine status reports, network traffic, and information flows in the testbed. These nodes are dynamically added into the graph whose quantities and properties are determined by the measured data. Such node labels include Transaction, Message, QoSReport, and Physical Action (PhyAction). Considering the diversity of measured testbed operations, PhyAction nodes have sub-class labels including URSchedule (for the Supervisor), SensorState (for CNC), and RouteState (for robots).
 
 
-\subsubsection{Graph Relationships}
+\paragraph{Graph Relationships}
 
 A relationship in the graph denotes an action taken to associate two nodes, either homogeneous or heterogeneous ones, which shows their connections in the topology, timeline, or affiliation. The relationships used in the GDB were introduced in~\cite{Candell2020}. As shown in Fig.~\ref{gdbappl:fig:database:schema}, most of them are self-explanatory. 
 
@@ -66,35 +66,35 @@ A relationship in the graph denotes an action taken to associate two nodes, eith
 	\label{gdbappl:fig:database:work-flow}
 \end{figure*}
 
-\subsubsection{Closer Examination}
+\paragraph{Closer Examination}
 The graph data model is designed in a way where nodes and relationships are centered around Actors. Actors have dual roles in the work-cell operations. In the factory system, Actors participate in the production operations.
 In the example of Fig.~\ref{gdbappl:fig:database:schema}, two Actor nodes are presented. In this case, Actor ``Supervisor'' is the supervisory controller, and Actor ``Operator'' is a robot arm. The Supervisor schedules the production, collects the other Actors' states, and hosts supportive services, such as SMS. The Operator follows the instructions of the Supervisor and moves parts between work stations. Meanwhile, Actors also act as communication nodes which exchange messages between each other through various network interfaces. In Fig.~\ref{gdbappl:fig:database:schema}, Actors participate in a transaction, which, in this example, is a Modbus/TCP exchange. The transaction itself is associated with one or more messages (i.e., packets). Each message associated with a transaction manifests itself as a node in the graph. Multiple message nodes will exist for each transaction. Additionally, QoS reports may be associated with each actor node through a collocated sniffer node.  %By keeping QoS reports separate, we have the flexibility of supporting different wired and wireless protocols within the same graph.
 
 Dynamic event nodes in the measurement, i.e., physical actions, network messages, information transactions, and QoSReport records, have timestamps representing ``measurement time'' of the recorded events. Once a new event occurs, a proper relationship would be added between the actor and the physical/network event node. All timestamps are accurately synchronized to the grand-master clock.
 
 
-\subsection{Information Workflow}
+\subsubsection{Information Workflow}
 
 A multi-stage workflow is deployed to feed the graph with instances of nodes, relationships, and their properties that are extracted from measurement data, as shown in Fig.~\ref{gdbappl:fig:database:work-flow}. In the measurement data set, network data from distributed network probes in selected links is stored in packet capture (PCAP) files, while operational data that comes from different PLC and robot controllers is stored in the format of comma separated value (CSV) files. The whole process contains four steps including data preprocessing, feature extraction, database insertion, and post-import tuning. Such conversion from raw data to the ready-to-go graph has been done  by running automated scripts on a host machine which maintains data repositories of measurement results and deploys the Neo4j desktop application. The functions and operation features in individual steps are discussed next. 
 
 
-\subsubsection{Data Preprocessing}
+\paragraph{Data Preprocessing}
 
 Data preprocessing is the first step where measurement data is verified, cleaned, and formatted to facilitate the following processing steps. As fore-mentioned, measurement data contains results collected from heterogeneous modules/devices in the testbed which may adopt different data types, sampling rates, time and metric resolution, and file formats. For example, different machines may represent and store the record timestamps in various formats depending on local clock settings. Once we obtained the data, we unified the time representation in the entire data set using the time epoch that has microsecond resolution. In another example, we deployed packet filters to remove unrelated packet captures. In treating measurement data, e.g., experimenting with single or double wireless interference links, we managed to reduce the sniffer data in the order of gigabytes to only a few megabytes while keeping all signaling handshakes of interest in the studied links. 
 
-\subsubsection{Feature Extraction}
+\paragraph{Feature Extraction}
 
 Feature extraction refers to the process of extracting relevant information from measurement data and prepare the data for insertion into the database. Nodes and relationships are defined by a set of features that share common views. We developed bash and Python scripts that pick the desired features to produce CSV files that are ready for insertion into the Neo4j database. In this step, a bash script was developed running the tshark tool to extract fields of protocol headers in packet captures and save the field information into CSV files. Each line in these CSV records will create one Message node instance as a sender or receiver copy of the packet through a link. A Python script was also used to detect state switches in the physical action data and label these moments which were triggered by testbed communications.
 
 
-\subsubsection{Graph Insertion}
+\paragraph{Graph Insertion}
 
 We load the prepared data into the Neo4j GDB using bulk importing which can create one or multiple nodes and/or relationships in the graph by reading a CSV file once. 
 Neo4j uses Cypher to construct GDB queries to import data.
 As the output of feature extraction, each line of the CSV file can create one new node entity and/or generate the criteria of linking two qualified nodes for a new relationship. Properties of new entities can be assigned explicitly by the column values of records or inferred from predetermined rules such as some fixed combination of nodes and edges in the graph. Multiple types of nodes can be created from the same data file using one common node template in which each node type has its own subgroup of properties. For example, Modbus and ADS packets use the same Message node structure in our graph to manage the common transmission information such as IP addresses and TCP session identification. Meanwhile, each of these Messages maintains its own application layer header information in the node properties, e.g., Modbus register addresses and ADS function codes.   
 
 
-\subsubsection{Post-Import Tuning}
+\paragraph{Post-Import Tuning}
 
 Post-import tuning refers to any additional modification in the graph after CSV data is imported. This step treats a few cases where raw data work with current graph insights to obtain new ones. First, in the additive insertion case, i.e., when new data is added into the graph, it links the newly added nodes to the existing ones following necessary relationships between them. Time series data often use this method to link consecutive event nodes in the recorded process.
 Second, it is the case in which higher level features are needed in the graph which can be abstracted from the imported data. For example, Transaction nodes are built upon Message nodes who participate in the same application transactions; Message nodes themselves are also the summary of packet data, i.e., packet copies at link transceivers. Third, it can feed feature extraction with pieces of information in the current graph for purposes such as coupling data records. For example, coupling QoS reports and Messages in their observation windows used to be an extremely time-consuming process. On one hand, each Message raw data, i.e., the transmitter or receiver copy, contains only half of the transmission time window information. On the other hand, the Cypher query takes a long time to find all eligible relationships as Neo4j would generate a huge Cartesian product when treating the large sample set. We solved this issue by obtaining qualified Message nodes and feeding them into feature extraction where a more efficient Python script finds all Message-QoS Report pairs and later presents them in the graph as new COVERED relationships. 
