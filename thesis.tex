@@ -299,7 +299,7 @@
 	
 %%--------------------
 %% Include a general table of contents
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 \tableofcontents
 
 %%--------------------
@@ -313,39 +313,22 @@
 \fontsize{12}{15}
 \selectfont
  
-\part{Context and Problem Statement}
-
+\part{Context and Problem Statement}\label{part:context}
 \include{chapter-intro/intro}
 
-%\part{State of the Art}
+%\part{State of the Art}\label{part:soa}
 \include{chapter-soa/chapter-soa}
-%\include{chapter-intro/thesis-summary}
 
-\part{Technical Contributions}
+\part{Contributions}\label{part:techical}
 
 \include{chapter-reswk/chapter-reswk}
 \include{chapter-sysml/chapter-sysml}
 \include{chapter-gdb-appl/chapter-gdb-appl}
 \include{chapter-ftml/chapter-ftml}
 
-\chapter{Conclusions}
-\section{Future Work}
-Application of Machine Learning within the workcell control program
+\part{Conclusion}
 
-how to extended the graph database and other data management approaches to the the factory and factory workcell rather than just for performance appraisal in the lab.
-
-Improvements to the schema, queries, and other database improvements to overcome the challenges encountered during research.  For example, rapidly expanding cartesian products within queries.  I note that the selected database has inherent problems with large scale queries wherein a query is constructed to for efficiency yet the database ignores the rules of the query and forms a cartesian product regardless.
-
-\section{Conclusions}
-
-%\include{chapter-conclusions/chapter-conclusions}
-
-
-%\chapter{Conclusions}
-%paper on testbed construction; ground truth; data sources network and physical; data outputs; 
-%paper on graph database approach for organization of data
-%Discussion, Perspectives, restate findings
-
+\include{chapter-conclusions/conclusions}
 
 % Automatic Lettrine and Minitoc at the begining of the chapter.
 %
