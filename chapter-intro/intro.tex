@@ -1,7 +1,20 @@
 \chapter{Introduction}\label{chapter:intro}
 
 \chapterintro*
-This chapter provides the reader with a background in the industrial revolutions of the past up until the present.  It provides a context by which the reader may understand more fully the impacts of the contributions presented within this thesis.  The chapter begins with a brief historical perspective followed by an introduction of smart manufacturing.  This introduction is necessary of the reader to understand the challenges of employing wireless technology in a factory and why the contributions of the thesis matter are important.
+Cyber-physical systems (CPS) are defined as a holistic integration of computing, networking, and physical processes.  Implicit within these systems are feedback connections in which the computing and networking devices affect the physical systems directly.  Traditionally, industrial computation was performed using dedicated electronics with analog process variables and control signals being communicated over twisted-pair wires.  As automation capabilities evolved, serial communications architectures such as the common fieldbus were adopted.  With the advent of the Internet and Cloud Computing, Internet Protocol (IP) was adopted for more advanced data collection and control applications.  In such applications, reliability and latency requirements were not overly difficult to achieve given the existing technologies; however applications requiring tight feedback timing and reliability were not addressed as the protocols primarily targeted slower flow-based processes and building automation.  Discrete manufacturing requirements remained largely unaddressed.  To answer the call of discrete manufacturing requirements, routable industrial IP protocols such as Common Internet Protocol (CIP), SERCOS III, and Profinet by Siemens were developed to guarantee latency, reliability, and interoperability between systems.  However, given that these protocols are often IP-routable and share a common communication medium, these types of systems are limited in their ability to meet the performance demands of the physical systems or guarantee security.   As wired protocols, they can lack flexibility and mobility demanded by modern industrial applications.
+Communication strategies that jointly address reliability, timing, scale, and power are needed to meet the needs of future industrial control systems.  Proponents of advanced manufacturing systems such as those defined by Industry 4.0 and the Industrial Internet Consortium state that existing protocols are not capable of meeting all the demands of industry.  The future factory will require untethered situationally-aware communications, heavy reliance on automation to include robotics, and an increased cognitive cybersecurity posture.  It is not certain if feedback control of robot motion is necessary; however future communication systems must address strict latency and data reliability requirements for discrete sensors, actuators, and robot end-effectors while maintaining security.  With the adoption of wireless communications in the factory, existing protocols such as IEEE 802.11 and IEEE 802.15.4 will not be capable of meeting reliability demands, round-trip latencies under 10ms, or scalability to dozens of devices within individual work-cells and hundreds or thousands of devices within an entire factory system.    
+
+Wireless communication is inherently more prone to latency and delay than wired counterparts.  In addition, wireless communication implies the utilization of the electromagnetic spectrum which is a publicly accessible medium with constrained capacity and more prone to cyber-attack.  While transmitted data can by digitally protected through authentication and encryption, wireless devices are prone to interference and jamming by both rogue and friendly emitters exacerbating the reliability and latency concern impacting factory performance without compromising data security.  Wireless communication in factories is often constrained by battery life and most certainly constrained by the availability of the electromagnetic spectrum.   As the reliance on wireless devices within the factory continues, steps toward developing a more robust wireless factory communications network must be developed. These steps include:
+
+\begin{itemize}
+	\item The automation system must become situationally aware and adaptive to knowledge of the trends in electromagnetic spectrum occupancy and acute events; 
+	\item Intelligence of the automation system must move closer to the physical system.  This means moving the intelligence for control to the actuator; and  
+	\item Performance test methods must be developed and incorporated into the industrial fringe devices.  The test methods must be dependable and at the same time easy to use by factory personal not trained in the technicalities of wireless communication. 
+	\item Existing Wireless communications protocols must be analyzed and adapted, and new protocols must be developed to balance reliability, latency, and scalability. 
+	\item Security of the network must be maintained and must include availability as a paramount characteristic.
+\end{itemize}
+
+The proposed thesis will include development of test approaches for measuring the performance of industrial wireless networks deployed within smart manufacturing work-cells.  Thus the primary goal of this thesis is the discovery of methods and approaches to the evaluation of industrial uses cases performance for those use case in which wireless communication technology is used as the principal mode of communication.  The primary motivation of the research will be to discover practical test and evaluation methods for assessing performance of an industrial workcell thereby improving security, safety, and reliability.   Findings and results of the thesis work will be included within the thesis and published as journal articles and conference proceedings.  
 
 \section{Industrial Revolutions}
 Major advances in manufacturing of goods for the betterment of humanity have occurred many times in the last two hundred and fifty years in the history of humanity.  These advancements occurred of science and technology occurred as revolutionary events at different times.  The first revolution occurred at the edge of the eightieth century primarily in England but also in France, Germany, and the United States with the applicant of automatic mechanization of large machines using coal powered steam engines.  These machines were mainly used for the processing of cotton, wool, and silks in the production of textiles for export throughout the world.  Advancements during this period included uses of coal to produce steam power, the production of iron, steel, and other rudimentary alloys, and, very importantly, the engineering advancements of tool making.  The advancements of the first industrial revolution paved the way for the centralization and mass production of goods.
@@ -36,7 +49,7 @@ Industry 4.0 also known as "smart manufacturing" was \textit{officially} launch 
 		\caption{Industry 4.0: Incorporating the benefits of machine learning, massive data, mobility, and autonomy within the modern factory.}
 	\end{center}
 \end{figure}
-\begin{verbatim}https://www.forbes.com/sites/bernardmarr/2018/09/02/what-is-industry-4-0-heres-a-super-easy-explanation-for-anyone/#6dee527a9788\end{verbatim}
+%\begin{verbatim}https://www.forbes.com/sites/bernardmarr/2018/09/02/what-is-industry-4-0-heres-a-super-easy-explanation-for-anyone/#6dee527a9788\end{verbatim}
 
 Propelled by economic pressure toward greater efficiency, factory agility, and product customization, future factories will have the technological ability to adapt to customer demands quickly, modify manufacturing processes automatically based on quality feedback, and fabricate products with a reduced environmental impact.  Technological application and advances required for smart manufacturing to be truly successful include a collaborative and mobile robotics, distributed machine autonomy based on artificial intelligence, and a high degree of interconnectivity of among the automation resources.  Some of the important technologies and capabilities within a smart factory are listed below.  This is certainly not an exhaustive list of what is required to achieve the goals of Industry 4.0, but it highlights some of the fundamentals that are pertinent to this thesis.
 
@@ -166,7 +179,7 @@ Overall system resiliency in a factory environment must be considered as issues 
 Often overlooked is the power efficiency of wireless devices.  In factories in which power is readily available such as in a workcell or on a mobile cart platform, power efficiency is not often considered.  In scenarios where devices are deployed over large distances such as in a oil refinery or water purification plant, battery life becomes important.  Battery life can also be important for large scale deployments in factories with thousands of devices.  In those scenarios, the frequency of battery change or failure can drive costs substantially.  Therefore, power efficiency and the impact of design factors on battery life can be equally as important as reliability in a deployment. 
 
 
-These requirements vary greatly depending on the class of industrial application and much work has been done to try to make sense of the classes of applications and there subsequent requirements.  An illustrative perspective of these is given in Fig.~\ref{intro:fig:wirelesspecs} showing both typical and worst case specifications.  
+These requirements vary greatly depending on the class of industrial application and much work has been done to try to make sense of the classes of applications and there subsequent requirements.  An illustrative perspective of these is given in Fig.~\ref{intro:fig:wirelesspecs} showing both typical and worst case specifications and how each relate.  
 
 
 \begin{figure}[!tbp]
@@ -195,27 +208,45 @@ These requirements vary greatly depending on the class of industrial application
 
 
 
-\section{Performance Evaluation}
-
-The focus of the research presented in this body of work is the estimation of performance of cyberphysical systems....
-
-Present the TESTBED!!!
-
-A clearer concept of the requirements will not only allow for the development of realistic wireless systems, but it is also essential in the construction of more accurate models, the conduct of more effective testing, and better analysis the performance measurement data that results.
-
-First understanding the technical landscape: components, interfaces, and constraints
-
-Next setting up a framework for performance evaluation: use case definition, testbed abd data capture, organization of data captured, 
-
-Analysis methods for the captured data: data cleaning, curation, and application of the graph database
-
-Application of machine learning as an example and how different algorithms performance to inferring an important metric in industrial wireless, i.e., signal to interference level
-
-Performance is often done as a before and after; however some effort has been made to standardize test methods~\cite{Candell2015, Candell2017IWW}
+%\section{Performance Evaluation}
+%
+%The focus of the research presented in this body of thesis is performance estimation of both the netwpork and physical 
+%
+%Present the TESTBED!!!
+%
+%A clearer concept of the requirements will not only allow for the development of realistic wireless systems, but it is also essential in the construction of more accurate models, the conduct of more effective testing, and better analysis the performance measurement data that results.
+%
+%First understanding the technical landscape: components, interfaces, and constraints
+%
+%Next setting up a framework for performance evaluation: use case definition, testbed abd data capture, organization of data captured, 
+%
+%Analysis methods for the captured data: data cleaning, curation, and application of the graph database
+%
+%Application of machine learning as an example and how different algorithms performance to inferring an important metric in industrial wireless, i.e., signal to interference level
+%
+%Performance is often done as a before and after; however some effort has been made to standardize test methods~\cite{Candell2015, Candell2017IWW}
 
 \section{Thesis Organization}
 
-\blindtext
+\begin{figure}[!tbhp]
+	\includegraphics{chapter-intro/images/contributions}
+	\caption{Contribution areas and organization of this thesis.}
+	\label{fig:intro:contr-org}
+\end{figure}
+
+This thesis is presented in three major parts.  The first part, Part~\ref{part:context}, \textit{Context and Problem Statement} provides a historical introduction to the context of smart manufacturing.  It presents the premises of industrial wireless technology, key challenges to using wireless within a factory environment, and the accepted indicators that are currently used in the application of wireless within factory environments. In Part~\ref{part:context}, the existing state of the art is also presented in Chapter~\ref{chapter:soa}.  This state of the art includes a discussion of the industrial wireless technology landscape, standards, and a tentative mapping of those technologies to application domains.  A discussion of the systems modeling approaches is then provided with a focus on the Systems Markup Language (SysML).  Then a discussion of approaches to the use of databases follows   In the second part, Part~\ref{part:techical}, \textit{Thesis Contributions}, the technical contributions of this thesis are presented.  Part~\ref{part:conclusion} provides a detailed discussion of the fourn major contributions of this thesis work.  The thesis contributions are presented as follows:
+
+\begin{description}
+	\item[Requirements] An examination of the wireless technology landscape is conducted.  Existing and future wireless technologies are assessed for their appropriate applicability to industrial use cases.
+	
+	\item[Modeling] In an effort to better understand the architectural composition of the workcell using industrial wireless communication, modeling techniques are used to identify and decomposed the parts, interfaces, and data flows.  SysML is adopted for this process and a proposed modeling library is created and presented.  The model is made publicly available independent of the tool that was used to create the model.
+	
+	\item[Application of Graph Database] A method is developed for collecting, cleaning, organizing, and presenting the cyberphysical performance indicators of experiments run within the NIST Industrial Wireless Testbed. The method developed utilizes the Neo4j graph database and is presented as a novel approach as compared to traditional approaches using relational database, spreadsheets, and raw file processing.
+	
+	\item[Machine Learning] A machine learning technique is developed and applied to the prediction of signal-to-interference levels within a wireless factory workcell network employing a robot arm within a force-seeking apparatus.  The machine learning method allows a trained network to accurate determine the signal-to-interference level using the physical state of the robot arm rather than the state of the wireless link itself.
+\end{description}
+
+Finally, the thesis concludes in Part~\ref{part:conclusion}.  Concluding remarks and future direction is provided as an opinion of the thesis candidate.
 
 
 
