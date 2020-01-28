@@ -1,24 +1,26 @@
 
 \chapter{General Conclusions}
-\section{Perspectives}
+%\section{Perspectives}
 
 In this thesis, several original contributions were presented, and these contributions are listed as follows:
 
 \begin{description}
-	\item[Technological Mapping] The landscape of industrial wireless technology is explored and a mapping of the classes of industrial automation use cases are described and mapped to potential wireless candidates for use within industrial environments.
+	\item[Technological Mapping] The landscape of industrial wireless technology is explored and a mapping of the classes of industrial automation use cases are described and mapped to potential wireless candidates for use within industrial environments which is presented in~\cite{CandellRW2017}.  Additional significant contributions by the author are made in~\cite{Candell2018.IWSGuide, Candell2017.SAS.IWSWorkshopReport, Montgomery2019} in which the author is the primary or a is a major contributor.
 	
-	\item[Systems Modeling using SysML] SysML was used to constructed an extensible framework for comprehensively communicating the design of a cyberphsyical system using SysML.  This framework allows one to model a workcell application inclusive of the network and physical elements.  The proposed model allows the user to link network and computational domain performance to physical domain performance.
+	\item[Systems Modeling using SysML] SysML was used to constructed an extensible framework for comprehensively communicating the design of a cyberphsyical system using SysML as presented in~\cite{SysML.Candell2018} and~\cite{Candell2018SysML.DATA}.  This framework allows one to model a workcell application inclusive of the network and physical elements.  The proposed model allows the user to link network and computational domain performance to physical domain performance.
 	
-	\item[Database Application] A graph database is used to collected cyberphysical systems performance data from a wireless robotic workcell.  It is demonstrated that the graph database is a useful candidate for storage, organizing, and exploring the data that results from the operation of a cyberphysical system such as a robotic workcell employing wireless as a primary mode of communication.  Furthermore, it is shown that the wireless network selected negligibly impacts physical performance thus demonstrating one class of application of wireless to industrial automation.
+	\item[Database Application] A graph database is used to collected cyberphysical systems performance data from a wireless robotic workcell~\cite{CandellISIT2020.Conf}.  It is demonstrated that the graph database is a useful candidate for storage, organizing, and exploring the data that results from the operation of a cyberphysical system such as a robotic workcell employing wireless as a primary mode of communication.  Furthermore, it is shown that the wireless network selected negligibly impacts physical performance thus demonstrating one class of application of wireless to industrial automation.
 	
-	\item[Machine Learning Application] A neural network is successfully applied in the prediction of signal-to-interference ratio using camera monitors of robot arm position.  This demonstrated the success application of machine learning to a class of use cases (i.e. force seeking applications) commonly found within a factory workcell.  Furthermore, various machine learning candidates were explored and their applicable performance is presented.
+	\item[Machine Learning Application] A neural network is successfully applied in the prediction of signal-to-interference ratio using camera monitors of robot arm position~\cite{CandellISIE2019.Conf, CandellIJAMT2020.Jrml}.  This demonstrated the success application of machine learning to a class of use cases (i.e. force seeking applications) commonly found within a factory workcell.  Furthermore, various machine learning candidates are explored and their applicable performance is presented.  It is shown that in this analysis that ensemble-based algorithms have superior performance compared to other regression algorithms for data presented.  
 \end{description}
 
-\subsection*{Requirements Mapping}
+These contributions are each part of a comprehensive exploration of the problem of performance estimation, testing, and control of cyberphysical systems employing non-ideal communications networks which is the title of this thesis.  
 
-The first contribution was an exposition of the various wireless technologies that were either developed specifically for industrial use or have a tangential use within industry.  Classes of industrial use cases were defined and a mapping of the applicability of each wireless technology to class of use case was provided.  This mapping represented the opinion of the candidate based on the candidates experience and knowledge of wireless technology at the time that the contribution was made.
+\section{Requirements Mapping}
 
-\subsection{Modeling using SysML}
+The first contribution was an exposition of the various wireless technologies that were either developed specifically for industrial use or have a tangential use within industry~\cite{CandellRW2017}.  Classes of industrial use cases were defined and a mapping of the applicability of each wireless technology to class of use case was provided.  This mapping represented the opinion of the candidate based on the candidates experience and knowledge of wireless technology at the time that the contribution was made.  This exploration represented a major contribution to the distillation of the plethora of performance requirements found in literature and in trade articles regarding the performance expectations of industrial wireless networks and the driving requirements behind the use cases employing them.  In the article, success considerations are presented for the deployment of wireless in factories and factory workcells including those envisioned for smart manufacturing.  These success considerations are defined and include reliability.  The performance indicator \textit{reliability} is a main consideration within this thesis and represents the bulk of  concern for wireless deployments.  Reliability includes any element that impact information flow within a cyberphysical system.  This includes both information loss and delay.  In this contribution, it several components comprises the problem space of wireless deployments are declared of which two resound critically important to the work addressed by this thesis.  The first is the problem of instrumentation that includes all elements within the factory that include sensing and actuation.  The second important component is the assessment of performance which includes test methods for which this thesis addresses through identification of the information flows and then subsequently the evaluation of the performance of those information flows and their impacts on physical performance.  Therefore, this contribution is necessarily important as it provides an essential perspective of the problem of deploying industrial wireless systems and then the motivation behind modeling, database application, and machine learning to the assessment of network performance.  The contribution of this work illustrates the clear need for an understanding of requirements and creative test methods for examination of wireless cyberphysical systems.  It was clear from this contribution that easy-to-use test methods were essential; however, it was not a goal of this thesis.  Essentially, this contribution introduces the problem of selecting and deploying wireless networking in factories.  It describes the technical aspects to be considered.  Finally, it provides a starting point for the applicability of wireless technologies to classes of use cases, and in doing so provides motivation for gaining a clearer understanding of the workcell through a formal decomposition and creation of a framework for communicating those ideas~\cite{CandellISIT2020.Conf}.
+
+\section{Modeling using SysML}
 The second contribution was an abstraction of the industrial cyberphysical system that is the factory work using SysML.  In this work, a model was constructed using primitives representing each major architectural component of the workcell and interfaces within the workcell and to systems outside the workcell.  These interfaces are used to represent elements of information flow.  The information flows represented represent the performance of the supporting network.  Subsequently, the physical system that operates using that network has its own performance that is directly connected to the performance of the network.  Each information flow identified using the SysML model represents an opportunity of study.  For example, the system elaborated by the internal block diagram Fig.~\ref{fig:concl:lfscenario-full} each of the main actors (Robot Controller 1, Robot Controller 2, and Supervisor) are all connected to an 802.11ax network.
 
 \begin{figure}[!th]
@@ -69,7 +71,7 @@ One can clearly see that the complete path of information flow within the model 
 
 \begin{figure}[!th]
 	\centering
-	\includegraphics[width=0.85\textwidth]{chapter-conclusions/images/Conceptual}
+	\includegraphics[width=0.95\textwidth]{chapter-conclusions/images/Conceptual}
 	\caption{BBD of the conceptual relationships of model primitives}
 	\label{fig:concl:conceptual}
 \end{figure}
@@ -83,23 +85,42 @@ It is important to mention that this model includes an often overlooked componen
 With increased dependency on wireless communications for more complex manufacturing systems, the projection of manufacturing requirements onto the wireless communication system becomes less obvious. Such analysis of this projection is essential for future research of manufacturing systems. As such, the architectural elements and information flows exposed by an abstract model
 are a necessary first step. The model in its current state of development is comprehensive enough to support architectural and ontological analyses of the factory work-cell.  As such, information about the relationships between components of a work-cell and attributes related to the wireless network may be discovered. Therefore, the model serves as a foundation for future systems engineering analyses. Moreover, the model may be used as a tool for academic and industry exploration of wireless testbed development.  The model is made openly available through GitHub at~\cite{SysML.Candell2018}.
 
-\subsection*{Graph Database Application}
+\section{Graph Database Application}
 
-recall what was presented
+Graph databases are designed to provide a powerful modeling framework for the storage and visualization of data in which relationships and connections between data could be significant but difficult to detect or visualize in the real world.  When one heares database, typically one envisions a relational database such as MySQL or Oralce in which the database iself stores information in a highly structured manner in which tables are constructed in a predetermined way with columns, rows, and rigidly defined data types.  In contrast, graph databases are not rigid in their structure and organization.  Data is graph databases are natively stored within nodes and vertices (connections).  Each node and vertice can have associated properties and thus store data as shown in Fig.~\ref{fig:concl:graphdb-sperical} which illustrates the common notion of a graph database.  The vertices represent relationships, and these relationhips are the essential building block used within the contribution presented in the thesis~\cite{CandellISIT2020.Conf}.  The objective of using a graph database was essentially to leverage the inherent connectedness of the data resulting from the experiments being performed within the NIST Industrial Wireless Laboratory, and 2) demonstrate that wireless networks could be used for a significant class of use case without impacting physical system performance. 
 
 proof that wireless performance does not severely impact physical system performance
-would be interesting through simulation using the sysml model how the wireless network performance impacts the performance of the physical system and compare that to the empiral results. 
+would be interesting through simulation using the sysml model how the wireless network performance impacts the performance of the physical system and compare that to the empirical results. 
 
-\subsection*{Machine Learning Applications}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{chapter-conclusions/images/spherical-graph.png}
+	\caption{A notional spherical graph depicting nodes and vertices.}
+	\label{fig:concl:graphdb-sperical}
+\end{figure}
 
+To support the research performed for this contribution, a testbed has been constructed. This testbed was described in Chapter~\ref{chapter:graphdb} and is illustrated in the photo provided in Fig.~\ref{gdbappl:fig::workcell}.  The network design of the testbed is shown in Fig.~\ref{fig:concl:experiment-design}
 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.95\textwidth]{chapter-gdb-appl/figures/Fig1TiiSpecialDiagram-testbed2.png}
+	\caption{Experiment design used for capture of performance data.}
+	\label{fig:concl:experiment-design}
+\end{figure}
 
-\section{Future Opportunities}
-Move the future work sections here
-\subsection*{Requirements Mapping}
-\subsection*{Modeling using SysML}
-\subsection*{Graph Database Application}
-\subsection*{Machine Learning Applications}
+This shows what is important: the connection between physical actions that the transactions that support them.  Transactions are grouping of information transmissions (i.e., packets) that traverse the wireless network.  Factors that impact reliability of transaction such as message (i.e. packet) loss or message (i.e. packet) delay indirectly impact start and stop times of physical actions.  These relationships are directly captured within a graph and thus the applicability of a graph database to the investigation of cyberphysical system performance becomes evident.  Ultimately, one could argue that the primary contribution of this component of the thesis is the demonstration of interconnectedness between the wireless network and physical operations through the modeling and of the data relationships and the analysis of physical action performance when network performance is degraded.  It is shown in this work as depicted in Fig.~\ref{fig:concl:data-physical-actions-following} HOWHOWHOW
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.85\textwidth]{chapter-gdb-appl/figures/database/graph_schema_updated_2.png}
+	\caption{Experiment design used for capture of performance data.}
+	\label{fig:concl:data-physical-actions-following}
+\end{figure}
+
+It is my opinion that the relationships between the physical actions through the FOLLOWED and NEXT relationships as shown in Fig.~\ref{fig:concl:data-physical-actions-following} and the TRIGGER relationships between physical actions and Transcactions is a signifcant component of discovery within the results of this contribution. It is through this TRIGGER relationship and the FOLLOWED relationship that one can ascertain the impacts of network performance on physical systems performance.  When a triggering Transcation is correlated to a physical action, it is then possible to follow the nodes backward in the graph to associated Message nodes and the quality of service (QoS) reports associated with those messages.  It is important to note that the QoS reports used for this investigation were produced externally using wireless sniffer devices that were colocated with transceiver equipment.  This was done due to the implementation difficulty in extracting QoS header information for each wireless packet received at each actor.  Since the experiments were performance, a method to extract wireless QoS header data at each transceiver was discovered.  This would enrich the data with more accurate QoS reports and thus allow for the construction of a more accurate performance graph.
+
+\section{Machine Learning Applications}
+
 
 %\chapter{Conclusions}
 %
