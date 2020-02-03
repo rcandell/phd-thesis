@@ -12,9 +12,9 @@ A work-cell was constructed to perform a dual robot pick-and-place task that is 
 	\label{gdbappl:fig::database:netdiagram}
 \end{figure*}
 
-All communicating devices on the testbed have been originally designed to use Ethernet TCP/IP for communication. To enable wireless within the testbed, Ethernet-WiFi bridges are utilized for wireless communications through a common access point (AP). To establish these Ethernet-WiFi bridges, Next-line-of-Computing (NUC) computers, are used.  NUCs are a line of small-form-factor barebone computer kits designed by Intel.   Each NUC in our experiments is configured in one of various forms as a bridge, a wireless sniffer, a traffic generator, or a traffic sink. These configurations in the network are shown in Fig.~\ref{gdbappl:fig:database:netdiagram}.
+All communicating devices on the testbed have been originally designed to use Ethernet TCP/IP for communication. To enable wireless within the testbed, Ethernet-WiFi bridges are utilized for wireless communications through a common access point (AP). To establish these Ethernet-WiFi bridges, Next-line-of-Computing (NUC) computers, are used.  NUCs are a line of small-form-factor barebone computer kits designed by Intel.   Each NUC in our experiments is configured in one of various forms as a bridge, a wireless sniffer, a traffic generator, or a traffic sink. These configurations in the network are shown in Fig.~\ref{gdbappl:fig::database:netdiagram}.
 
-There are three different types of measurements (network, robot, and PLC state data) collected on the testbed. Network traffic data is captured using seven test access point (TAP) devices and a wireless sniffer, shown in Fig.~\ref{gdbappl:fig:database:netdiagram} with green labels. A machine running Ubuntu 18.04, not shown, is used to capture all wired network traffic on the testbed. The position and robot state data is captured from the robot controllers using the real time data exchange (RTDE) protocol~\cite{RTDE}. RTDE data is also captured on the Linux machine using the connected switches to each of the robot controllers. Lastly, the PLC state data is captured locally on the supervisor PLC during the experiment. These three types of measurements (network, robot, and PLC state data) have a shared precise time from the synchronization to the grand master time server. The design adopts the IEEE 1588 precision time protocol (PTP) to allow synchronized distributed clocks to stamp the accurate time to the measured network and operational events in the testbed~\cite{IEEE-Std-1588-2008-redline}.
+There are three different types of measurements (network, robot, and PLC state data) collected on the testbed. Network traffic data is captured using seven test access point (TAP) devices and a wireless sniffer, shown in Fig.~\ref{gdbappl:fig::database:netdiagram} with green labels. A machine running Ubuntu 18.04, not shown, is used to capture all wired network traffic on the testbed. The position and robot state data is captured from the robot controllers using the real time data exchange (RTDE) protocol~\cite{RTDE}. RTDE data is also captured on the Linux machine using the connected switches to each of the robot controllers. Lastly, the PLC state data is captured locally on the supervisor PLC during the experiment. These three types of measurements (network, robot, and PLC state data) have a shared precise time from the synchronization to the grand master time server. The design adopts the IEEE 1588 precision time protocol (PTP) to allow synchronized distributed clocks to stamp the accurate time to the measured network and operational events in the testbed~\cite{IEEE-Std-1588-2008-redline}.
 
 \subsection{Equipment Used}
 
@@ -37,7 +37,7 @@ In the previous case study, we identified the requirements of a GDB data model a
 	\centering
 	%	\includegraphics[width=\textwidth,trim=50 50 50 50, clip]{figures/database/arrows-schema.PNG}
 	\includegraphics[width=\textwidth]{chapter-gdb-appl/figures/graph_schema_1209.eps}
-	\caption{The data model of the graph database used for each operational run of the NIST wireless factory testbed.  The graph is organized into nodes and edges, where the edges signify relationships among network elements and physical operational elements.\vspace{-0.4in}}
+	\caption{The data model of the graph database used for each operational run of the NIST wireless factory testbed.  The graph is organized into nodes and edges, where the edges signify relationships among network elements and physical operational elements.}
 	\label{gdbappl:fig:database:schema}
 \end{figure*}
 
@@ -56,7 +56,7 @@ The class of \textit{dynamic} nodes in the graph captures various system events 
 
 \paragraph{Graph Relationships}
 
-A relationship in the graph denotes an action taken to associate two nodes, either homogeneous or heterogeneous ones, which shows their connections in the topology, timeline, or affiliation. The relationships used in the GDB were introduced in~\cite{Candell2020}. As shown in Fig.~\ref{gdbappl:fig:database:schema}, most of them are self-explanatory. 
+A relationship in the graph denotes an action taken to associate two nodes, either homogeneous or heterogeneous ones, which shows their connections in the topology, timeline, or affiliation. The relationships used in the GDB were introduced in~\cite{CandellISIT2020.Conf}. As shown in Fig.~\ref{gdbappl:fig:database:schema}, most of them are self-explanatory. 
 
 \begin{figure*}
 	\centering

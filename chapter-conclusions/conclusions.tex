@@ -119,7 +119,21 @@ It is my opinion that the relationships between the physical actions through the
 \section{Machine Learning Applications}
 
 
-\section{Final Remarks}
+\section{Closing Remarks}
+
+This thesis began with the very broad objective of investigating the area of performance estimation, testing, and control of cyberphysical systems employing non-ideal communications networks.  An ideal communication network is one in which all data arrives reliably and on-time.  In industrial settings, an ideal network is usually a wired networks built upon fieldbus protocols such as EtherCAT and CANbus or switched protocols founded upon Ethernet.  Ethernet and fieldbus are not 100\% reliable but their performance is near ideal for there intended applications.  Enter industrial communication networks built upon wireless technology, and the situation appears very different.  While wireless technology provides key benefits in mobility and cost reduction, reliability of the network as compared to wired counterparts drops dramatically.  While wired network solutions can more easily transport data reliably and determinstically, wireless solutions are built upon a shared limited physical medium, the electromagnetic spectrum, that is finite in bandwidth and is easily inhibited by distance, interference, and the structure of the surround environment.  Much hype exists surrounding the benefits of use of wireless in factories for collecting information about the operation and more recently for control of the factory itself.  Therefore, it becomes important to understand the operational requirements of the factory and then develop methods for assessing the performance of the factory network employing non-ideal communication such as that industrial wireless network.  This thesis contributed to this undertaking by doing the following:
+
+\begin{enumerate}
+	\item In Part~\ref{part:context}, an historical account of the past four industrial revolutions is provided.  In addition, the thesis introduces the reader to the importance of wireless networking in smart manufacturing and the main challenges that it faces toward widespread adoption. A review of the state-of-the-art of the requirements of industrial requirements, systems modeling, application of graph databases to the problem of cyberphysical systems, and machine learning are also presented.  Within this look at the state of the art, the contribution of the thesis candidate to wireless user requirements is also presented.
+	\item In Part~\ref{part:techical}, provides the technical contributions of this thesis. Contributions of the author in the areas of requirements, systems modeling, graph database application, and machine learning are presented.  Each of the four chapters within Part~\ref{part:techical} describe the novel contributions of the author as follows:
+	\begin{enumerate}
+		\item Chapter~\ref{chapter:reswk} explored the vast and continually changing landscape of wireless technology and provided new perspective of the applicability of existing and emerging technologies to classes of industrial sensing and control applications.
+		\item Chapter~\ref{chapter:sysml}, presented a new framework for the modeling of cyberphysical systems employing wireless communication as the primary mode of data transfer using SysML.
+		\item Chapter~\ref{chapter:graphdb} presented the work of applying the graph database to the problem of storing and querying performance database of the cyberphysical system.  Cyberphysical system performance data is highly connected, and thus the graph database was demonstrated to be a viable means of storing the data and discovering correlations within the data between network performance and operational performance.
+		\item Finally, Chapter~\ref{chapter:ftml} presented the work of applying machine learning to prediction of quality of service of wireless communication links within a representative industrial use case, a force seeking apparatus.
+	\end{enumerate}
+\end{enumerate}
+
 
 
 
