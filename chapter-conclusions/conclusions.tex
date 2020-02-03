@@ -118,6 +118,17 @@ It is my opinion that the relationships between the physical actions through the
 
 \section{Machine Learning Applications}
 
+Machine learning (ML) is that large field of science and engineering that deals with the application of computing algorithms to perform actions without being explicitly programmed to do so.  In general applications, ML is used from applications ranging from voice recognition in personal electronics, spam filtering in email, and performing traffic prediction for commuters to providing services such friend identification and face recognition in social media.  In industrial applications, machine learning has the promise of a wide range of applications such as robot autonomy and detection of security anomalies. In this thesis, as machine learning framework was demonstrated for the prediction of the signal-to-interference ratio (SIR) within a communications link used for the control of a robot arm depressing a spring apparatus.  The ML framework as shown to be useful and accurate in the prediction of link quality.  Link quality estimation (LQE) is an important metric in wireless communication system.  It is a general term used to describe the level of quality of a communication link.  The SIR metric is a ratio between the intended signal being transmitted and the level of interference competing with the intended signal.  Interference, whether caused by malicious jamming or not, is an impeding factor in the adoption of wireless in smart manufacturing systems.  Therefore, having a clear situational awareness picture of the level of interference and the quality of communication links being used is of clear interest.  The contribution presented within this thesis addresses a clear need in improving the detection and estimation of signal quality events in the workcell.  Future work to extend the framework could involve the following:
+
+\begin{description}
+	
+	\item[Higher Dimensionality] Application of this ML framework to a system with more degrees of freedom such as the entire workcell.  In the current contribution, the ML framework was applied to a single wireless communication link used to control one robot arm.  When expanded the framework to systems with more dimensions, the application of neural networks with deep learning may be beneficial.
+	
+	\item[Spectrum Monitoring System] Application of online learning techniques such that the ML framework can learn and adapt as the workcell operates would be beneficial as well.  In the current contribution, the ML framework learns offline from training data and then applies its knowledge to an active system.  This prohibits the system from learning as the wireless network changes over time.  Online techniques could allow for the ML framework to account for a changing spectral environment.
+	
+	\item[Control System Integration] Integration of this framework with the workcell control system such that the control system can adapt dynamically to interference for example to allow the control system to task preventative actions for safety or to operate in a reduced performance mode.
+	
+\end{description}
 
 \section{Closing Remarks}
 
