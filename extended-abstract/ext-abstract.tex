@@ -2,7 +2,7 @@
 % LLNCS macro package for Springer Computer Science proceedings;
 % Version 2.20 of 2017/10/04
 %
-\documentclass{article}
+\documentclass[twocolumn]{IEEEtran}
 %\documentclass[runningheads]{llncs}
 %
 \usepackage{graphicx}
@@ -35,6 +35,7 @@
 \usepackage{slashbox}
 \usepackage{threeparttable}
 \usepackage{blindtext}
+\usepackage{enumitem}
 
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
@@ -45,7 +46,7 @@
 
 \begin{document}
 	%
-	\title{Extended Abstract for the Thesis:\\Performance Estimation, Testing, and Control of Cyber-Physical Systems Employing Non-Ideal Communications Networks}
+	\title{Performance Estimation, Testing, and Control of Cyber-Physical Systems Employing Non-Ideal Communications Networks \\ {\large Extended Abstract}}
 	%
 	%\titlerunning{Abbreviated paper title}
 	% If the paper title is too long for the running head, you can set
@@ -69,142 +70,87 @@
 	%
 	%
 	%
-	\section{Introduction}
-Cyber-physical systems (CPS) are defined as a holistic integration of computing, networking, and physical processes.  Implicit within these systems are feedback connections in which the computing and networking devices affect the physical systems directly.  Traditionally, industrial computation was performed using dedicated electronics with analog process variables and control signals being communicated over twisted-pair wires.  As automation capabilities evolved, serial communications architectures such as the common fieldbus were adopted.  With the advent of the Internet and Cloud Computing, Internet Protocol (IP) was adopted for more advanced data collection and control applications.  In such applications, reliability and latency requirements were not overly difficult to achieve given the existing technologies; however applications requiring tight feedback timing and reliability were not addressed as the protocols primarily targeted slower flow-based processes and building automation.  Discrete manufacturing requirements remained largely unaddressed.  To answer the call of discrete manufacturing requirements, routable industrial IP protocols such as Common Internet Protocol (CIP), SERCOS III, and Profinet by Siemens were developed to guarantee latency, reliability, and interoperability between systems.  However, given that these protocols are often IP-routable and share a common communication medium, these types of systems are limited in their ability to meet the performance demands of the physical systems or guarantee security.   As wired protocols, they can lack flexibility and mobility demanded by modern industrial applications.
-Communication strategies that jointly address reliability, timing, scale, and power are needed to meet the needs of future industrial control systems.  Proponents of advanced manufacturing systems such as those defined by Industry 4.0 and the Industrial Internet Consortium state that existing protocols are not capable of meeting all the demands of industry.  The future factory will require untethered situationally-aware communications, heavy reliance on automation to include robotics, and an increased cognitive cybersecurity posture.  It is not certain if feedback control of robot motion is necessary; however future communication systems must address strict latency and data reliability requirements for discrete sensors, actuators, and robot end-effectors while maintaining security.  With the adoption of wireless communications in the factory, existing protocols such as IEEE 802.11 and IEEE 802.15.4 will not be capable of meeting reliability demands, round-trip latencies under 10ms, or scalability to dozens of devices within individual work-cells and hundreds or thousands of devices within an entire factory system.    
-
-Wireless communication is inherently more prone to latency and delay than wired counterparts.  In addition, wireless communication implies the utilization of the electromagnetic spectrum which is a publicly accessible medium with constrained capacity and more prone to cyber-attack.  While transmitted data can by digitally protected through authentication and encryption, wireless devices are prone to interference and jamming by both rogue and friendly emitters exacerbating the reliability and latency concern impacting factory performance without compromising data security.  Wireless communication in factories is often constrained by battery life and most certainly constrained by the availability of the electromagnetic spectrum.   As the reliance on wireless devices within the factory continues, steps toward developing a more robust wireless factory communications network must be developed. These steps include:
-
-\begin{itemize}
-	\item[$\star$] The automation system must become situationally aware and adaptive to knowledge of the trends in electromagnetic spectrum occupancy and acute events; and
 	
-	\item[$\star$] Intelligence of the automation system must move closer to the physical system.  This means moving the intelligence for control to the actuator; and  
+%		Wireless technology is a key enabler of the promises of Industry 4.0 (Smart Manufacturing). As such, wireless technology will be adopted as a principal mode of communication within the factory beginning with the factory enterprise and eventually being adopted for use within the factory workcell.  Factory workcell communication has particular requirements on latency, reliability, scale, and security that must first be met by the wireless communication technology used.  Wireless is considered a non-ideal form of communication in that when compared to its wired counterparts, it is considered less reliable (lossy) and less secure.  These possible impairments lead to delay and loss of data in industrial automation system where determinism, security, and safety is considered paramount.  This thesis investigates the wireless requirements of the factory workcell and applicability of existing wireless technology, it presents a modeling approach to discovery of architecture and data flows using SysML, it provides a method for the use of graph databases to the organization and analysis of performance data collected from a testbed environment, and finally provides an approach to using machine learning in the evaluation of cyberphysical system performance.
 	
-	\item[$\star$] Performance test methods must be developed and incorporated into the industrial fringe devices.  The test methods must be dependable and at the same time easy to use by factory personal not trained in the technicalities of wireless communication; and
-	
-	\item[$\star$] Existing Wireless communications protocols must be analyzed and adapted, and new protocols must be developed to balance reliability, latency, and scalability; and
-	 
-	\item[$\star$] Security of the network must be maintained and must include availability as a paramount characteristic.
-\end{itemize}
-
-This thesis includes development of test approaches for measuring the performance of industrial wireless networks deployed within smart manufacturing work-cells.  Thus the primary goal of this thesis is the discovery of methods and approaches to the evaluation of industrial uses cases performance for those use case in which wireless communication technology is used as the principal mode of communication.  The primary motivation of the research is to discover practical test and evaluation methods for assessing performance of an industrial workcell thereby improving security, safety, and reliability in general.   Findings and results of the thesis work are included within the thesis and published as journal articles and conference proceedings.  Resulting data is also made available.
-
-	\section{Contributions and Thesis Organization}
-	
-		\begin{figure}[!tbhp]
-			\includegraphics[width=\linewidth]{images/contributions}
-			\caption{Contribution areas and organization of this thesis.}
-			\label{fig:intro:contr-org}
-		\end{figure}
+		\section*{Introduction}
+		Smart Manufacturing provides a vision of future manufacturing systems that incorporate highly dynamic physical systems, robust and responsive communications systems, and computing paradigms to maximize efficiency, enable mobility, and realize the promises of the digital factory.  Wireless technology is a key enabler of that vision. Wireless communication is inherently more prone to latency and delay than wired counterparts.  In addition, wireless communication implies the utilization of the electromagnetic spectrum which is a publicly accessible medium with constrained capacity and more prone to cyber-attack.  While transmitted data can by digitally protected through authentication and encryption, wireless devices are prone to interference and jamming by both rogue and friendly emitters exacerbating the reliability and latency concern impacting factory performance without compromising data security.  Wireless communication in factories is often constrained by battery life and most certainly constrained by the availability of the electromagnetic spectrum.   As the reliance on wireless devices within the factory continues, steps toward developing a more robust wireless factory communications network must be developed. These steps include:
+			
+		\begin{itemize}
+			\item[$\star$] The automation system must become situationally aware and adaptive to knowledge of the trends in electromagnetic spectrum occupancy and acute events; and
+			
+			\item[$\star$] Intelligence of the automation system must move closer to the physical system.  This means moving the intelligence for control to the actuator; and  
+			
+			\item[$\star$] Performance test methods must be developed and incorporated into the industrial fringe devices.  The test methods must be dependable and at the same time easy to use by factory personal not trained in the technicalities of wireless communication; and
+			
+			\item[$\star$] Existing Wireless communications protocols must be analyzed and adapted, and new protocols must be developed to balance reliability, latency, and scalability; and
+			 
+			\item[$\star$] Security of the network must be maintained and must include availability as a paramount characteristic.
+		\end{itemize}
 		
-		This thesis is presented in three major parts.  In Part I, the thesis provides a historical introduction to the context of smart manufacturing.  It presents the premises of industrial wireless technology, key challenges to using wireless within a factory environment, and the accepted indicators that are currently used in the application of wireless within factory environments. Then, the existing state of the art is presented to orient the reader for the thesis contribution.  This state of the art includes a discussion of the industrial wireless technology landscape, standards, and a tentative mapping of those technologies to application domains.  A discussion of the systems modeling approaches is then provided with a focus on the Systems Markup Language.  Then a discussion of approaches to the use of databases follows   In Part II, \textit{Thesis Contributions}, the technical contributions of this thesis are presented.  Finally, in Part III, the thesis provides a detailed discussion of the four major contributions of this thesis work.  Concluding remarks and future direction are provided as an opinion of the thesis candidate.  
+		This thesis includes development of test approaches for measuring the performance of industrial wireless networks deployed within smart manufacturing work-cells.  Thus the primary goal of this thesis is the discovery of methods and approaches to the evaluation of industrial uses cases performance for those use case in which wireless communication technology is used as the principal mode of communication.  The primary motivation of the research is to discover practical test and evaluation methods for assessing performance of an industrial workcell thereby improving security, safety, and reliability in general.   Findings and results of the thesis work are included within the thesis and published as journal articles and conference proceedings.  Resulting data is also made available.
 		
-		The thesis contributions are presented as follows according to the demonstrated contributions to the state of the art:
+		\section*{Contributions and Organization}
+		
+		This thesis is presented in three major parts.  In Part I, the thesis provides a historical introduction to the context of smart manufacturing.  It presents the premises of industrial wireless technology, key challenges to using wireless within a factory environment, and the accepted indicators that are currently used in the application of wireless within factory environments. Then, the existing state of the art is presented to orient the reader for the thesis contribution.  This state of the art includes a discussion of the industrial wireless technology landscape, standards, and a tentative mapping of those technologies to application domains.  A discussion of the systems modeling approaches is then provided with a focus on the Systems Markup Language.  Then a discussion of approaches to the use of databases follows   In Part II, \textit{Thesis Contributions}, the technical contributions of this thesis are presented.  Finally, in Part III, the thesis provides a detailed discussion of the four major contributions of this thesis work.  Concluding remarks and future direction are provided as an opinion of the thesis candidate.  The thesis contributions are presented as follows:\vspace{5mm}
 		
 		\begin{description}
-			\item[Requirements] An examination of the wireless technology landscape is conducted.  Existing and future wireless technologies are assessed for their appropriate applicability to industrial use cases.
+			\item[Requirements] \cite{CandellRW2017} \cite{Montgomery2019} \cite{Candell2018.IWSGuide} An examination of the wireless technology landscape is conducted.  Existing and future wireless technologies are assessed for their appropriate applicability to industrial use cases. 
 			
-			\item[Modeling] In an effort to better understand the architectural composition of the workcell using industrial wireless communication, modeling techniques are used to identify and decomposed the parts, interfaces, and data flows.  SysML is adopted for this process and a proposed modeling library is created and presented.  The model with conceptual diagram shown in Fig.~\ref{fig:sysmlex} is made publicly available independent of the tool that was used to create the model.
+			\item[Modeling] \cite{Candell2019ASR.SYSML} \cite{Candell2018SysML.JRES} \cite{Candell2018SysML.GitHub} In an effort to better understand the architectural composition of the workcell using industrial wireless communication, modeling techniques are used to identify and decomposed the parts, interfaces, and data flows.  SysML is adopted for this process and a proposed modeling library is created and presented.  The model with conceptual diagram is made publicly available independent of the tool that was used to create the model.
 			
-			\item[Application of Graph Database] A method (Figures.~\ref{gdbappl:fig:database:work-flow} and~\ref{gdbappl:fig:real-schema}) is developed for collecting, cleaning, organizing, and presenting the cyberphysical performance indicators of experiments run within the NIST Industrial Wireless Testbed. The method developed utilizes the Neo4j graph database and is presented as a novel approach as compared to traditional approaches using relational database, spreadsheets, and raw file processing.
+			\item[Application of Graph Database] \cite{CandellISIT2020.Conf} A method is developed for collecting, cleaning, organizing, and presenting the cyberphysical performance indicators of experiments run within the NIST Industrial Wireless Testbed. The method developed utilizes the Neo4j graph database and is presented as a novel approach as compared to traditional approaches using relational database, spreadsheets, and raw file processing.
 			
-			\item[Machine Learning] A machine learning technique is developed and applied to the prediction of signal-to-interference levels within a wireless factory workcell network employing a robot arm within a force-seeking apparatus as shown in Fig.~\ref{fig:photo-forceseeker}  The machine learning method allows a trained network to accurately determine the signal-to-interference level using the physical state of the robot arm rather than the state of the wireless link itself as shown in Fig~\ref{ftml-conf:fig:results-BP}.
+			\item[Machine Learning] \cite{CandellISIE2019.Conf} \cite{CandellISIE2019.Conf.Data} \cite{CandellIJAMT2020.Jrml} A machine learning technique is developed and applied to the prediction of signal-to-interference levels within a wireless factory workcell network employing a robot arm within a force-seeking apparatus.  The machine learning method allows a trained network to accurately determine the signal-to-interference level using the physical state of the robot arm rather than the state of the wireless link itself.
 		\end{description}
 	
-		%
-		% REQS FIGURE
-		%
-		\begin{figure}[t]
-			\centering
-			\includegraphics[width=\columnwidth]{images/probsp}
-			\caption{Industrial wireless technologies are applicable across most aspects of an industrial operation.}
-			\label{fig:problemspace}
-		\end{figure}   
-	
-		% Table generated by Excel2LaTeX from sheet 'mapping'
-		\begin{table*}[htbp]
-			\setlength{\tabcolsep}{1.4pt}
-			\centering
-			\caption{Asserted applicability of wireless technologies.}
-			\label{tbl:techmap}%
-			\begin{adjustbox}{width=\textwidth}
-				\input{tables/techmap}
-			\end{adjustbox}
-			\vspace{3pt}
-			\raggedright
-			
-			Legend: 
-			\CIRCLE:~{Technology fully supports problem domain,}
-			\LEFTcircle:~{Supports problem domain with practicality, throughput, latency, reliability, or energy limitations,}
-			\lightning:~{Energy requirements of assumed battery-powered devices prevent applicability,}
-			\clock:~{Latency prevent applicability,}
-			\DOWNarrow:~{Throughput prevents applicability,}
-			\hexstar:~{Emerging technology or evolution may support problem domain,}
-			\fullmoon:~{Not recommended,}
-			-:~{Not considered by authors.}
-			% \newline
-			% \noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}
-			% This table represents assertions by the authors of applicability of wireless technologies to industrial control systems problem domains based on industry practice and intent of the technology.  The authors assert that the problem domains and wireless technologies included within this table represent the majority  of problems found within industry and the existing technologies that may be applied.  In some cases, modifications may be made to the listed technologies resulting in applicability to a specified problem.  Very low bit rate (VLBR) wide area networks (WAN) are assumed to have an infrastructure topology. 
-			% \noindent\makebox[\linewidth]{\rule{\linewidth}{0.4pt}}
-		\end{table*}%
-	
-		%
-		% SYSML FIGURES
-		%
-		\begin{figure}[!tbhp]
-			\centering
-			\includegraphics[width=0.95\textwidth]{images/bdd__Factory_Workcell__Conceptual}
-			\caption{SysML conceptual model of the factory workcell.}
-			\label{fig:sysmlex}
-		\end{figure}
-	
-		%
-		% GDB FIGURES
-		%
-		\begin{figure*}
-			\centering
-			%	\includegraphics[width=\textwidth,trim=50 50 50 50, clip]{figures/database/arrows-schema.PNG}
-			\includegraphics[width=\linewidth]{images/info_workflow_tii.eps}
-			\caption{Data processing flow from factory work-cell to database}
-			\label{gdbappl:fig:database:work-flow}
-		\end{figure*}
-	
-		\begin{figure*}
-			\centering
-			\includegraphics[width=\linewidth]{images/graph_schema_updated_2.png}
-			\caption{Realized schema of the graph database fully populated after capturing network and operational data from the NIST industrial wireless testbed. \vspace{-0.2in}}
-			\label{gdbappl:fig:real-schema}
-		\end{figure*}
-	
-	
-		%
-		% MACHINE LEARNING FIGURES
-		%
-		\begin{figure}[!tbp]
-			\centering
-			\includegraphics[width=0.65\columnwidth]{images/PlungerExperiment}
-			\caption{A photograph of the robot force-seeking apparatus used for the machine learning experiment.  The photo shows the robotic arm, the spring-based plunger, and the visual markers used for position tracking.}
-			\label{fig:photo-forceseeker}
-		\end{figure}
+		\bstctlcite{IEEEexample:BSTcontrol}
 		
-		\begin{figure}[!ht]
-			\begin{subfigure}{.5\linewidth}
-				\centering
-				% include first image
-				\includegraphics[width=.99\linewidth]{images/BP_1}  
-				\caption{[$M=100$}
-				\label{ftml-conf:fig:results-BP-1}
-			\end{subfigure}
-			\begin{subfigure}{.5\linewidth}
-				\centering
-				% include second image
-				\includegraphics[width=.99\linewidth]{images/BP_2}  
-				\caption{[$M=1$}
-				\label{ftml-conf:fig:results-BP-2}
-			\end{subfigure}
-			\caption{Predicted SIR versus actual SIR for the cases of~\protect\subref{ftml-conf:fig:results-BP-1} $M=100$ and~\protect\subref{ftml-conf:fig:results-BP-2} $M=1$. The box plots show the median value while the bottom and top edges of the box indicate the 25th and 75th percentiles.  Statistical outliers are shown as red $+$ signs.}
-			\label{ftml-conf:fig:results-BP}
-		\end{figure}
+%		% Requirements
+%		\nocite{CandellRW2017}
+%		\nocite{Montgomery2019}
+%		
+%		% Sysml
+%		\nocite{Candell2019ASR.SYSML}
+%		\nocite{Candell2018SysML.JRES}		
+%		\nocite{Candell2018SysML.GitHub}
+%		
+%		% Graph database 
+%		\nocite{CandellISIT2020.Conf}		
+%		
+%		% Machine learning
+%		\nocite{CandellISIE2019.Conf}
+%		\nocite{CandellISIE2019.Conf.Data}
+%		\nocite{CandellIJAMT2020.Jrml}
+		
+		
+%		\begin{thebibliography}{10}
+%			\bibitem{CandellISIT2020.Conf} bibliographic information
+%			\bibitem{Candell.ISIE2019} R. Candell, K. R. Montgomery, M. T. Hany, Y. Liu, S. Foufou, "Wireless Interference Estimation Using Machine Learning in a Robotic Force Seeking Scenario" 28th International Symposium on Industrial Electronics, International Symposium on Industrial Electronics, Vancouver, Canada, 06/10/2019 to 06/14/2019 , (12-Jun-2019) 
+%			...
+%		\end{thebibliography}
 	
+
+
+		\bibliographystyle{IEEEtran}		
+		\bibliography{bibliography} 
+
+	
+	
+
+
+%\begin{biography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{liuyk}}]{Yongkang Liu}
+%is currently working toward a Ph.D. degree with the Department of Electrical
+%and Computer Engineering, University of Waterloo, Canada. He is currently a
+%research assistant with the Broadband Communications Research (BBCR) Group,
+%University of Waterloo. He received the Best Paper Award from {IEEE Global
+%Communications Conference (Globecom)} 2011, Houston, USA. His general research
+%interests include protocol analysis and resource management in wireless
+%communications and networking, with special interest in spectrum and energy
+%efficient wireless communication networks.
+%\end{IEEEbiography}
 	
 \end{document}
