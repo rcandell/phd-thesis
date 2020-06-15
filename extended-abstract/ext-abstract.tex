@@ -1,41 +1,38 @@
+\documentclass[12pt]{article}
+
+%\usepackage{lipsum}
+
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+\begin{flushleft}
+  \textbf{\@title}
+
+  \@author
+
+\end{flushleft}\egroup
+}
+\makeatother
+
+\title{\large Performance Estimation, Testing, and Control of Cyber-Physical Systems Employing Non-Ideal Communications Networks}
+\date{}
+\author{%
+\ \\
+\textbf {Student:} Richard Candell, Universit\'e de Bourgogne, France \& NIST, USA.\\
+\textbf{Supervisor:} Sebti Foufou, Universit\'e de Bourgogne, France
+}
+
+\pagestyle{empty} % disables page numbers
+
+\begin{document}
+\maketitle
+
 % This is samplepaper.tex, a sample chapter demonstrating the
 % LLNCS macro package for Springer Computer Science proceedings;
 % Version 2.20 of 2017/10/04
 %
-\documentclass[twocolumn]{IEEEtran}
+%---SF- \documentclass[12pt]{article}
 %\documentclass[runningheads]{llncs}
 %
-\usepackage{graphicx}
-\usepackage[subrefformat=parens,labelformat=parens]{subcaption}
-\usepackage{epsfig}
-\usepackage{mathrsfs}
-\usepackage{times}
-\usepackage{makeidx}
-\usepackage{amsmath}
-\usepackage{algorithm}
-\usepackage{algorithmic}
-%\usepackage{subfigure}
-%\usepackage{subcaption}
-\usepackage{multicol}
-\usepackage{array}
-\usepackage{siunitx}
-\usepackage{balance} % This allows for the even columns in the final page, just insert \balance in the last page, e.g., before the reference list
-\usepackage{cite}
-%\usepackage{setspace}
-\usepackage{etoolbox}
-\newtoggle{blindcopy}
-%\toggletrue{blindcopy}
-\usepackage{hhline}
-\usepackage{booktabs}
-\usepackage{rotating}
-\usepackage{multirow}
-\usepackage{wasysym}
-\usepackage{xcolor}
-\usepackage{adjustbox}
-\usepackage{slashbox}
-\usepackage{threeparttable}
-\usepackage{blindtext}
-\usepackage{enumitem}
 
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
@@ -44,19 +41,24 @@
 % to display URLs in blue roman font according to Springer's eBook style:
 % \renewcommand\UrlFont{\color{blue}\rmfamily}
 
-\begin{document}
+%---SF- \begin{document}
 	%
-	\title{Performance Estimation, Testing, and Control of Cyber-Physical Systems Employing Non-Ideal Communications Networks \\ {\large Extended Abstract}}
+%---SF- 	\title{Performance Estimation, Testing, and Control of Cyber-Physical Systems Employing Non-Ideal Communications Networks \\ {\large Extended Abstract}}
 	%
 	%\titlerunning{Abbreviated paper title}
 	% If the paper title is too long for the running head, you can set
 	% an abbreviated paper title here
 	%
 %	\author{Richard Candell\thanks{National Institute of Standards and Technology, United States of America, 100 Bureau Drive, Gaithersburg, MD 20899. \url{http://www.nist.gov}}\\Universit\'e de Bourgogne}
-	\author{Richard Candell\\Universit\'e de Bourgogne}
-
+%---SF- \author{
+%---SF- {\raggedright
+%---SF- 	Student: Richard Candell, Universit\'e de Bourgogne, Dijon, France \& NIST, MD, USA.\\
+%---SF- 	
+%---SF- 	Supervisor: Sebti Foufou, Universit\'e de Bourgogne, Dijon France
+%---SF- }
+%---SF- }
 	%
-	\maketitle            
+%---SF- 	\maketitle            
 	%
 	\begin{abstract}
 		
@@ -110,7 +112,7 @@
 		
 		An additional contribution by the author for which he was not primary author but took a substantial role is cited here~\cite{MSEC2019-2896}.  In this work, the author designed, constructed, and executed an experiment in collaboration with the main author in which a typical two-dimensional gantry apparatus was controlled by a local controller which received G-code commands wirelessly over a Wi-Fi network. The industrial wireless channel was replicated using a radio frequency (RF) channel emulator where various scenarios were considered and various wireless channel parameters were studied. The movement of the gantry system tool was tracked using a vision tracking system to quantify the impact of the wireless channel on the system performance. Numerical results were presented including the total run time of an industrial process and the dwell times at various positions through the process. This contribution is not discussed within the thesis.
 	
-		\bstctlcite{IEEEexample:BSTcontrol}
+%\bstctlcite{IEEEexample:BSTcontrol}
 		
 %		% Requirements
 %		\nocite{CandellRW2017}
