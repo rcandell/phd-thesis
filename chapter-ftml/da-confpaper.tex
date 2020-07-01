@@ -1,6 +1,7 @@
 \section{Initial Investigations}
 
-The contents of this section explain the approach, methodology, and results of the initial investigations using machine learning to infer the signal-to-interference of a single radio link using situational awareness information from a camera system as published in~\cite{CandellISIE2019.Conf} with data made available~\cite{https://doi.org/10.18434/m32077}.
+The contents of this section explain the approach, methodology, and results of the initial investigations using machine learning to infer the signal-to-interference of a single radio link using situational awareness information from a camera system as published in~\cite{CandellISIE2019.Conf} with data made available at https://doi.org/10.18434/m32077.
+%~\cite{https://doi.org/10.18434/m32077}.
 
 \subsection{Data Analysis}\label{ftml-conf:sec:dataanalysis}
 
@@ -13,7 +14,7 @@ The contents of this section explain the approach, methodology, and results of t
 
 The data analysis process for the experiment
 %was conducted according to the diagram in Fig.~\ref{ftml-conf:fig:dataflow} and 
-is divided into four parts: raw data collection, data cleaning and feature extraction, training, and the operation of the SIR estimation.  The raw data was produced as an output of the VTS as a time series of z-axis position.  Feature extraction was conducted in MATLAB by following the time series and extracting or calculating features for each iteration.  Once features were extracted, a statistical analysis of the features was conducted to determine the variability of the features as a function of SIR.  Statistical analyses included visual inspection of histograms of each factor and an inspection of the correlation coefficients over the range  of SIRs.  A discussion of the statistical results is provided in~\ref{ftml-conf:sec:results:stats} which demonstrates suitability of the use of position measurements for machine learning. Training of a machine learning algorithm followed. The machine learning algorithm was programmed in Python using the Sci-kit Learn library~\cite{SCIKITLEARN}.
+is divided into four parts: raw data collection, data cleaning and feature extraction, training, and the operation of the SIR estimation.  The raw data was produced as an output of the VTS as a time series of z-axis position.  Feature extraction was conducted in MATLAB by following the time series and extracting or calculating features for each iteration.  Once features were extracted, a statistical analysis of the features was conducted to determine the variability of the features as a function of SIR.  Statistical analyses included visual inspection of histograms of each factor and an inspection of the correlation coefficients over the range  of SIRs.  A discussion of the statistical results is provided in~\ref{ftml-conf:sec:results:stats} which demonstrates suitability of the use of position measurements for machine learning. Training of a machine learning algorithm followed. The machine learning algorithm was programmed in Python using the Sci-kit Learn software library.
 
 \subsection{Feature Extraction}\label{ftml-conf:sec:data:feats}
 
