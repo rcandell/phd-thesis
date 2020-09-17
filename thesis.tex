@@ -111,10 +111,11 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % center aligned
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % right aligned
 
-%\usepackage{etoolbox}
-%\newtoggle{usingspim}
-%\toggletrue{usingspim}
-%\togglefalse{usingspim}
+\usepackage[style=long,nonumberlist,toc,xindy,acronym]{glossaries}
+%\usepackage{glossaries}
+\makeglossaries
+%\include{myacronyms}
+\loadglsentries{myacronyms}
 
 
 %paragraph indentation
@@ -161,7 +162,6 @@
 %%            President, Reviewer(s), Examiner(s), Director(s),
 %%            Other supervisor(s), Invited person(s).
 %% \addjury{Firstname}{Lastname}{Role in the jury}{Position}
-%\addjury{Alain}{BONNIN}		{Pr\'esident}			{Universit\'e de Bourgogne \\ Commentaire secondaire}
 \addjury{Sebti}{FOUFOU}		{Directeur de thèse}	{Professeur à l'Universit\'e de Bourgogne}
 \addjury{Khalil}{DRIRA}	    {Rapporteur}			{Professeur à l'Universit\'e de Toulouse}
 \addjury{Abbes}{AMIRA}	    {Rapporteur}			{Professeur à De Montfort University}
@@ -280,6 +280,7 @@
 %	Some text
 %}
 
+
 \begin{document}
  
 %%--------------------
@@ -375,12 +376,12 @@
 %\bibliographystyle{phdthesisapa}
 %% The following line may be used in place of the previous
 %% line if you prefer "numeric" citations.
-\bibliographystyle{phdthesisnum}
-%\bibliographystyle{IEEEtran}
+%\bibliographystyle{phdthesisnum}
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{unsrt}
  
 %% Link the GENERAL bibliogaphy to a BibTeX file.
 \bibliography{bibliography}
-%\bibliographystyle{IEEEtran.bib}
 
 %%--------------------
 %% List of figures and tables
@@ -398,6 +399,11 @@
 %%--------------------
 %% Include a list of definitions
 \listofdefinitions
+
+%\clearpage
+\printglossary[type=\acronymtype]
+%\printglossaries
+
 
 
 %%--------------------
