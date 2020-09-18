@@ -1,6 +1,6 @@
 \section{Subsequent Investigations}
 
-The contents of this section explain the subsequent analysis explanding on the approach, methodology, and results of the initial investigations using machine learning to infer the signal-to-interference of a single radio link using situational awareness information from a camera system as published in~\cite{CandellISIE2019.Conf}.  In this further investigation, the performance of the machine learning algorithms themselves were investigated to determine optimal selection given the particular use case. Publication is forthcoming~\cite{Candell2020.Jrnl.Access}.
+The contents of this section explain the subsequent analysis explanding on the approach, methodology, and results of the initial investigations using \gls{ml} to infer the \gls{sir} of a single radio link using situational awareness information from a camera system as published in~\cite{CandellISIE2019.Conf}.  In this further investigation, the performance of the \gls{ml} algorithms themselves were investigated to determine optimal selection given the particular use case. Publication is forthcoming~\cite{Candell2020.Jrnl.Access}.
 
 
 \subsection{Data Analysis}\label{ftml-jrnl:sec:dataanalysis}
@@ -14,11 +14,11 @@ The contents of this section explain the subsequent analysis explanding on the a
 
 The data analysis process for the experiment
 %was conducted according to the diagram in Fig.~\ref{ftml-jrnl:fig:dataflow} and 
-is divided into four parts: raw data collection, data cleaning and feature extraction, training, and the operation of the SIR estimation. The raw data was produced as an output of the VTS as a time series of z-axis position. Feature extraction was conducted in MATLAB by following the time series and extracting or calculating features for each iteration.  Once features were extracted, a statistical analysis of the features was conducted to determine the variability of the features as a function of SIR \cite{Candell_ISIT_2019}. Training of a machine learning algorithm followed. The machine learning algorithm was programmed in Python using the Sci-kit Learn library~\cite{SCIKITLEARN}.
+is divided into four parts: raw data collection, data cleaning and feature extraction, training, and the operation of the SIR estimation. The raw data was produced as an output of the \gls{vts} as a time series of z-axis position. Feature extraction was conducted in MATLAB by following the time series and extracting or calculating features for each iteration.  Once features were extracted, a statistical analysis of the features was conducted to determine the variability of the features as a function of SIR \cite{Candell_ISIT_2019}. Training of a \gls{ml} algorithm followed. The \gls{ml} algorithm was programmed in Python using the Sci-kit Learn library~\cite{SCIKITLEARN}.
 
 \subsubsection{Feature Extraction}\label{ftml-jrnl:sec:data:feats}
 
-Refer to Section~\ref{ftml-conf:sec:data:feats} for a discussion on how features used for training were extracted.  As stated in the previous discussion, rather than using the entire time series directly, a more convenient and practical solution is to extract features that represent aspects that may be useful for analysis and machine learning algorithms.  By using features rather than the time series, we reduce the number of learning dimensions and usually improve computation efficiency.  The selected features are illustrated in Fig.~\ref{ftml-conf:fig:timeseriesfeatures}.
+Refer to Section~\ref{ftml-conf:sec:data:feats} for a discussion on how features used for training were extracted.  As stated in the previous discussion, rather than using the entire time series directly, a more convenient and practical solution is to extract features that represent aspects that may be useful for analysis and \gls{ml} algorithms.  By using features rather than the time series, we reduce the number of learning dimensions and usually improve computation efficiency.  The selected features are illustrated in Fig.~\ref{ftml-conf:fig:timeseriesfeatures}.
 
 %\begin{figure}[tbp]
 %	\centering
@@ -65,21 +65,21 @@ Refer to Section~\ref{ftml-conf:sec:data:feats} for a discussion on how features
 %	\item[Feature $\Delta{t}_{ae}$] The duration of the full iteration as measured from the home position, \textbf{a}, to the next home position, \textbf{e}.
 %\end{description}
 
-\subsubsection{ML-based SIR Estimation}\label{ftml-jrnl:sec:data:ML}
-In order to learn the SIR level from observing the various features, it is possible to leverage supervised machine learning regression schemes. 
+\subsubsection{\Gls{ml}-based SIR Estimation}\label{ftml-jrnl:sec:data:ML}
+In order to learn the \gls{sir} level from observing the various features, it is possible to leverage supervised \gls{ml} regression schemes. 
 %the random forest model \cite{RF}. Random forest is an ensemble of decision trees with random feature selection which can be used for classification or regression based on the predicted output space. Deploying random forest in machine learning has been successful in various applications such as \cite{RF_1,RF_2,RF_3}. Its main advantages are that it is stable, fast to compute, and insusceptible to over-fitting.
-This work compares the deployment of various machine learning algorithms for SIR regression using the five features defined in \ref{ftml-jrnl:sec:data:feats}. These features are evaluated for each iteration of the probe movement. A data segment is defined as a number of successive iterations and the segment size is denoted by $M$. As a result, each regression model is used to get an input vector of size $5M$ and the regression output of the corresponding SIR value. 
+This work compares the deployment of various \gls{ml} algorithms for \gls{sir} regression using the five features defined in \ref{ftml-jrnl:sec:data:feats}. These features are evaluated for each iteration of the probe movement. A data segment is defined as a number of successive iterations and the segment size is denoted by $M$. As a result, each regression model is used to get an input vector of size $5M$ and the regression output of the corresponding SIR value. 
 %The random forest is selected because it is computationally efficient with high-dimensional data and it is robust for outliers and data non-linearity. 
 
-One starts by training each regression model by taking a fixed number of segments for each SIR labeled data. The size of the training set for each SIR level is denoted by $T$. The rest of the measurements are used for testing. In general, the proposed machine learning approach will deploy a sliding window approach of size $M$ to collect the features of the force-seeking use case to estimate the current level of SIR at various nodes of the wireless network. 
+One starts by training each regression model by taking a fixed number of segments for each SIR labeled data. The size of the training set for each SIR level is denoted by $T$. The rest of the measurements are used for testing. In general, the proposed \gls{ml} approach will deploy a sliding window approach of size $M$ to collect the features of the force-seeking use case to estimate the current level of SIR at various nodes of the wireless network. 
 
 \subsection{Results} \label{ftml-jrnl:sec:results}  
-In this section, the experimental results for 4 different settings are considered. The four settings are defined as follows: i) setting b/g-Router: the jamming signal impacts the router and IEEE 802.11 b/g is deployed ~\cite{IEEE802.11ac}, ii) setting b/g-Station: the jamming signal impacts the station and IEEE 802.11 b/g is deployed, iii) setting b/g/n-Router: the jamming signal impacts the router and IEEE 802.11 b/g/n is deployed, and iv) setting b/g/n-Station: the jamming signal impacts the station and IEEE 802.11 b/g/n is deployed.  
+In this section, the experimental results for 4 different settings are considered. The four settings are defined as follows: i) setting b/g-Router: the jamming signal impacts the router and \gls{ieee} 802.11 b/g is deployed ~\cite{IEEE802.11ac}, ii) setting b/g-Station: the jamming signal impacts the station and IEEE 802.11 b/g is deployed, iii) setting b/g/n-Router: the jamming signal impacts the router and IEEE 802.11 b/g/n is deployed, and iv) setting b/g/n-Station: the jamming signal impacts the station and IEEE 802.11 b/g/n is deployed.  
 
 When the jamming signal has an impact on the router, this work considers 3 values of the SIR which are -9, -8, -7 dB while having 1, 2, 3 dB for the settings in which jamming has an impact on the station. Except otherwise mentioned, $M = 50$ and $T = 200$ are used. 
 
 \subsubsection{Machine Learning Algorithm Comparison}
-In this subsection, various regression approaches are compared using two performance criteria, namely, the mean squared error (MSE)\eqref{eq:scikit:MSE} and the R-squared variance score\eqref{eq:scikit:R2variance}~\cite{r-squared}. R-squared variance score indicates the percentage of the variance in the dependent variable that the independent variables explain collectively.  It is equivalent to how R-sqaured is used in financial investments to explain how one security explains the performance of an entire portfolio. The used version of R-squared in the Sci-kit Learn library measures the strength of the relationship between the model used and the dependent variable on a convenient -1 to 1 scale.  The best possible outcome is 1 when predicted values capture the variance of the independent variable. It takes a value of 0 when the predicted value is constant and negative values when the regression model cannot follow the trend of the data. The performance for different values of $M$ is presented. The compared algorithms are the random forest, gradient boosting, extreme gradient boosting (XGBM), decision tree, support vector machine (SVM), k-nearest neighbor, kernel ridge, and linear ridge \cite{SCIKITLEARN,Chen:2016:XST:2939672.2939785}. %xxxx references needed
+In this subsection, various regression approaches are compared using two performance criteria, namely, the \gls{mse}\eqref{eq:scikit:MSE} and the R-squared variance score\eqref{eq:scikit:R2variance}~\cite{r-squared}. R-squared variance score indicates the percentage of the variance in the dependent variable that the independent variables explain collectively.  It is equivalent to how R-sqaured is used in financial investments to explain how one security explains the performance of an entire portfolio. The used version of R-squared in the Sci-kit Learn library measures the strength of the relationship between the model used and the dependent variable on a convenient -1 to 1 scale.  The best possible outcome is 1 when predicted values capture the variance of the independent variable. It takes a value of 0 when the predicted value is constant and negative values when the regression model cannot follow the trend of the data. The performance for different values of $M$ is presented. The compared algorithms are the random forest, \gls{gbm}, \gls{xgbm}, decision tree, \gls{svm}, k-nearest neighbor, kernel ridge, and linear ridge \cite{SCIKITLEARN,Chen:2016:XST:2939672.2939785}. %xxxx references needed
 
 \begin{equation}
 \text{MSLE}(y, \hat{y}) = \frac{1}{n_\text{samples}} \sum_{i=0}^{n_\text{samples} - 1} (\log_e (1 + y_i) - \log_e (1 + \hat{y}_i) )^2.
@@ -94,7 +94,7 @@ R^2(y, \hat{y}) = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (
 % Table generated by Excel2LaTeX from sheet 'ML_Regression_MSE'
 \begin{table}[!ht]
 	\centering
-	\caption{MSE values of various ML algorithms for jamming setting b/g-Router}
+	\caption{\gls{mse} values of various ML algorithms for jamming setting b/g-Router}
 	\begin{tabular}{|p{5.3em}|c|c|c|c|c|}
 		\toprule
 		& \multicolumn{1}{p{2.4em}|}{M = 1} & \multicolumn{1}{p{2.9em}|}{M = 10} & \multicolumn{1}{p{2.9em}|}{M = 30} & \multicolumn{1}{p{2.9em}|}{M = 50} & \multicolumn{1}{p{3.4em}|}{M = 100} \\
@@ -119,7 +119,7 @@ R^2(y, \hat{y}) = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (
 	\label{ftml-jrnl:tab:T1}%
 \end{table}%
 
-In Table~\ref{ftml-jrnl:tab:T1}, the MSE performance of various algorithms are presented for setting a 802.11 b/g mode setting at the router. The ensemble-based algorithms, which are the random forest, gradient boosting, and XGBM, perform better than non-ensemble algorithms. This happens because the ensemble-based algorithms learn from the training data without having an initial model to fit thus allowing for capturing the randomness impacts on the collected data. Moreover, the XGBM gives slightly better performance than the random forest and gradient boosting algorithms except at $M=1$. The XGBM performs gradient boosting over random set of trees and hence the superior performance. It also has superior variance score as well in Table~\ref{ftml-jrnl:tab:T2}. Generally, in Table~\ref{ftml-jrnl:tab:T2}, similar trends as Table~\ref{ftml-jrnl:tab:T1} can be found for various machine learning algorithms where ensemble-based algorithms have the best performance among others and their performance is enhanced by increasing the segment size $M$ of the measured data.
+In Table~\ref{ftml-jrnl:tab:T1}, the \gls{mse} performance of various algorithms are presented for setting a 802.11 b/g mode setting at the router. The ensemble-based algorithms, which are the random forest, gradient boosting, and \gls{xgbm}, perform better than non-ensemble algorithms. This happens because the ensemble-based algorithms learn from the training data without having an initial model to fit thus allowing for capturing the randomness impacts on the collected data. Moreover, the \gls{xgbm} gives slightly better performance than the random forest and gradient boosting algorithms except at $M=1$. The \gls{xgbm} performs gradient boosting over random set of trees and hence the superior performance. It also has superior variance score as well in Table~\ref{ftml-jrnl:tab:T2}. Generally, in Table~\ref{ftml-jrnl:tab:T2}, similar trends as Table~\ref{ftml-jrnl:tab:T1} can be found for various \gls{ml} algorithms where ensemble-based algorithms have the best performance among others and their performance is enhanced by increasing the segment size $M$ of the measured data.
 
 % Table generated by Excel2LaTeX from sheet 'ML_Regression_R2'
 \begin{table}[!ht]
@@ -262,11 +262,11 @@ In Table~\ref{ftml-jrnl:tab:T1}, the MSE performance of various algorithms are p
 %   \label{ftml-jrnl:tab:addlabel}%
 % \end{table}%
 
-Similarly, in Table~\ref{ftml-jrnl:tab:T3}, the ensemble-based algorithms perform better than other algorithms and the XGBM is the best among them. In this setting b/g/n-Station, the interference impacts the router and hence the MSE values generally higher than the corresponding cases in setting b/g-Router. In this case, the interference has a larger impact and hence larger MSE. That leads to larger distinction between the performance of the machine learning algorithms. 
+Similarly, in Table~\ref{ftml-jrnl:tab:T3}, the ensemble-based algorithms perform better than other algorithms and the \gls{xgbm} is the best among them. In this setting b/g/n-Station, the interference impacts the router and hence the \gls{mse} values generally higher than the corresponding cases in setting b/g-Router. In this case, the interference has a larger impact and hence larger \gls{mse}. That leads to larger distinction between the performance of the \gls{ml} algorithms. 
 % Table generated by Excel2LaTeX from sheet 'ML_Regression_MSE'
 \begin{table}[!ht]
 	\centering
-	\caption{MSE values of various ML algorithms for jamming setting b/g-Station}
+	\caption{\gls{mse} values of various ML algorithms for jamming setting b/g-Station}
 	\begin{tabular}{|p{5.3em}|c|c|c|c|c|}
 		\toprule
 		& \multicolumn{1}{p{2.4em}|}{M = 1} & \multicolumn{1}{p{2.9em}|}{M = 10} & \multicolumn{1}{p{2.9em}|}{M = 30} & \multicolumn{1}{p{2.9em}|}{M = 50} & \multicolumn{1}{p{3.4em}|}{M = 100} \\
@@ -321,13 +321,13 @@ Similarly, in Table~\ref{ftml-jrnl:tab:T3}, the ensemble-based algorithms perfor
 
 \subsubsection{Tuning the Random Forest and Gradient Boosting Regressors}
 
-In this subsection, the impacts of the number of estimators and the depth for gradient boosting and random forest algorithms are studied. The XGBM parameters are optimized automatically when the function is called to be executed. The work shows that the MSE performance results for setting b/g-Router while same trend holds for other system settings as well. 
+In this subsection, the impacts of the number of estimators and the depth for gradient boosting and random forest algorithms are studied. The \gls{xgbm} parameters are optimized automatically when the function is called to be executed. The work shows that the \gls{mse} performance results for setting b/g-Router while same trend holds for other system settings as well. 
 
 For random forest algorithm, Table~\ref{ftml-jrnl:tab:T4} shows that the tree depth has more impact on the performance than the number of the estimators (\# est.). However, increasing the depth improves the performance till the value of 5 where increasing the depth cause slight improvements.   
 % Table generated by Excel2LaTeX from sheet 'ML_Random_Forest_MSE_Matrix'
 \begin{table}[!ht]
 	\centering
-	\caption{MSE of Random Forrest regression parameters for jamming setting b/g-Router}
+	\caption{\gls{mse} of Random Forrest regression parameters for jamming setting b/g-Router}
 	\begin{tabular}{|c|c|c|c|c|c|c|}
 		\toprule
 		\backslashbox{Depth}{\# est.}
@@ -348,12 +348,12 @@ For random forest algorithm, Table~\ref{ftml-jrnl:tab:T4} shows that the tree de
 	\label{ftml-jrnl:tab:T4}%
 \end{table}%
 
-For gradient boosting, Table~\ref{ftml-jrnl:tab:T5} shows that a similar trend as a random forest exists where depth has a larger impact on the performance. However, increasing the depth more than 7 causes the MSE performance to degrade significantly. 
+For gradient boosting, Table~\ref{ftml-jrnl:tab:T5} shows that a similar trend as a random forest exists where depth has a larger impact on the performance. However, increasing the depth more than 7 causes the \gls{mse} performance to degrade significantly. 
 
 % Table generated by Excel2LaTeX from sheet 'ML_Gradient_Boosting__MSE_Matri'
 \begin{table}[!ht]
 	\centering
-	\caption{MSE of Gradient Boosting regression parameters for jamming setting b/g-Router}
+	\caption{\gls{mse} of Gradient Boosting regression parameters for jamming setting b/g-Router}
 	\begin{tabular}{|c|c|c|c|c|c|c|}
 		\toprule
 		\backslashbox{Depth}{\# est.}
@@ -513,9 +513,9 @@ For gradient boosting, Table~\ref{ftml-jrnl:tab:T5} shows that a similar trend a
 % \end{table}%
 
 \subsubsection{Impact of Data Segment Size $M$}
-In this section, the performance of the ensemble-based algorithms against the segment size $M$ is studied. It was shown in \cite{Candell_ISIT_2019} that increasing the value of $M$ increases the acquisition time of measurement data used for decision making and lowers the spread of predicted values around the correct value for various SIR values. In this continuation of the work, the impact of the three optimized algorithms employing the MSE and the variance score as performance metrics is studied.
+In this section, the performance of the ensemble-based algorithms against the segment size $M$ is studied. It was shown in \cite{Candell_ISIT_2019} that increasing the value of $M$ increases the acquisition time of measurement data used for decision making and lowers the spread of predicted values around the correct value for various SIR values. In this continuation of the work, the impact of the three optimized algorithms employing the \gls{mse} and the variance score as performance metrics is studied.
 
-In Fig.~\ref{ftml-jrnl:fig:001_MSE_M}, the performance of the random forest, gradient boosting, XGBM, and the linear ridge regressors is presented. The linear ridge is used as a simple model-based regressor which practically cannot not be used for prediction while it is used for comparison. In this figure, increasing the value of $M$ enhances the performance of the ensemble-based algorithms significantly. Generally, the prediction accuracy increases when multiple measurement cycles are deployed in decision making with diminishing improvement as $M$ increases.  The linear ridge algorithm shows no improvement with increasing $M$ implying that SIR does not vary linearly with the feature set presented.
+In Fig.~\ref{ftml-jrnl:fig:001_MSE_M}, the performance of the random forest, gradient boosting, \gls{xgbm}, and the linear ridge regressors is presented. The linear ridge is used as a simple model-based regressor which practically cannot not be used for prediction while it is used for comparison. In this figure, increasing the value of $M$ enhances the performance of the ensemble-based algorithms significantly. Generally, the prediction accuracy increases when multiple measurement cycles are deployed in decision making with diminishing improvement as $M$ increases.  The linear ridge algorithm shows no improvement with increasing $M$ implying that SIR does not vary linearly with the feature set presented.
 
 \begin{figure}[!ht]
 	\centering
@@ -533,7 +533,7 @@ Fig.~\ref{ftml-jrnl:fig:001_R2_M} presents the variance score for the same setti
 	\label{ftml-jrnl:fig:001_R2_M}      
 \end{figure}
 
-In Fig.~\ref{ftml-jrnl:fig:002_MSE_M}, the MSE of the ensemble-based algorithms is shown for Setting b/g-station where the router is impacted by the jamming signal. The MSE values in this setting are lower than those of setting b/g-Router where the predicted SIR values are smaller because the router has better capabilities to detect signals at lower SIRs.    
+In Fig.~\ref{ftml-jrnl:fig:002_MSE_M}, the \gls{mse} of the ensemble-based algorithms is shown for Setting b/g-station where the router is impacted by the jamming signal. The \gls{mse} values in this setting are lower than those of setting b/g-Router where the predicted \gls{sir} values are smaller because the router has better capabilities to detect signals at lower \glspl{sir}.    
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.75\columnwidth]{./chapter-ftml/plots/002_MSE_M.eps}
@@ -541,7 +541,7 @@ In Fig.~\ref{ftml-jrnl:fig:002_MSE_M}, the MSE of the ensemble-based algorithms 
 	\label{ftml-jrnl:fig:002_MSE_M}      
 \end{figure}
 
-Finally, in Fig.~\ref{ftml-jrnl:fig:004_MSE_M}, a similar scenario to Fig.~\ref{ftml-jrnl:fig:002_MSE_M} is presented where the router is impacted by the jamming signal. The difference is that at setting b/g/n-Station, a mixed IEEE802.11 b/g/n mode is allowed instead the IEEE802.11 b/g mode in setting b/g-Station. By allowing the IEEE 802.11n mode, the signal is more susceptible to interference and hence it is harder to predict the same SIR values. 
+Finally, in Fig.~\ref{ftml-jrnl:fig:004_MSE_M}, a similar scenario to Fig.~\ref{ftml-jrnl:fig:002_MSE_M} is presented where the router is impacted by the jamming signal. The difference is that at setting b/g/n-Station, a mixed IEEE802.11 b/g/n mode is allowed instead the IEEE802.11 b/g mode in setting b/g-Station. By allowing the \gls{ieee} 802.11n mode, the signal is more susceptible to interference and hence it is harder to predict the same SIR values. 
 
 \begin{figure}[!ht]
 	\centering
@@ -551,9 +551,9 @@ Finally, in Fig.~\ref{ftml-jrnl:fig:004_MSE_M}, a similar scenario to Fig.~\ref{
 \end{figure}
 
 \subsubsection{Impact of Training Sequence Length $T$}
-This subsection briefly discuss the impact of the training length on the performance of various algorithm. The parameter $T$ is the length of the training sequence where each element contains $M$ of the force seeking cycles. The following figures show the MSE performance curves against $T$ for $M$ = 30 and 100. 
+This subsection briefly discuss the impact of the training length on the performance of various algorithm. The parameter $T$ is the length of the training sequence where each element contains $M$ of the force seeking cycles. The following figures show the \gls{mse} performance curves against $T$ for $M$ = 30 and 100. 
 
-In Fig.~\ref{ftml-jrnl:fig:001_MSE_T}, it is shown that increasing the training size $T$ can improve the prediction performance significantly. Gradient boosting and XGBM have higher improvement rate with $T$ than the random forest algorithm. 
+In Fig.~\ref{ftml-jrnl:fig:001_MSE_T}, it is shown that increasing the training size $T$ can improve the prediction performance significantly. Gradient boosting and \gls{xgbm} have higher improvement rate with $T$ than the random forest algorithm. 
 %Moreover, in Fig.~\ref{ftml-jrnl:fig:004_MSE_T}, the random forest is almost not improving at all with $T$ because the prediction algorithm does not perform adequately in this case. 
 
 \begin{figure}[!ht]
@@ -571,32 +571,32 @@ In Fig.~\ref{ftml-jrnl:fig:001_MSE_T}, it is shown that increasing the training 
 % 	\end{figure}
 
 \subsubsection{Impact of Individual Features}
-In this subsection, the impact of the individual features on the performance of the ensemble-based machine learning algorithms is studied. Understanding the importance of each feature on the prediction algorithms is essential in selection of features and hence reducing the required processing power for an algorithm. The results for XGBM algorithm are shown for brevity and also because it exemplifies the similarity in performance of various ensemble-based algorithms. 
+In this subsection, the impact of the individual features on the performance of the ensemble-based \gls{ml} algorithms is studied. Understanding the importance of each feature on the prediction algorithms is essential in selection of features and hence reducing the required processing power for an algorithm. The results for \gls{xgbm} algorithm are shown for brevity and also because it exemplifies the similarity in performance of various ensemble-based algorithms. 
 
-In Fig.~\ref{ftml-jrnl:fig:001_MSE_F_3}, \ref{ftml-jrnl:fig:001_R2_F_3}, and \ref{ftml-jrnl:fig:004_MSE_F_3}, presented are the MSE performance for setting b/g-Router, the variance score for setting b/g-Router, and the MSE for setting b/g/n-Station, respectively, against the segment size $M$. In all the three figures, $\Delta{t}_{ab}$, $\Delta{t}_{bc}$, $Z_d$, $\Delta{t}_{cd}$, and $\Delta{t}_{ae}$ are reference by "t\_high", "t\_plunge", "Descent Distance", "t\_bottom", and "Total Cycle", respectively. 
+In Fig.~\ref{ftml-jrnl:fig:001_MSE_F_3}, \ref{ftml-jrnl:fig:001_R2_F_3}, and \ref{ftml-jrnl:fig:004_MSE_F_3}, presented are the \gls{mse} performance for setting b/g-Router, the variance score for setting b/g-Router, and the \gls{mse} for setting b/g/n-Station, respectively, against the segment size $M$. In all the three figures, $\Delta{t}_{ab}$, $\Delta{t}_{bc}$, $Z_d$, $\Delta{t}_{cd}$, and $\Delta{t}_{ae}$ are reference by "t\_high", "t\_plunge", "Descent Distance", "t\_bottom", and "Total Cycle", respectively. 
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.75\columnwidth]{./chapter-ftml/plots/001_MSE_F_3.eps}
-	\caption{The mean squared error performance for jamming setting b/g-Router of XGBM algorithm against $M$ including individual features impact.}
+	\caption{The \gls{mse} performance for jamming setting b/g-Router of \gls{xgbm} algorithm against $M$ including individual features impact.}
 	\label{ftml-jrnl:fig:001_MSE_F_3}      
 \end{figure}
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.75\columnwidth]{./chapter-ftml/plots/001_R2_F_3.eps}
-	\caption{The variance score performance for jamming setting b/g-Router of XGBM algorithm against $M$ including individual features impact.}
+	\caption{The variance score performance for jamming setting b/g-Router of \gls{xgbm} algorithm against $M$ including individual features impact.}
 	\label{ftml-jrnl:fig:001_R2_F_3}      
 \end{figure}
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.75\columnwidth]{./chapter-ftml/plots/004_MSE_F_3.eps}
-	\caption{The mean squared error performance for jamming setting b/g/n-Station of XGBM algorithm against $M$ including individual features impact.}
+	\caption{The mean squared error performance for jamming setting b/g/n-Station of \gls{xgbm} algorithm against $M$ including individual features impact.}
 	\label{ftml-jrnl:fig:004_MSE_F_3}      
 \end{figure}
 
-The feature $\Delta{t}_{ab}$ is the most one impacted by the SIR value where the prediction performance by using this individual feature is almost identical to the performance of using all the features. This result can be explained by knowing that in the robot arm force seeking program, the FTS has to be zeroed before resuming the loop and hence there is a direct impact of the wireless transmissions and the value $\Delta{t}_{ab}$. On the other hand, the feature $\Delta{t}_{bc}$ is the least one impacted by the SIR value. This feature is defined as the reflection time of the robot arm to reverse its direction and hence it is minimally impacted by the SIR value. The rest of the features are impacted by the SIR to a certain level. Generally, adding an unnecessary feature can degrade the performance. As a result, in this work, it is concluded that using $\Delta{t}_{ab}$ can substitute all the five features to get the same MSE and variance score performance with much less processing.
+The feature $\Delta{t}_{ab}$ is the most one impacted by the SIR value where the prediction performance by using this individual feature is almost identical to the performance of using all the features. This result can be explained by knowing that in the robot arm force seeking program, the \gls{fts} has to be zeroed before resuming the loop and hence there is a direct impact of the wireless transmissions and the value $\Delta{t}_{ab}$. On the other hand, the feature $\Delta{t}_{bc}$ is the least one impacted by the SIR value. This feature is defined as the reflection time of the robot arm to reverse its direction and hence it is minimally impacted by the SIR value. The rest of the features are impacted by the SIR to a certain level. Generally, adding an unnecessary feature can degrade the performance. As a result, in this work, it is concluded that using $\Delta{t}_{ab}$ can substitute all the five features to get the same \gls{mse} and variance score performance with much less processing.
 
 %\begin{emphbox}
 %	Features selection is a critical step in the application of wireless systems performance analysis with in a cyber-physical system.
@@ -604,7 +604,7 @@ The feature $\Delta{t}_{ab}$ is the most one impacted by the SIR value where the
 
 \subsection{Conclusion}\label{ftml-jrnl:sec:conclusion}
 
-This work presents a practical use case of a wireless force-torque feedback control system that could be deployed in a manufacturing assembly system such as a pick-and-place or assembly operation.  A 6-DOF force-torque sensor was connected to a robot controller tasked with moving a probe along a linear path until an opposing force exceeding 5 N was detected.  The reliability of the wireless communication system directly impacts the repeatability performance of the physical system are demonstrated.  Also demonstrated was that the quality of the underlying wireless channel may be inferred by observing the position of the probe along a single spatial dimension and applying machine learning to predict the signal-to-interference ratio. As a result of our exploration of various machine learning algorithms on the prediction of signal quality, it was  found that ensemble-based algorithms have superior performance compared to other regression algorithms for data presented.  Additionally, the analysis shows that careful study of the MSE and variance score is useful in selection of features used for training the algorithms. The work concludes that for this particular force-torque control system scenario that the dwell time of the robot before descending was the most useful feature for training the algorithm. The findings provide motivation for applying machine learning to larger more complex systems with higher degrees of freedom. Furthermore, the works indicates that future  experimentation with neural networks and deep learning to improve prediction accuracy could be of value to improving the reliability of wireless operations in factories. The applications of online machine learning techniques to this and other use cases could provide significant benefits to the manufacturing community through integration of link quality detection with programmable controllers.
+This work presents a practical use case of a wireless force-torque feedback control system that could be deployed in a manufacturing assembly system such as a pick-and-place or assembly operation.  A 6-\gls{dof} force-torque sensor was connected to a robot controller tasked with moving a probe along a linear path until an opposing force exceeding 5 N was detected.  The reliability of the wireless communication system directly impacts the repeatability performance of the physical system are demonstrated.  Also demonstrated was that the quality of the underlying wireless channel may be inferred by observing the position of the probe along a single spatial dimension and applying \gls{ml} to predict the \gls{sir}. As a result of our exploration of various \gls{ml} algorithms on the prediction of signal quality, it was  found that ensemble-based algorithms have superior performance compared to other regression algorithms for data presented.  Additionally, the analysis shows that careful study of the \gls{mse} and variance score is useful in selection of features used for training the algorithms. The work concludes that for this particular force-torque control system scenario that the dwell time of the robot before descending was the most useful feature for training the algorithm. The findings provide motivation for applying \gls{ml} to larger more complex systems with higher degrees of freedom. Furthermore, the works indicates that future  experimentation with neural networks and deep learning to improve prediction accuracy could be of value to improving the reliability of wireless operations in factories. The applications of online \gls{ml} techniques to this and other use cases could provide significant benefits to the manufacturing community through integration of link quality detection with programmable controllers.
 
 
 
