@@ -111,10 +111,11 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % center aligned
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % right aligned
 
-\usepackage[style=long,nonumberlist,toc,xindy,acronym]{glossaries}
+%\usepackage[style=long,nonumberlist,toc,xindy,acronym]{glossaries}
 %\usepackage{glossaries}
+%\usepackage[automake]{glossaries}
+\usepackage[automake,nomain,style=long,nonumberlist,acronym]{glossaries}
 \makeglossaries
-%\include{myacronyms}
 \loadglsentries{myacronyms}
 
 
@@ -317,6 +318,7 @@
 \fontshape{it}
 \fontsize{12}{15}
 \selectfont
+
  
 \part{Context and Problem Statement}\label{part:context}
 \include{chapter-intro/intro}
@@ -334,7 +336,6 @@
 \part{Conclusions}\label{part:conclusion}
 
 \include{chapter-conclusions/conclusions}
-
 
  
 %%--------------------
@@ -400,11 +401,10 @@
 %% Include a list of definitions
 \listofdefinitions
 
-%\clearpage
+\clearpage
 %\printglossary[type=\acronymtype]
-\printglossary[title=Special Terms, toctitle=List of terms]
+\printglossary[title=List of Acronyms, type=\acronymtype]
 %\printglossaries
-
 
 
 %%--------------------

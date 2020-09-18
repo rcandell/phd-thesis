@@ -62,7 +62,7 @@ The factory workcell is decomposed into one general and nine major structural pa
 \begin{figure}[t]
 	\begin{center}
 		\includegraphics[width=0.95\columnwidth]{./chapter-sysml/diagrams/pkg__Factory_Workcell__Workcell}%
-		\caption{\Gls{sysml} package diagram showing the logical containment of the factory workcell structural elements.}%
+		\caption{\Gls{sysml} \acrfull{pkg} showing the logical containment of the factory workcell structural elements.  The SysML model is organized according to the package hierarchy shown. }%
 		\label{sysml:fig:pdd-workcell}
 	\end{center}
 \end{figure}
@@ -99,7 +99,7 @@ Several examples of how to use the model are provided within the model\cite{Cand
 	\centering
 	\includegraphics[width=0.97\textwidth]{./chapter-sysml/diagrams/bdd__Factory_Workcell__Conceptual}
 	%
-	\caption{Architecture of the conceptual workcell captured as a \gls{sysml} block definition diagram.  In this diagram, only the most generalized blocks necessary to construct a workcell scenario are shown.  More application-specific scenarios may be developed by deriving new blocks from the constructs shown here. The shapes and connectors used for expressing this model are defined in the \gls{sysml} specification\cite{SysML2017}. }
+	\caption{Architecture of the conceptual workcell captured as a \gls{sysml} \acrfull{bdd}.  In this diagram, only the most generalized blocks necessary to construct a workcell scenario are shown.  More application-specific scenarios may be developed by deriving new blocks from the constructs shown here. The shapes and connectors used for expressing this model are defined in the \gls{sysml} specification\cite{SysML2017}. }
 	%
 	\label{sysml:fig:conceptual:bdd}
 	
@@ -165,7 +165,7 @@ Constraints provide limitations on the performance of an element within the mode
 	\label{sysml:fig:constraints:network}
 	\end{subfigure}
 
-	\caption{Generalized network constraints consisting of rigid body motion~\protect\subref{sysml:fig:constraints:motion}, the radio channel~\protect\subref{sysml:fig:constraints:radio} and the network services~\protect\subref{sysml:fig:constraints:network}.}
+	\caption{Generalized network constraints consisting of rigid body motion~\protect\subref{sysml:fig:constraints:motion}, the radio channel~\protect\subref{sysml:fig:constraints:radio} and the network services~\protect\subref{sysml:fig:constraints:network}.  These constraints are meant to communicate or simulate the effects of an \gls{iwn} on the performance of the \gls{cps}.}
 	\label{sysml:fig:general:constraints}	
 	
 \end{figure}
@@ -186,7 +186,7 @@ The radio channel constraint limits wireless information flow to the laws of pro
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{./chapter-sysml/diagrams/par__Radio_Channel__Radio_Channel}%
-	\caption{\gls{sysml} parametric diagram of the radio channel constraints of the \gls{iwn}.}%
+	\caption{\gls{sysml} \acrfull{par} of the radio channel constraints of the \gls{iwn}. Parametric equations used to express the constraints within the \gls{cps} are elaborated using the \gls{par}.}%
 	\label{sysml:fig:par:iwn-radio}
 \end{figure} 
 
@@ -195,7 +195,7 @@ The radio channel constraint limits wireless information flow to the laws of pro
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{./chapter-sysml/diagrams/par__Service__Service}%
-	\caption{\gls{sysml} parametric diagram of the data constraints applied to the \gls{iwn}.}%
+	\caption{\gls{sysml} \acrfull{par} of the data constraints applied to the \gls{iwn}.}%
 	\label{sysml:fig:par:iwn:data}
 \end{figure}    
 
@@ -218,7 +218,7 @@ where $\mathcal{X}$ and $\mathcal{Y}$ are blocks of data traversing the network 
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{./chapter-sysml/diagrams/bdd__Application__Application}
-	\caption{Block definition diagram of the Application.}
+	\caption{\Acrfull{bdd} of the Application.}
 	\label{sysml:fig:application:bdd}
 \end{figure}
 
@@ -291,7 +291,7 @@ Central to the automation system is connectivity among devices and controllers~\
 		\centering
 		% include first image
 		\includegraphics[width=.8\linewidth]{./chapter-sysml/diagrams/bdd__Network__Network}  
-		\caption{Put your sub-caption here}
+		\caption{\Gls{bdd} of the \gls{iwn}.}
 		\label{sysml:fig:iwn:bdd}
 	\end{subfigure}
 
@@ -299,7 +299,7 @@ Central to the automation system is connectivity among devices and controllers~\
 		\centering
 		% include second image
 		\includegraphics[width=.8\linewidth]{./chapter-sysml/diagrams/ibd__IWN__IWN}  
-		\caption{Put your sub-caption here}
+		\caption{\Gls{ibd} of the \gls{iwn}.}
 		\label{sysml:fig:iwn:ibd}
 	\end{subfigure}
 
@@ -307,11 +307,11 @@ Central to the automation system is connectivity among devices and controllers~\
 	\centering
 	% include second image
 	\includegraphics[width=.8\linewidth]{./chapter-sysml/diagrams/ibd__Service__Service}  
-	\caption{Put your sub-caption here}
+	\caption{Parametric \gls{ibd} of the Service block within an \gls{iwn}.}
 	\label{sysml:fig:iwn-services:ibd}
 	\end{subfigure}
 
-	\caption{The BDD~\protect\subref{sysml:fig:iwn:bdd} and IBD~\protect\subref{sysml:fig:iwn:ibd} of the \gls{iwn} with parametric IBD~\protect\subref{sysml:fig:iwn-services:ibd} of the Services block.}
+	\caption{The \gls{bdd}~\protect\subref{sysml:fig:iwn:bdd} and \gls{ibd}~\protect\subref{sysml:fig:iwn:ibd} of the \gls{iwn} with parametric \gls{ibd}~\protect\subref{sysml:fig:iwn-services:ibd} of the Services block.}
 	\label{sysml:fig:iwn:ibd:full}
 \end{figure}
 
@@ -326,7 +326,7 @@ A Device, defined in Fig.~\ref{sysml:fig:bdd:devices}, is generic construct repr
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\columnwidth]{./chapter-sysml/diagrams/bdd__Devices__Devices}%
-	\caption{\gls{sysml} block definition diagram of wireless devices within the factory workcell.}%
+	\caption{\gls{sysml} \acrfull{bdd} of wireless devices within the factory workcell.}%
 	\label{sysml:fig:bdd:devices}
 \end{figure}
 
@@ -367,7 +367,7 @@ A Wireless Device is a subclass of Device that contains the various components n
 		\label{sysml:fig:wirelessdevice:ibd}
 	\end{subfigure}
 
-	\caption{Block definition diagram~\protect\subref{sysml:fig:wirelessdevice:bdd} and the internal block diagram~\protect\subref{sysml:fig:wirelessdevice:ibd} of Wireless Device.}
+	\caption{\gls{bdd}~\protect\subref{sysml:fig:wirelessdevice:bdd} and the \gls{ibd}~\protect\subref{sysml:fig:wirelessdevice:ibd} of Wireless Device.}
 	\label{sysml:fig:wirelessdevice:full}
 \end{figure}
 
@@ -406,7 +406,7 @@ A Wireless Device is a subclass of Device that contains the various components n
 		\label{sysml:fig:testdevice:ibd}
 	\end{subfigure}
 
-	\caption{PBlock definition diagram~\protect\subref{sysml:fig:testdevice:bdd} and the internal block diagram~\protect\subref{sysml:fig:testdevice:ibd} of Test Device.}
+	\caption{\gls{bdd}~\protect\subref{sysml:fig:testdevice:bdd} and the \gls{ibd}~\protect\subref{sysml:fig:testdevice:ibd} of Test Device.}
 	\label{sysml:fig:testdevice:full}
 	
 \end{figure}
@@ -448,7 +448,7 @@ The Test Device is a subclass of Device that represents devices used for calibra
 		\label{sysml:fig:robotcontroller:ibd}
 	\end{subfigure}
 
-	\caption{The BDD~\protect\subref{sysml:fig:robotcontroller:bdd}, IBD~\protect\subref{sysml:fig:robotcontroller:ibd} of the Robot Controller.}
+	\caption{The BDD~\protect\subref{sysml:fig:robotcontroller:bdd}, \gls{ibd}~\protect\subref{sysml:fig:robotcontroller:ibd} of the Robot Controller.}
 	\label{sysml:fig:robotcontroller:full}
 	
 \end{figure}
@@ -524,7 +524,7 @@ Humans can exist in a modern workcell for short or long periods of time dependin
 \begin{figure*}[tbp]
 	\centering
 	\includegraphics[width=0.95\textwidth]{./chapter-sysml/diagrams/ibd__Combined_PP_with_FT_Limiting__Combined_PP_with_FT_Limiting}
-	\caption{IBD of a workcell employing multiple networks in collaborative robot operation coexisting with robot force limiting inspection station.}
+	\caption{\gls{ibd} of a workcell employing multiple networks in collaborative robot operation coexisting with robot force limiting inspection station.}
 	\label{sysml:fig:workcell:examples}     
 \end{figure*}
 
