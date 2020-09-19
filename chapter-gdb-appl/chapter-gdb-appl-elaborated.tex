@@ -37,7 +37,7 @@ In the previous case study, we identified the requirements of a GDB data model a
 	\centering
 	%	\includegraphics[width=\textwidth,trim=50 50 50 50, clip]{figures/database/arrows-schema.PNG}
 	\includegraphics[width=\textwidth]{chapter-gdb-appl/figures/graph_schema_1209.eps}
-	\caption{The data model of the graph database used for each operational run of the NIST wireless factory testbed.  The graph is organized into nodes and edges, where the edges signify relationships among network elements and physical operational elements.}
+	\caption{The data model of the graph database used for each operational run of the NIST wireless factory testbed.  The graph is organized into nodes and edges, where the edges signify relationships among network elements and physical operational elements.  This graph was extended from the work in~\cite{CandellISIT2020.Conf} to include better integration of physical events occurring within the \gls{cps}. }
 	\label{gdbappl:fig:database:schema}
 \end{figure*}
 
@@ -62,7 +62,7 @@ A relationship in the graph denotes an action taken to associate two nodes, eith
 	\centering
 	%	\includegraphics[width=\textwidth,trim=50 50 50 50, clip]{figures/database/arrows-schema.PNG}
 	\includegraphics[width=\textwidth]{chapter-gdb-appl/figures/info_workflow_tii.eps}
-	\caption{Data processing flow from factory workcell to database}
+	\caption{Data processing flow from factory workcell to database.  Improvements to feature extraction were made to }
 	\label{gdbappl:fig:database:work-flow}
 \end{figure*}
 
@@ -104,8 +104,8 @@ The above four steps can perform multiple iterations to treat data and refine th
 %
 \begin{figure*}
 	\centering
-	\includegraphics[width=0.8\textwidth,height=3.5in]{chapter-gdb-appl/figures/database/graph_schema_updated_2.png}
-	\caption{Realized schema of the graph database fully populated after capturing network and operational data from the NIST industrial wireless testbed. \vspace{-0.2in}}
+	\includegraphics[width=0.95\textwidth]{chapter-gdb-appl/figures/database/graph_schema_updated_2.png}
+	\caption{Realized schema of the graph database fully populated after capturing network and operational data from the \gls{nist} industrial wireless testbed.  The realized schema matches the intended schema.  Using the database, it is now possible to correlate \gls{iwn} performance to physical events of the \gls{cps}, such as the location of material, through simple database queries.}
 	\label{gdbappl:fig:real-schema}
 \end{figure*}
 
@@ -206,7 +206,7 @@ In Fig.~\ref{gdbappl:fig:database:Time}, we present the values of the three comp
 % 	\label{fig:database:Time_2x1250}
 % \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[hbtp!]
 	\centering
 	\subfloat[Wired Baseline]{\includegraphics[width=.42\columnwidth]{chapter-gdb-appl/figures/database/WiredBaseline_Time_Components_1.png}\label{gdbappl:fig:database:Time_Wired}}
 	\quad
@@ -215,13 +215,12 @@ In Fig.~\ref{gdbappl:fig:database:Time}, we present the values of the three comp
 		\label{gdbappl:fig:database:Time_2500v1}}\quad
 	\subfloat[With 2500 pps Traffic (run 2)]{\includegraphics[width=.42\columnwidth]{chapter-gdb-appl/figures/database/2500pps1000Bv2_Time_Components_1.png}
 		\label{gdbappl:fig:database:Time_2500v2}}\\
-	\subfloat[With 2x1250 pps Traffic]{\includegraphics[width=.42\columnwidth]{chapter-gdb-appl/figures/database/2X1250pps1000Bv1_Time_Components_1.png}\label{gdbappl:fig:database:Time_2x1250}}\quad
-	{\includegraphics[width=.32\columnwidth]{chapter-gdb-appl/figures/database/Legend.png}}
-	\caption{Components of the Physical Action Time for Various Experimental Scenarios.\vspace{-0.2in}}
+	\subfloat[With 2x1250 pps Traffic]{\includegraphics[width=.42\columnwidth]{chapter-gdb-appl/figures/database/2X1250pps1000Bv1_Time_Components_1.png}\label{gdbappl:fig:database:Time_2x1250}}
+	\caption{Components of the Physical Action Time for Various Experimental Scenarios. Performance metrics for the wired baseline measurements are shown in~\protect\subref{gdbappl:fig:database:Time_Wired}.  Performance for a wireless baseline is shown in~\protect\subref{gdbappl:fig:database:Time_Wireless}.  Varying levels of competing wireless traffic are then introduced in the subsequent graphs.  The supervisor \gls{plc} processing time in blue appears unchanged by the \gls{iwn} latencies.  The transaction latency in orange is clearly impacted by the wireless channel; however, the robot controller shown in green appears to compensate for transaction latency variance such that the sum of transaction latency and robot processing time remains constant.  This indicates that wireless should be a good candidate for this control system as physical latencies do not increase under these scenarios. }
 	\label{gdbappl:fig:database:Time}
 \end{figure}
 
-The wired baseline performance is presented in Fig.~\ref{gdbappl:fig:database:Time_Wired} where the transaction latency is almost deterministic. Once wireless network is introduced in Fig.~\ref{gdbappl:fig:database:Time_Wireless}-\ref{gdbappl:fig:database:Time_2x1250}, more randomness in the transaction latency is introduced. Adding the coexisting interference increases the randomness in the transaction latency as shown. We can also notice that when a wireless transaction has a higher latency, the corresponding value of the robot response time is lowered such that the sum of $T_\text{W}+T_\text{Rob}$ has almost a fixed value. This value represents the time needed for one loop through the robot script to scan various registers and initiate the corresponding actions which equals almost 120 ms. In a single loop both the transaction is initiated and the RouteState is updated. Hence in this use case, if the wireless transaction latency value is lower than the robot loop time, the physical action processing time will not be impacted by the wireless transaction latency. On the other hand, most of the randomness in the action processing time results from the supervisor processing time. We also notice that the randomness in the supervisor processing time is not impacted by the wireless channel where multiple runs of the same wireless case with the same interfering traffic have completely different supervisor processing time performance as shown in Fig.~\ref{gdbappl:fig:database:Time_2500v1} and \ref{gdbappl:fig:database:Time_2500v2}.   
+The wired baseline performance is presented in Fig.~\ref{gdbappl:fig:database:Time_Wired} where the transaction latency has very low variance (i.e., better determinism). Once a wireless network is introduced in Fig.~\ref{gdbappl:fig:database:Time_Wireless}-\ref{gdbappl:fig:database:Time_2x1250}, more randomness in the transaction latency is introduced. Adding the coexisting interference increases the randomness in the transaction latency as shown. We can also notice that when a wireless transaction has a higher latency, the corresponding value of the robot response time is lowered such that the sum of $T_\text{W}+T_\text{Rob}$ has almost a fixed value. This value represents the time needed for one loop through the robot script to scan various registers and initiate the corresponding actions which equals almost 120 ms. In a single loop both the transaction is initiated and the RouteState is updated. Hence in this use case, if the wireless transaction latency value is lower than the robot loop time, the physical action processing time will not be impacted by the wireless transaction latency. On the other hand, most of the randomness in the action processing time results from the supervisor processing time. We also notice that the randomness in the supervisor processing time is not impacted by the wireless channel where multiple runs of the same wireless case with the same interfering traffic have completely different supervisor processing time performance as shown in Fig.~\ref{gdbappl:fig:database:Time_2500v1} and \ref{gdbappl:fig:database:Time_2500v2}.   
      
 \subsubsection{Stochastic Distribution of Action Processing Time}
 In this subsection, we present the normalized histograms of the transaction latency and the total physical action time in Fig,~\ref{gdbappl:fig:hist1} and \ref{gdbappl:fig:hist2}, respectively. In Fig.~\ref{gdbappl:fig:hist1}, we notice the clear impact of the communication channel and interference on the histogram of the transaction latency where the mean and the variance are clearly impacted by the wireless parameters. On the other hand, the total physical action time is not impacted directly by the communications channel in this use case due to the fact that the robot processing loop compensate of any transaction latency below the loop time of 120 ms. 
@@ -233,7 +232,7 @@ In this subsection, we present the normalized histograms of the transaction late
 	\subfloat[With 2500 pps Traffic]{\includegraphics[width=.42\columnwidth]{chapter-gdb-appl/figures/database/2500pps1000Bv1_Hist_1.png}
 		\label{With 2500 packets/s Traffic}}\quad
 	\subfloat[With 2x1250 pps Traffic]{\includegraphics[width=.42\columnwidth]{chapter-gdb-appl/figures/database/2X1250pps1000Bv1_Hist_1.png}}
-	\caption{Histograms of Transaction Latency for Various Experimental Scenarios.}
+	\caption{Histograms of Transaction Latency for Various Experimental Scenarios.  Transaction latency is shown to increase as more competing wireless traffic is introduced. }
 	\label{gdbappl:fig:hist1}
 \end{figure}
 
@@ -243,7 +242,7 @@ In this subsection, we present the normalized histograms of the transaction late
 	\subfloat[Wireless Baseline]{\includegraphics[width=.42\columnwidth]{chapter-gdb-appl/figures/database/WirelessBaseline_PhyHist_1.png}}\\
 	\subfloat[With 2500 pps Traffic]{\includegraphics[width=.42\columnwidth]{chapter-gdb-appl/figures/database/2500pps1000Bv1_PhyHist_1.png}}\quad
 	\subfloat[With 2x1250 pps Traffic]{\includegraphics[width=.42\columnwidth]{chapter-gdb-appl/figures/database/2X1250pps1000Bv1_PhyHist_1.png}}
-	\caption{Histograms of Action Processing Time for Various Experimental Scenarios.\vspace{-0.3in}}
+	\caption{Histograms of Action Processing Time for Various Experimental Scenarios.  Physical action latency of the \gls{cps} is shown to increase as more competing wireless traffic is introduced.  An educated decision can then be made using this data to determine if the increased physical action delay is acceptable.}
 	\label{gdbappl:fig:hist2}
 \end{figure}
 

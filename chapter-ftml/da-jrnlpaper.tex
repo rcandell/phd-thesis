@@ -1,6 +1,6 @@
 \section{Subsequent Investigations}
 
-The contents of this section explain the subsequent analysis explanding on the approach, methodology, and results of the initial investigations using \gls{ml} to infer the \gls{sir} of a single radio link using situational awareness information from a camera system as published in~\cite{CandellISIE2019.Conf}.  In this further investigation, the performance of the \gls{ml} algorithms themselves were investigated to determine optimal selection given the particular use case. Publication is forthcoming~\cite{Candell2020.Jrnl.Access}.
+The contents of this section explain the subsequent analysis explanding on the approach, methodology, and results of the initial investigations using \gls{ml} to infer the \gls{sir} of a single radio link using situational awareness information from a camera system as published in~\cite{CandellISIE2019.Conf}.  In this further investigation, the performance of the \gls{ml} algorithms themselves were investigated to determine optimal selection given the particular use case. Publication is forthcoming~\cite{Candell2020.Jrnl.ISATrans}.
 
 
 \subsection{Data Analysis}\label{ftml-jrnl:sec:dataanalysis}
@@ -79,7 +79,7 @@ In this section, the experimental results for 4 different settings are considere
 When the jamming signal has an impact on the router, this work considers 3 values of the SIR which are -9, -8, -7 dB while having 1, 2, 3 dB for the settings in which jamming has an impact on the station. Except otherwise mentioned, $M = 50$ and $T = 200$ are used. 
 
 \subsubsection{Machine Learning Algorithm Comparison}
-In this subsection, various regression approaches are compared using two performance criteria, namely, the \gls{mse}\eqref{eq:scikit:MSE} and the R-squared variance score\eqref{eq:scikit:R2variance}~\cite{r-squared}. R-squared variance score indicates the percentage of the variance in the dependent variable that the independent variables explain collectively.  It is equivalent to how R-sqaured is used in financial investments to explain how one security explains the performance of an entire portfolio. The used version of R-squared in the Sci-kit Learn library measures the strength of the relationship between the model used and the dependent variable on a convenient -1 to 1 scale.  The best possible outcome is 1 when predicted values capture the variance of the independent variable. It takes a value of 0 when the predicted value is constant and negative values when the regression model cannot follow the trend of the data. The performance for different values of $M$ is presented. The compared algorithms are the random forest, \gls{gbm}, \gls{xgbm}, decision tree, \gls{svm}, k-nearest neighbor, kernel ridge, and linear ridge \cite{SCIKITLEARN,Chen:2016:XST:2939672.2939785}. %xxxx references needed
+In this subsection, various regression approaches are compared using two performance criteria, namely, the logarithmic \gls{mse}\eqref{eq:scikit:MSE} and the R-squared variance score\eqref{eq:scikit:R2variance}~\cite{r-squared}. R-squared variance score indicates the percentage of the variance in the dependent variable that the independent variables explain collectively.  It is equivalent to how R-squared is used in financial investments to explain how one security explains the performance of an entire portfolio. The used version of R-squared in the Sci-kit Learn library measures the strength of the relationship between the model used and the dependent variable on a convenient -1 to 1 scale.  The best possible outcome is 1 when predicted values capture the variance of the independent variable. It takes a value of 0 when the predicted value is constant and negative values when the regression model cannot follow the trend of the data. The performance for different values of $M$ is presented. The compared algorithms are the random forest, \gls{gbm}, \gls{xgbm}, decision tree, \gls{svm}, k-nearest neighbor, kernel ridge, and linear ridge \cite{SCIKITLEARN,Chen:2016:XST:2939672.2939785}. %xxxx references needed
 
 \begin{equation}
 \text{MSLE}(y, \hat{y}) = \frac{1}{n_\text{samples}} \sum_{i=0}^{n_\text{samples} - 1} (\log_e (1 + y_i) - \log_e (1 + \hat{y}_i) )^2.
@@ -520,7 +520,7 @@ In Fig.~\ref{ftml-jrnl:fig:001_MSE_M}, the performance of the random forest, gra
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.75\columnwidth]{./chapter-ftml/plots/001_MSE_M.eps}
-	\caption{The mean squared error performance with jamming imposed on b/g-Router of various algorithms against $M$.}
+	\caption{The mean squared error performance with jamming imposed on b/g-Router of various algorithms against segment size, $M$.}
 	\label{ftml-jrnl:fig:001_MSE_M}      
 \end{figure}
 
@@ -529,7 +529,7 @@ Fig.~\ref{ftml-jrnl:fig:001_R2_M} presents the variance score for the same setti
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.75\columnwidth]{./chapter-ftml/plots/001_R2_M.eps}
-	\caption{The variance score performance with jamming imposed on b/g-Router of various algorithms against $M$.}
+	\caption{The variance score performance with jamming imposed on b/g-Router of various algorithms against segment size, $M$.}
 	\label{ftml-jrnl:fig:001_R2_M}      
 \end{figure}
 
@@ -537,7 +537,7 @@ In Fig.~\ref{ftml-jrnl:fig:002_MSE_M}, the \gls{mse} of the ensemble-based algor
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.75\columnwidth]{./chapter-ftml/plots/002_MSE_M.eps}
-	\caption{The mean squared error performance with jamming imposed on b/g-Station of various algorithms against $M$.}
+	\caption{The mean squared error performance with jamming imposed on b/g-Station of various algorithms against segment size, $M$.}
 	\label{ftml-jrnl:fig:002_MSE_M}      
 \end{figure}
 
@@ -546,7 +546,7 @@ Finally, in Fig.~\ref{ftml-jrnl:fig:004_MSE_M}, a similar scenario to Fig.~\ref{
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.75\columnwidth]{./chapter-ftml/plots/004_MSE_M.eps}
-	\caption{The mean squared error performance with jamming imposed on b/g/n-Station of various algorithms against $M$.}
+	\caption{The mean squared error performance with jamming imposed on b/g/n-Station of various algorithms against segment size, $M$.}
 	\label{ftml-jrnl:fig:004_MSE_M}      
 \end{figure}
 
@@ -559,7 +559,7 @@ In Fig.~\ref{ftml-jrnl:fig:001_MSE_T}, it is shown that increasing the training 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.75\columnwidth]{./chapter-ftml/plots/001_MSE_T.eps}
-	\caption{The mean squared error performance for jamming setting b/g-Router of various algorithms against $T$.}
+	\caption{The mean squared error performance for jamming setting b/g-Router of various algorithms against training sequence length, $T$ for various segment sizes, $M$.}
 	\label{ftml-jrnl:fig:001_MSE_T}      
 \end{figure}
 
@@ -578,7 +578,7 @@ In Fig.~\ref{ftml-jrnl:fig:001_MSE_F_3}, \ref{ftml-jrnl:fig:001_R2_F_3}, and \re
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.75\columnwidth]{./chapter-ftml/plots/001_MSE_F_3.eps}
-	\caption{The \gls{mse} performance for jamming setting b/g-Router of \gls{xgbm} algorithm against $M$ including individual features impact.}
+	\caption{The \gls{mse} performance for jamming setting b/g-Router of \gls{xgbm} algorithm against $M$ including individual features impact. As indicated in the figure, the feature $\Delta{t}_{ab}$ is most predictive of the \gls{sir} level as compared to all of the features together.  It appears that the only the dwell time before \gls{reef} plunge is required to predict \gls{sir} in this scenario. }
 	\label{ftml-jrnl:fig:001_MSE_F_3}      
 \end{figure}
 

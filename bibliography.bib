@@ -3740,13 +3740,14 @@
 	abstract     = {Cyber-physical systems are systems governed by the laws of physics that are tightly controlled by computer-based algorithms and network-based sensing and actuation. Wireless communication technology is envisioned to play a primary role in conducting the information flows within such systems. A practical industrial wireless use case involving a robot manipulator control system, an integrated wireless force-torque sensor, and a remote vision-based observer is constructed and the performance of the cyber-physical system is examined. By using readings from the remote observer, an estimation system is developed using machine learning regression techniques. We demonstrate the practicality of combining statistical analysis with machine learning to indirectly estimate signal-to-interference of the wireless communication link using measurements from the remote observer. Results from the statistical analysis and the performance of the machine learning system are presented.},
 	keywords     = {control engineering computing;cyber-physical systems;estimation theory;force measurement;force sensors;learning (artificial intelligence);manipulators;observers;radio links;radiofrequency interference;regression analysis;statistical analysis;telecommunication computing;telecommunication control;torque measurement;wireless sensor networks;robotic force-seeking scenario;cyber-physical system;computer-based algorithms;network-based sensing;wireless communication technology;robot manipulator control system;integrated wireless force-torque sensor;remote vision-based observer;wireless communication link;wireless interference estimation system;network-based actuation;machine learning regression techniques;statistical analysis;signal-to-interference estimation;Wireless communication;Interference;Wireless sensor networks;Robot sensing systems;Manipulators;Force;industrial wireless;802.11;factory communications;cyber-physical systems;wireless networking;robotics}
 }
-@article{Candell2020.Jrnl.Access,
+@article{Candell2020.Jrnl.ISATrans,
 	title        = {Interference Level Estimation Using Machine Learning in a Robotic Force-Seeking Scenario},
 	author       = {R. {Candell} and M. {Kashef} and Y. {Liu} and K. {Montgomery} and S. {Foufou}},
 	year         = 2020,
-	journal      = {IEEE Access},
+	journal      = {ISA Transactions (Submitted)},
+	issn 		 = {"0019-0578"},
 	doi          = {pending},
-	journaltitle = {Advances in Machine Learning and Cognitive Computing for Industry Applications},
+	journaltitle = {Trans. of the International Society of Automation},
 	abstract     = {Wireless communications plays an essential role in the future cyber-physical systems vision which includes having more sensors and actuators, and, hence, more information transferred through wireless. In this article, we consider an industrial use case of a robot arm control system equipped with a force-torque sensor. Movement of the arm is tracked by a vision-based ground truth measurement system. Movement of the arm is controlled by a robot controller applying a downward pressure on a spring assembly until a predetermined force is detected. The remote vision-based observer provides readings about the position of the robot arm where these readings are used to estimate the signal-to-interference ratio of the wireless link. A supervised machine learning approach is used for the wireless channel quality estimation. In this paper, we study the impact of various system features on the performance of various machine learning algorithms and compare their performance. Moreover, we investigate the impact of the training and the estimation period on the performance of the proposed approach. The results provide insights about the impact of wireless communications on cyber-physical systems and an example of employing machine learning to improve industrial wireless deployments.},
 	keywords     = {control engineering computing;cyber-physical systems;estimation theory;force measurement;force sensors;learning (artificial intelligence);manipulators;observers;radio links;radiofrequency interference;regression analysis;statistical analysis;telecommunication computing;telecommunication control;torque measurement;wireless sensor networks;robotic force-seeking scenario;cyber-physical system;computer-based algorithms;network-based sensing;wireless communication technology;robot manipulator control system;integrated wireless force-torque sensor;remote vision-based observer;wireless communication link;wireless interference estimation system;network-based actuation;machine learning regression techniques;statistical analysis;signal-to-interference estimation;Wireless communication;Interference;Wireless sensor networks;Robot sensing systems;Manipulators;Force;industrial wireless;802.11;factory communications;cyber-physical systems;wireless networking;robotics}
 }
@@ -4024,18 +4025,6 @@
 	note = {}
 }
 
-@article{GraphDB.JCISE.Journal,
-	author       = {M. Kashef and and Y. Liu and K. Montgomery and R. Candell}, 
-	title        = {Wireless Cyber-Physical Systems Performance Evaluation through a Graph Database Approach},
-	journal      = {Journal of Computing and Information Science in Engineering},
-	note = {To be published in 2020}
-}
-
-
-
-
-
-
 @misc{CPSConceptMap,
 	author = {Sunder, S. Shyam and Lee, Edward A.},
 	title = {{Cyber-Physical Systems - a Concept Map}},
@@ -4146,3 +4135,18 @@
 	volume = {10},
 	year = {2018}
 }
+
+@article{GraphDB.JCISE.Journal,
+	author = {Kashef, Mohamed and Liu, Yongkang and Montgomery, Karl and Candell, Richard},
+	title = "{Wireless Cyber-Physical Systems Performance Evaluation through a Graph Database Approach}",
+	journal = {Journal of Computing and Information Science in Engineering},
+	pages = {1-19},
+	year = {2020},
+	month = {08},
+	abstract = "{The slowness of widespread adoption of wireless technologies in cyber-physical systems (CPS) is partly due to not fully understanding the detailed impact of wireless deployment on the physical processes especially in the cases that require low latency and high reliability communications. In this paper, we introduce an approach to integrate wireless network traffic data and physical processes data to evaluate the impact of wireless communications on the performance of manufacturing factory work-cell. The proposed approach is introduced through the discussion of an engineering use case. A testbed that emulates a robotic manufacturing factory work-cell is constructed using two collaborative-grade robot arms, machine emulators, and wireless communication devices. All network traffic data is collected and physical process data, including the robots and machines states and various supervisory control commands, is also collected and synchronized to the network data. The data is then integrated where redundant data is removed and correlated activities are connected in a graph database. A data model is proposed, developed, and elaborated; the database is then populated with events from the testbed, and the resulting graph is presented. Moreover, we detail the way by which this approach is used to study the impact of wireless communications on the physical processes and illustrate the impact of various wireless network parameters on the performance of the emulated manufacturing work-cell. This approach can be deployed as a building block for various descriptive and predictive wireless analysis tools for CPS.}",
+	issn = {1530-9827},
+	doi = {10.1115/1.4048205},
+	url = {https://doi.org/10.1115/1.4048205},
+	eprint = {https://asmedigitalcollection.asme.org/computingengineering/article-pdf/doi/10.1115/1.4048205/6561779/jcise-20-1059.pdf},
+}
+

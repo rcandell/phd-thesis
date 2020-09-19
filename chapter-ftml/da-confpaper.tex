@@ -49,7 +49,7 @@ is divided into four parts: raw data collection, data cleaning and feature extra
 		\label{ftml-conf:fig:timeseriesfeatures}
 	\end{subfigure}
 	
-	\caption{A time-series sample~\protect\subref{ftml-conf:fig:timeseries-zplot} of a single iteration of the measured z-axis probe position and~\protect\subref{ftml-conf:fig:timeseriesfeatures} the corresponding model for feature extraction.}
+	\caption{A time-series sample~\protect\subref{ftml-conf:fig:timeseries-zplot} of a single iteration of the measured z-axis probe position and~\protect\subref{ftml-conf:fig:timeseriesfeatures} the corresponding \gls{reef} trajectory model used for feature extraction.}
 	\label{ftml-conf:fig:timeseries-and-model}
 	
 \end{figure}
@@ -182,7 +182,7 @@ In Fig.~\ref{ftml-conf:fig:prediction-error}, the two criteria for measuring the
 \begin{figure}[tbp]
  \centering
  \includegraphics[width=0.75\columnwidth]{./chapter-ftml/plots/prediction-error}
- \caption{The performance of the random forest regression model against $M$.}
+ \caption{The performance of the random forest regression model against segment size, $M$.  As $M$ increases, bias is reduced but variance increases shown a tendency to over-fit as the training window is increased. }
  \label{ftml-conf:fig:prediction-error}
 \end{figure}
 

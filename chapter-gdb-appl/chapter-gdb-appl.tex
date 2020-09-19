@@ -32,7 +32,7 @@ In this section, this work presents a two-robot machine tending workcell case st
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=\textwidth]{./chapter-gdb-appl/figures/cellShot}
-	\caption{Collaborative work cell testbed}
+	\caption{Testbed of a collaborative robotic workcell.  Depicted are two robots working together to load, inspect, and unload materials from emulated \gls{cnc} machines.  \Glspl{plc} are used to emulate the behavior of the \glspl{cnc} and the supervisory controller.}
 	\label{gdbappl:fig::workcell}
 \end{figure}
 
@@ -46,7 +46,7 @@ Work-orders for the workcell are submitted through the supervisor. Each work-ord
 	\centering
 %	\includegraphics[width=\textwidth,trim=50 50 50 50, clip]{figures/database/arrows-schema.PNG}
 	\includegraphics[width=\textwidth]{./chapter-gdb-appl/figures/database/graph_schema_0816.eps}
-	\caption{The intended schema (i.e., pseudo-schema) of the \gls{gdb} used for each operational run of the \gls{nist} wireless factory testbed.  The graph is organized into nodes and edges, where the edges signify relationships among network elements and physical operational elements.}
+	\caption{The intended schema (i.e., pseudo-schema) of the \gls{gdb} used for each operational run of the \gls{nist} wireless factory testbed.  The graph is organized into nodes and edges, where the edges signify relationships among network elements and physical operational elements. Note that \glspl{gdb} do not have enforced schemas; therefore, it is possible that the database have data and relationships violating the intended schema.  This flexibility is acceptable.}
 	\label{gdbappl:fig::database:schema}
 \end{figure}
 
@@ -115,7 +115,7 @@ Finally, each actor in the graph may associate with physical actions.  These act
 \begin{figure*}[!ht]
     \centering
     \includegraphics[width=0.95\textwidth]{./chapter-gdb-appl/figures/database/work-flow.pdf}
-    \caption{Data processing flow from factory workcell to database}
+    \caption{Data processing flow from factory workcell to database.  The process includes data collection, data cleaning and preparation, database formation, and finally analysis through queries and visualization.}
     \label{gdbappl:fig::work-flow}
 \end{figure*}
 
@@ -134,7 +134,7 @@ in Neo4j. It is important to note that a realized schema shows only one represen
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.65\columnwidth]{./chapter-gdb-appl/figures/database/graph_schema.png}
-    \caption{Realized schema of the \gls{gdb} fully populated after capturing network and operational data from the \gls{nist} industrial wireless testbed. }
+    \caption{Realized schema of the \gls{gdb} fully populated after capturing network and operational data from the \gls{nist} industrial wireless testbed. \Glspl{gdb} do not have enforced schemas; therefore, the schema depict represents the data \textit{as is}. }
     \label{gdbappl:fig::real-schema}
 \end{figure}
 
@@ -172,7 +172,7 @@ In Fig.~\ref{gdbappl:fig::Sample-graph_2}, the actor nodes are labeled by their 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.95\textwidth]{./chapter-gdb-appl/figures/database/graph_Single_trans.png}
-    \caption{A detailed visualization resulting from a testbed experiment for all the nodes and relationships corresponding to a single transaction. }
+    \caption{A detailed visualization resulting from a testbed experiment for all the nodes and relationships corresponding to a single transaction. A single transaction may contain several messages, associated actors, and \gls{lqe} reports.  Work performed in~\cite{GraphDB.JCISE.Journal} extends this graph to include the associated \gls{cps} events.}
     \label{gdbappl:fig::Sample-graph_2}
 \end{figure}
 
@@ -182,7 +182,7 @@ In Fig.~\ref{gdbappl:fig::Sample-graph_2}, the actor nodes are labeled by their 
 	\centering
 %	\includegraphics[width=\textwidth,trim=50 50 50 50, clip]{figures/database/arrows-schema.PNG}
 	\includegraphics[width=0.5\textwidth]{./chapter-gdb-appl/figures/database/scatter_1.eps}
-	\caption{Correlation between the message latency and the \gls{rssi} values by the sniffer.}
+	\caption{Correlation between the message latency and the \gls{rssi} values by the sniffer.  Extracting \gls{lqe} estimations for messages and transaction is made easier by using the \gls{gdb}.}
 	\label{gdbappl:fig::database:scatter}
 \end{figure}
 

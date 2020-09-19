@@ -355,7 +355,7 @@ A Wireless Device is a subclass of Device that contains the various components n
 		\centering
 		% include first image
 		\includegraphics[width=.95\linewidth]{./chapter-sysml/diagrams/bdd__Wireless_Device__Wireless_Device}  
-		\caption{Block definition diagram of the Wireless Device}
+		\caption{\Gls{bdd} of the Wireless Device}
 		\label{sysml:fig:wirelessdevice:bdd}
 	\end{subfigure} 
 
@@ -363,11 +363,11 @@ A Wireless Device is a subclass of Device that contains the various components n
 		\centering
 		% include second image
 		\includegraphics[width=.95\linewidth]{./chapter-sysml/diagrams/ibd__Wireless_Device__Wireless_Device}  
-		\caption{Internal block diagram of the Wireless Device}
+		\caption{\Gls{ibd} of the Wireless Device}
 		\label{sysml:fig:wirelessdevice:ibd}
 	\end{subfigure}
 
-	\caption{\gls{bdd}~\protect\subref{sysml:fig:wirelessdevice:bdd} and the \gls{ibd}~\protect\subref{sysml:fig:wirelessdevice:ibd} of Wireless Device.}
+	\caption{\gls{bdd}~\protect\subref{sysml:fig:wirelessdevice:bdd} and the \gls{ibd}~\protect\subref{sysml:fig:wirelessdevice:ibd} of Wireless Device. All Wireless Device components contain at least one Transceiver which conveys information to and from one or more Application components.  Intermediate general processing by a \gls{cpu} is not assumed in this model although it could be adapted to do so with additional constraints.}
 	\label{sysml:fig:wirelessdevice:full}
 \end{figure}
 
@@ -394,7 +394,7 @@ A Wireless Device is a subclass of Device that contains the various components n
 		\centering
 		% include first image
 		\includegraphics[width=.95\linewidth]{./chapter-sysml/diagrams/bdd__Test_Device__Test_Device}  
-		\caption{Block definition diagram of the Test Device}
+		\caption{\Gls{bdd} of the Test Device}
 		\label{sysml:fig:testdevice:bdd}
 	\end{subfigure}
 
@@ -402,7 +402,7 @@ A Wireless Device is a subclass of Device that contains the various components n
 		\centering
 		% include second image
 		\includegraphics[width=.95\linewidth]{./chapter-sysml/diagrams/ibd__Test_Device__Test_Device}  
-		\caption{Internal block diagram of the Test Device}
+		\caption{\Gls{ibd} of the Test Device}
 		\label{sysml:fig:testdevice:ibd}
 	\end{subfigure}
 
@@ -432,23 +432,23 @@ The Test Device is a subclass of Device that represents devices used for calibra
 	
 	\centering
 	
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}{.8\textwidth}
 		\centering
 		% include first image
-		\includegraphics[width=.8\linewidth]{./chapter-sysml/diagrams/bdd__Robotics__RobotController}  
-		\caption{Block definition diagram of the Robot Controller}
+		\includegraphics[width=.95\linewidth]{./chapter-sysml/diagrams/bdd__Robotics__RobotController}  
+		\caption{\Gls{bdd} of the Robot Controller}
 		\label{sysml:fig:robotcontroller:bdd}
 	\end{subfigure}
 
-	\begin{subfigure}{.5\textwidth}
+	\begin{subfigure}{.8\textwidth}
 		\centering
 		% include second image
-		\includegraphics[width=.8\linewidth]{./chapter-sysml/diagrams/ibd__RobotController__RobotController}  
-		\caption{Internal block diagram of the Robot Controller}
+		\includegraphics[width=.95\linewidth]{./chapter-sysml/diagrams/ibd__RobotController__RobotController}  
+		\caption{\Gls{ibd} of the Robot Controller}
 		\label{sysml:fig:robotcontroller:ibd}
 	\end{subfigure}
 
-	\caption{The BDD~\protect\subref{sysml:fig:robotcontroller:bdd}, \gls{ibd}~\protect\subref{sysml:fig:robotcontroller:ibd} of the Robot Controller.}
+	\caption{The \Gls{bdd}~\protect\subref{sysml:fig:robotcontroller:bdd}, \gls{ibd}~\protect\subref{sysml:fig:robotcontroller:ibd} of the \Gls{rc}.  The \gls{rc} contains all of the application logic to control the physical robot.  It is assumed that the communication between the \gls{rc} and the robot is near-ideal for the purpose of this model as that reflects the current direction of industry.  It is not anticipated that physical joint control will be controlled wirelessly in the near-future. }
 	\label{sysml:fig:robotcontroller:full}
 	
 \end{figure}
@@ -478,7 +478,7 @@ The \gls{plc} is a specialized class of Controller.  \Glspl{plc} were originally
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.95\columnwidth]{./chapter-sysml/diagrams/ibd__PLC__PLC}
+	\includegraphics[width=0.85\columnwidth]{./chapter-sysml/diagrams/ibd__PLC__PLC}
 	\caption{The \gls{ibd} of the \gls{plc} showing composition and connectivity of the control logic and safety logic Application instantiations to the Transceiver interface. }
 	\label{sysml:fig:PLC:ibd}
 \end{figure}
@@ -507,8 +507,8 @@ Detection events may be routed to the local supervisor, robot controller, and sa
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=0.99\columnwidth]{./chapter-sysml/diagrams/ibd__SMS_Agent__SMS_Agent}
-	\caption{Spectrum monitoring agent composed of transceiver, detection application, and reporting application.}
+	\includegraphics[width=0.85\columnwidth]{./chapter-sysml/diagrams/ibd__SMS_Agent__SMS_Agent}
+	\caption{\Gls{sms} Agent composed of transceiver, detection application, and reporting application.  The \gls{sms} is an essential part of any robust industrial wireless deployment intended to be permanent.  The output of the \gls{sms} may be used by a \gls{sms} condition monitoring system or by the control system to enhance reliability during spectral events. }
 	\label{sysml:fig:sms:bdd}
 \end{figure}
 
@@ -523,8 +523,8 @@ Humans can exist in a modern workcell for short or long periods of time dependin
 % Rick's section	
 \begin{figure*}[tbp]
 	\centering
-	\includegraphics[width=0.95\textwidth]{./chapter-sysml/diagrams/ibd__Combined_PP_with_FT_Limiting__Combined_PP_with_FT_Limiting}
-	\caption{\gls{ibd} of a workcell employing multiple networks in collaborative robot operation coexisting with robot force limiting inspection station.}
+	\includegraphics[width=0.99\textwidth]{./chapter-sysml/diagrams/ibd__Combined_PP_with_FT_Limiting__Combined_PP_with_FT_Limiting}
+	\caption{Example \gls{ibd} of a workcell employing multiple networks in a collaborative robot operation coexisting with robot force limiting inspection station.}
 	\label{sysml:fig:workcell:examples}     
 \end{figure*}
 
