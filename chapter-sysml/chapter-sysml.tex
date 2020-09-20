@@ -59,9 +59,9 @@ The remainder of this work describes a reusable model for representing a compreh
 \subsection{Packages}
 The factory workcell is decomposed into one general and nine major structural packages as shown in Fig.~\ref{sysml:fig:pdd-workcell}.  Packages include major logical groupings of structure within the model.  These packages are enumerated in the following paragraphs.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[width=0.95\columnwidth]{./chapter-sysml/diagrams/pkg__Factory_Workcell__Workcell}%
+		\includegraphics[width=0.65\columnwidth]{./chapter-sysml/diagrams/pkg__Factory_Workcell__Workcell}%
 		\caption{\Gls{sysml} \acrfull{pkg} showing the logical containment of the factory workcell structural elements.  The SysML model is organized according to the package hierarchy shown. }%
 		\label{sysml:fig:pdd-workcell}
 	\end{center}
@@ -69,7 +69,7 @@ The factory workcell is decomposed into one general and nine major structural pa
 
 \begin{description}
 
-\item[General] A set of reusable structural elements that is used for conceptual modeling or extended to produce more complex model elements.  Each of the sub-packages within the General package extends basic features.  The sub-packages within General include time and constraints for data, electro-magnetics, and motion.
+\item[General] A set of reusable structural elements that is used for conceptual modeling or extended to produce more complex model elements.  Each of the sub-packages within the General package extends basic features.  The sub-packages within General include time and constraints for data, electromagnetism, and motion.
 
 \item[Network] Describes the components, blocks, interfaces, and limiting factors of the \gls{iwn}.  The \gls{iwn} is modeled as the radio channel and the services provided by the network. Limiting factors are modeled as parametric equations associated with the radio channel and the services.
 
@@ -137,30 +137,30 @@ Constraints provide limitations on the performance of an element within the mode
 %	\label{sysml:fig:general:constraints}      
 %\end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[htpb]
 	
 	\centering
 	
-	\begin{subfigure}{.8\textwidth}
+	\begin{subfigure}{\textwidth}
 		\centering
 		% include first image
-		\includegraphics[width=.8\linewidth]{./chapter-sysml/diagrams/bdd__Motion_Constraints__Motion}  
+		\includegraphics[width=.6\textwidth]{./chapter-sysml/diagrams/bdd__Motion_Constraints__Motion}  
 		\caption{Motion Constraints}
 		\label{sysml:fig:constraints:motion}
 	\end{subfigure}
 
-	\begin{subfigure}{.8\textwidth}
+	\begin{subfigure}{\textwidth}
 		\centering
 		% include second image
-		\includegraphics[width=.8\linewidth]{./chapter-sysml/diagrams/bdd__Radio_Constraints__radio-impairments}  
+		\includegraphics[width=.6\textwidth]{./chapter-sysml/diagrams/bdd__Radio_Constraints__radio-impairments}  
 		\caption{Radio Channel Constraints}
 		\label{sysml:fig:constraints:radio}
 	\end{subfigure}
 	
-	\begin{subfigure}{.8\textwidth}
+	\begin{subfigure}{\textwidth}
 	\centering
 	% include second image
-	\includegraphics[width=.8\linewidth]{./chapter-sysml/diagrams/bdd__Data_Constraints__network-constraints}  
+	\includegraphics[width=.6\textwidth]{./chapter-sysml/diagrams/bdd__Data_Constraints__network-constraints}  
 	\caption{[Networking Service Constraints}
 	\label{sysml:fig:constraints:network}
 	\end{subfigure}
@@ -183,7 +183,7 @@ This system of equations is controlled using a combination of digital feed-forwa
 
 The radio channel constraint limits wireless information flow to the laws of propagation which includes path loss, reflection, diffraction, and interference.  By applying this constraint to Wireless Devices described in Section~\ref{sysml:sec:devices:wireless-device}, such devices experience the effects of a lossy communication medium. The radio channel when applied to a wireless communication link within the workcell manifests itself in accordance of the illustration of Fig.~\ref{sysml:fig:par:iwn-radio}.  The parametric equations for the radio channel include path loss, multi-path, and interference.  Path loss is generically modeled as the input signal divided by the bulk power loss in the channel. Path loss is often characterized as a two-piece linear function of distance\cite{Candell2017.NIST1951}. Multi-path is modeled as convolution of the transmitted radio signal with a linear time-varying impulse response characterizing the electromagnetic propagation between transmitter and receiver antenna systems.  Interference is then modeled as an additive component with power, bandwidth, and probability of excitation.
 
-\begin{figure}[tbp]
+\begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.6\textwidth]{./chapter-sysml/diagrams/par__Radio_Channel__Radio_Channel}%
 	\caption{\gls{sysml} \acrfull{par} of the radio channel constraints of the \gls{iwn}. Parametric equations used to express the constraints within the \gls{cps} are elaborated using the \gls{par}.}%
@@ -192,7 +192,7 @@ The radio channel constraint limits wireless information flow to the laws of pro
 
 \paragraph{Data Constraints}\label{sysml:sec:constraints:data}
 
-\begin{figure}[tbp]
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{./chapter-sysml/diagrams/par__Service__Service}%
 	\caption{\gls{sysml} \acrfull{par} of the data constraints applied to the \gls{iwn}.}%
@@ -215,7 +215,7 @@ where $\mathcal{X}$ and $\mathcal{Y}$ are blocks of data traversing the network 
 
 \subsection{Application}\label{sysml:sec:application}
 
-\begin{figure}[tbp]
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{./chapter-sysml/diagrams/bdd__Application__Application}
 	\caption{\Acrfull{bdd} of the Application.}
@@ -283,7 +283,7 @@ Central to the automation system is connectivity among devices and controllers~\
 %	\label{sysml:fig:iwn:ibd:full}
 %\end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[htpb]
 	
 	\centering
 	
@@ -323,7 +323,7 @@ Connectivity of a constructed \gls{iwn} is shown in Fig.~\ref{sysml:fig:iwn:ibd}
 
 A Device, defined in Fig.~\ref{sysml:fig:bdd:devices}, is generic construct representing an element within the workcell with processing, memory, and storage capability. Devices have the capability to run applications as defined in Section~\ref{sysml:sec:application}.  Devices are sub-classed into (Wireless) Sensor and (Wireless) Actuator devices which generically refer to any type of sensor or actuator, and, in particular, the wired variety.  The Device is further sub-classed to the Wireless Device which is the central theme of this analysis.  Derived from the Wired Device are the Wireless Sensor and Wireless Actuator as well as the Controller.  The Controller represents the base class for deriving workcell devices such as the \gls{plc} and the Robot Controller, sections~\ref{sysml:sec:plc} and~\ref{sysml:sec:robotics}, respectively, and provides support for external \gls{io}.
 
-\begin{figure}[H]
+\begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.95\columnwidth]{./chapter-sysml/diagrams/bdd__Devices__Devices}%
 	\caption{\gls{sysml} \acrfull{bdd} of wireless devices within the factory workcell.}%
@@ -348,7 +348,7 @@ A Wireless Device is a subclass of Device that contains the various components n
 %	\label{sysml:fig:wirelessdevice:full}      
 %\end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[htpb]
 	\centering
 	
 	\begin{subfigure}{.8\textwidth}
@@ -386,22 +386,22 @@ A Wireless Device is a subclass of Device that contains the various components n
 %	\label{sysml:fig:testdevice:full}      
 %\end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[htpb]
 	
 	\centering
 	
-	\begin{subfigure}{.8\textwidth}
+	\begin{subfigure}{.65\textwidth}
 		\centering
 		% include first image
-		\includegraphics[width=.95\linewidth]{./chapter-sysml/diagrams/bdd__Test_Device__Test_Device}  
+		\includegraphics[width=.95\textwidth]{./chapter-sysml/diagrams/bdd__Test_Device__Test_Device}  
 		\caption{\Gls{bdd} of the Test Device}
 		\label{sysml:fig:testdevice:bdd}
 	\end{subfigure}
 
-	\begin{subfigure}{.8\textwidth}
+	\begin{subfigure}{.65\textwidth}
 		\centering
 		% include second image
-		\includegraphics[width=.95\linewidth]{./chapter-sysml/diagrams/ibd__Test_Device__Test_Device}  
+		\includegraphics[width=.95\textwidth]{./chapter-sysml/diagrams/ibd__Test_Device__Test_Device}  
 		\caption{\Gls{ibd} of the Test Device}
 		\label{sysml:fig:testdevice:ibd}
 	\end{subfigure}
@@ -428,14 +428,14 @@ The Test Device is a subclass of Device that represents devices used for calibra
 %	\label{c}	
 %\end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
 	
 	\centering
 	
 	\begin{subfigure}{.8\textwidth}
 		\centering
 		% include first image
-		\includegraphics[width=.95\linewidth]{./chapter-sysml/diagrams/bdd__Robotics__RobotController}  
+		\includegraphics[width=.65\textwidth]{./chapter-sysml/diagrams/bdd__Robotics__RobotController}  
 		\caption{\Gls{bdd} of the Robot Controller}
 		\label{sysml:fig:robotcontroller:bdd}
 	\end{subfigure}
@@ -443,7 +443,7 @@ The Test Device is a subclass of Device that represents devices used for calibra
 	\begin{subfigure}{.8\textwidth}
 		\centering
 		% include second image
-		\includegraphics[width=.95\linewidth]{./chapter-sysml/diagrams/ibd__RobotController__RobotController}  
+		\includegraphics[width=.65\textwidth]{./chapter-sysml/diagrams/ibd__RobotController__RobotController}  
 		\caption{\Gls{ibd} of the Robot Controller}
 		\label{sysml:fig:robotcontroller:ibd}
 	\end{subfigure}
@@ -476,9 +476,9 @@ These applications within the robotic workcell define many information flows req
 \subsection{PLC}\label{sysml:sec:plc}
 The \gls{plc} is a specialized class of Controller.  \Glspl{plc} were originally developed to mirror relay circuits in software; however, the modern PLC is much more advanced and is usually equipped with multiple processors, a \gls{rtos}, and capabilities to support various types of industrial \gls{io} devices.  In addition, modern \glspl{plc} (also called automation servers) include both a general purpose \gls{os} with a real-time kernel and multiple network interfaces.  Many network-routable protocols are also supported.  With the addition of wireless protocols, PLCs now have the ability to support \gls{io} devices connected remotely without wires.  Supervision of untethered robots is also possible using PLCs.  The PLC is modeled as a Controller device with the workcell model.  Shown in Fig.~\ref{sysml:fig:PLC:ibd}, the PLC is modeled as a wireless device with transceiver, logic application, and safety applications.  More sophisticated PLCs may be modeled by extending the PLC block.  As applications, the logic and safety functions are constrained by application constraints. Finally, as Controller devices, PLCs are modeled with an IO port, thus IO can be connected to the PLC by wires or by wireless network connection.
 
-\begin{figure}
+\begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.85\columnwidth]{./chapter-sysml/diagrams/ibd__PLC__PLC}
+	\includegraphics[width=0.65\textwidth]{./chapter-sysml/diagrams/ibd__PLC__PLC}
 	\caption{The \gls{ibd} of the \gls{plc} showing composition and connectivity of the control logic and safety logic Application instantiations to the Transceiver interface. }
 	\label{sysml:fig:PLC:ibd}
 \end{figure}
@@ -505,7 +505,7 @@ The reporter application collects, filters, and reports event information to a c
 
 Detection events may be routed to the local supervisor, robot controller, and safety system.  By leveraging spectral awareness, workcells can be made safer and more reliable.  As \gls{sms} are not yet widespread in industrial applications; thus, standardized protocols are needed for reporting and integration with automation systems.
 
-\begin{figure}[tbp]
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.85\columnwidth]{./chapter-sysml/diagrams/ibd__SMS_Agent__SMS_Agent}
 	\caption{\Gls{sms} Agent composed of transceiver, detection application, and reporting application.  The \gls{sms} is an essential part of any robust industrial wireless deployment intended to be permanent.  The output of the \gls{sms} may be used by a \gls{sms} condition monitoring system or by the control system to enhance reliability during spectral events. }
@@ -521,12 +521,12 @@ Humans can exist in a modern workcell for short or long periods of time dependin
 
 \section{Results of a Workcell Case Study}\label{sysml:sec:wireless-infoflows}
 % Rick's section	
-\begin{figure*}[tbp]
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.99\textwidth]{./chapter-sysml/diagrams/ibd__Combined_PP_with_FT_Limiting__Combined_PP_with_FT_Limiting}
 	\caption{Example \gls{ibd} of a workcell employing multiple networks in a collaborative robot operation coexisting with robot force limiting inspection station.}
 	\label{sysml:fig:workcell:examples}     
-\end{figure*}
+\end{figure}
 
 In this section, a case study is presented of a workcell which includes a force-torque limiter robot application and a two-robot collaborative pick and place operation.  The model for this system is depicted in Fig.~\ref{sysml:fig:workcell:examples}.  The number and type of wireless information flows will depend on the configuration of the work, the number of applications, and the places where wireless is applied. For this case study, the force limiter section is composed of a robot controller, a robot, and an FT sensor. A \gls{plc} is used for workcell supervision, and a test device is deployed for ground truth measurement.  An \gls{sms} agent monitors the electromagnetic spectrum.  A Radio Emitter is included to model the transmission of interference.  An \gls{ieee} 802.11n network is represented in the model by an \glspl{iwn} block. Properties of the radio channel and services of the communication system are therefore represented. Similarly, another example is implemented in \cite{Candell2018SysML.GitHub} for a pick-and-place scenario where the model is composed of two robots, a \gls{plc}, an \gls{iwn}, and an \gls{sms} Agent in addition to proximity sensors and an \gls{ieee} 802.11ax network.
 
