@@ -1,5 +1,5 @@
 #!/bin/sh
 git status
-git add -A
+git add .
 git commit -m "normal updates"
 git push
